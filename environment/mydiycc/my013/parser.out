@@ -1,0 +1,351 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> teigi
+Rule 1     teigi -> kansuuteigi
+Rule 2     kansuuteigi -> TYPE SYMBOL KAKKO KOKKA LBRACE bunlist RBRACE
+Rule 3     bunlist -> bun
+Rule 4     bunlist -> bunlist bun
+Rule 5     bun -> RETURN expression SEMI
+Rule 6     bun -> TYPE SYMBOL SEMI
+Rule 7     bun -> SYMBOL EQUALS expression SEMI
+Rule 8     expression -> NUMBER
+Rule 9     expression -> expression OPTASU expression
+Rule 10    expression -> expression OPHIKU expression
+Rule 11    expression -> expression OPKAKE expression
+
+Terminals, with rules where they appear
+
+EQUALS               : 7
+KAKKO                : 2
+KOKKA                : 2
+LBRACE               : 2
+NUMBER               : 8
+OPHIKU               : 10
+OPKAKE               : 11
+OPTASU               : 9
+RBRACE               : 2
+RETURN               : 5
+SEMI                 : 5 6 7
+SYMBOL               : 2 6 7
+TYPE                 : 2 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+bun                  : 3 4
+bunlist              : 2 4
+expression           : 5 7 9 9 10 10 11 11
+kansuuteigi          : 1
+teigi                : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . teigi
+    (1) teigi -> . kansuuteigi
+    (2) kansuuteigi -> . TYPE SYMBOL KAKKO KOKKA LBRACE bunlist RBRACE
+
+    TYPE            shift and go to state 3
+
+    teigi                          shift and go to state 1
+    kansuuteigi                    shift and go to state 2
+
+state 1
+
+    (0) S' -> teigi .
+
+
+
+state 2
+
+    (1) teigi -> kansuuteigi .
+
+    $end            reduce using rule 1 (teigi -> kansuuteigi .)
+
+
+state 3
+
+    (2) kansuuteigi -> TYPE . SYMBOL KAKKO KOKKA LBRACE bunlist RBRACE
+
+    SYMBOL          shift and go to state 4
+
+
+state 4
+
+    (2) kansuuteigi -> TYPE SYMBOL . KAKKO KOKKA LBRACE bunlist RBRACE
+
+    KAKKO           shift and go to state 5
+
+
+state 5
+
+    (2) kansuuteigi -> TYPE SYMBOL KAKKO . KOKKA LBRACE bunlist RBRACE
+
+    KOKKA           shift and go to state 6
+
+
+state 6
+
+    (2) kansuuteigi -> TYPE SYMBOL KAKKO KOKKA . LBRACE bunlist RBRACE
+
+    LBRACE          shift and go to state 7
+
+
+state 7
+
+    (2) kansuuteigi -> TYPE SYMBOL KAKKO KOKKA LBRACE . bunlist RBRACE
+    (3) bunlist -> . bun
+    (4) bunlist -> . bunlist bun
+    (5) bun -> . RETURN expression SEMI
+    (6) bun -> . TYPE SYMBOL SEMI
+    (7) bun -> . SYMBOL EQUALS expression SEMI
+
+    RETURN          shift and go to state 12
+    TYPE            shift and go to state 8
+    SYMBOL          shift and go to state 9
+
+    bunlist                        shift and go to state 10
+    bun                            shift and go to state 11
+
+state 8
+
+    (6) bun -> TYPE . SYMBOL SEMI
+
+    SYMBOL          shift and go to state 13
+
+
+state 9
+
+    (7) bun -> SYMBOL . EQUALS expression SEMI
+
+    EQUALS          shift and go to state 14
+
+
+state 10
+
+    (2) kansuuteigi -> TYPE SYMBOL KAKKO KOKKA LBRACE bunlist . RBRACE
+    (4) bunlist -> bunlist . bun
+    (5) bun -> . RETURN expression SEMI
+    (6) bun -> . TYPE SYMBOL SEMI
+    (7) bun -> . SYMBOL EQUALS expression SEMI
+
+    RBRACE          shift and go to state 15
+    RETURN          shift and go to state 12
+    TYPE            shift and go to state 8
+    SYMBOL          shift and go to state 9
+
+    bun                            shift and go to state 16
+
+state 11
+
+    (3) bunlist -> bun .
+
+    RBRACE          reduce using rule 3 (bunlist -> bun .)
+    RETURN          reduce using rule 3 (bunlist -> bun .)
+    TYPE            reduce using rule 3 (bunlist -> bun .)
+    SYMBOL          reduce using rule 3 (bunlist -> bun .)
+
+
+state 12
+
+    (5) bun -> RETURN . expression SEMI
+    (8) expression -> . NUMBER
+    (9) expression -> . expression OPTASU expression
+    (10) expression -> . expression OPHIKU expression
+    (11) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 18
+
+    expression                     shift and go to state 17
+
+state 13
+
+    (6) bun -> TYPE SYMBOL . SEMI
+
+    SEMI            shift and go to state 19
+
+
+state 14
+
+    (7) bun -> SYMBOL EQUALS . expression SEMI
+    (8) expression -> . NUMBER
+    (9) expression -> . expression OPTASU expression
+    (10) expression -> . expression OPHIKU expression
+    (11) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 18
+
+    expression                     shift and go to state 20
+
+state 15
+
+    (2) kansuuteigi -> TYPE SYMBOL KAKKO KOKKA LBRACE bunlist RBRACE .
+
+    $end            reduce using rule 2 (kansuuteigi -> TYPE SYMBOL KAKKO KOKKA LBRACE bunlist RBRACE .)
+
+
+state 16
+
+    (4) bunlist -> bunlist bun .
+
+    RBRACE          reduce using rule 4 (bunlist -> bunlist bun .)
+    RETURN          reduce using rule 4 (bunlist -> bunlist bun .)
+    TYPE            reduce using rule 4 (bunlist -> bunlist bun .)
+    SYMBOL          reduce using rule 4 (bunlist -> bunlist bun .)
+
+
+state 17
+
+    (5) bun -> RETURN expression . SEMI
+    (9) expression -> expression . OPTASU expression
+    (10) expression -> expression . OPHIKU expression
+    (11) expression -> expression . OPKAKE expression
+
+    SEMI            shift and go to state 21
+    OPTASU          shift and go to state 22
+    OPHIKU          shift and go to state 23
+    OPKAKE          shift and go to state 24
+
+
+state 18
+
+    (8) expression -> NUMBER .
+
+    SEMI            reduce using rule 8 (expression -> NUMBER .)
+    OPTASU          reduce using rule 8 (expression -> NUMBER .)
+    OPHIKU          reduce using rule 8 (expression -> NUMBER .)
+    OPKAKE          reduce using rule 8 (expression -> NUMBER .)
+
+
+state 19
+
+    (6) bun -> TYPE SYMBOL SEMI .
+
+    RBRACE          reduce using rule 6 (bun -> TYPE SYMBOL SEMI .)
+    RETURN          reduce using rule 6 (bun -> TYPE SYMBOL SEMI .)
+    TYPE            reduce using rule 6 (bun -> TYPE SYMBOL SEMI .)
+    SYMBOL          reduce using rule 6 (bun -> TYPE SYMBOL SEMI .)
+
+
+state 20
+
+    (7) bun -> SYMBOL EQUALS expression . SEMI
+    (9) expression -> expression . OPTASU expression
+    (10) expression -> expression . OPHIKU expression
+    (11) expression -> expression . OPKAKE expression
+
+    SEMI            shift and go to state 25
+    OPTASU          shift and go to state 22
+    OPHIKU          shift and go to state 23
+    OPKAKE          shift and go to state 24
+
+
+state 21
+
+    (5) bun -> RETURN expression SEMI .
+
+    RBRACE          reduce using rule 5 (bun -> RETURN expression SEMI .)
+    RETURN          reduce using rule 5 (bun -> RETURN expression SEMI .)
+    TYPE            reduce using rule 5 (bun -> RETURN expression SEMI .)
+    SYMBOL          reduce using rule 5 (bun -> RETURN expression SEMI .)
+
+
+state 22
+
+    (9) expression -> expression OPTASU . expression
+    (8) expression -> . NUMBER
+    (9) expression -> . expression OPTASU expression
+    (10) expression -> . expression OPHIKU expression
+    (11) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 18
+
+    expression                     shift and go to state 26
+
+state 23
+
+    (10) expression -> expression OPHIKU . expression
+    (8) expression -> . NUMBER
+    (9) expression -> . expression OPTASU expression
+    (10) expression -> . expression OPHIKU expression
+    (11) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 18
+
+    expression                     shift and go to state 27
+
+state 24
+
+    (11) expression -> expression OPKAKE . expression
+    (8) expression -> . NUMBER
+    (9) expression -> . expression OPTASU expression
+    (10) expression -> . expression OPHIKU expression
+    (11) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 18
+
+    expression                     shift and go to state 28
+
+state 25
+
+    (7) bun -> SYMBOL EQUALS expression SEMI .
+
+    RBRACE          reduce using rule 7 (bun -> SYMBOL EQUALS expression SEMI .)
+    RETURN          reduce using rule 7 (bun -> SYMBOL EQUALS expression SEMI .)
+    TYPE            reduce using rule 7 (bun -> SYMBOL EQUALS expression SEMI .)
+    SYMBOL          reduce using rule 7 (bun -> SYMBOL EQUALS expression SEMI .)
+
+
+state 26
+
+    (9) expression -> expression OPTASU expression .
+    (9) expression -> expression . OPTASU expression
+    (10) expression -> expression . OPHIKU expression
+    (11) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 9 (expression -> expression OPTASU expression .)
+    OPTASU          reduce using rule 9 (expression -> expression OPTASU expression .)
+    OPHIKU          reduce using rule 9 (expression -> expression OPTASU expression .)
+    OPKAKE          shift and go to state 24
+
+  ! OPKAKE          [ reduce using rule 9 (expression -> expression OPTASU expression .) ]
+  ! OPTASU          [ shift and go to state 22 ]
+  ! OPHIKU          [ shift and go to state 23 ]
+
+
+state 27
+
+    (10) expression -> expression OPHIKU expression .
+    (9) expression -> expression . OPTASU expression
+    (10) expression -> expression . OPHIKU expression
+    (11) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 10 (expression -> expression OPHIKU expression .)
+    OPTASU          reduce using rule 10 (expression -> expression OPHIKU expression .)
+    OPHIKU          reduce using rule 10 (expression -> expression OPHIKU expression .)
+    OPKAKE          shift and go to state 24
+
+  ! OPKAKE          [ reduce using rule 10 (expression -> expression OPHIKU expression .) ]
+  ! OPTASU          [ shift and go to state 22 ]
+  ! OPHIKU          [ shift and go to state 23 ]
+
+
+state 28
+
+    (11) expression -> expression OPKAKE expression .
+    (9) expression -> expression . OPTASU expression
+    (10) expression -> expression . OPHIKU expression
+    (11) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 11 (expression -> expression OPKAKE expression .)
+    OPTASU          reduce using rule 11 (expression -> expression OPKAKE expression .)
+    OPHIKU          reduce using rule 11 (expression -> expression OPKAKE expression .)
+    OPKAKE          reduce using rule 11 (expression -> expression OPKAKE expression .)
+
+  ! OPTASU          [ shift and go to state 22 ]
+  ! OPHIKU          [ shift and go to state 23 ]
+  ! OPKAKE          [ shift and go to state 24 ]
+

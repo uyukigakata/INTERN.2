@@ -1,0 +1,68 @@
+
+    AX      演算用
+    BX      ベース
+    CX      カウント
+    DX      データ
+
+    ADD   A,B   A<-A+B 
+    ADD   A,C   A<-A+C
+    ADD   B,A   B<-B+A
+
+    AX      16
+    AH AL   8:8
+
+    EAX     32
+    EAX
+        16
+        16  AX
+
+    RAX     64     
+
+
+from collections import namedtuple
+Node = namedtuple('Node',('lable','items'))
+
+    (+)
+   |    |
+  (-)   5
+  | | 
+  3 3
+
+
+    mov rsp, rbp
+    pop rbp
+
+
+int main(){
+    int x =2;
+    int y;
+    if()
+    {
+        int x;
+        x =1;
+    }
+    // x -> 2
+    int z;
+
+}
+
+	movq	%rsp, %rbp
+	movl	$0, -8(%rbp)
+	movl	$1, -4(%rbp)
+	movl	-8(%rbp), %edx
+	movl	-4(%rbp), %eax
+	addl	%edx, %eax
+
+x => -8 byte
+y => -4 byte
+
+
+|
+|
+|
+|
+|
+|
++----  <--- 16byte alien
+            64bit = 8byte;
+

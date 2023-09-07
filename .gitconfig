@@ -1,0 +1,14 @@
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+[core]
+	editor = nano
+[user]
+	name = uyukigakata
+	email = c1204269@st.kanazawa-it.ac.jp
+[init]
+	default = Branch
+	default = Branch
+	default = Branch
+	default = Branch
+	defaultBranch = main

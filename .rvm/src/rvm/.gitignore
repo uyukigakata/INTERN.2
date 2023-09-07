@@ -1,0 +1,8 @@
+/.idea
+/config/ssh
+/pkg
+/tmp
+.rvmrc
+.DS_Store
+*.tar.*
+*.tgz

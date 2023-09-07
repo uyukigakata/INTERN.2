@@ -1,0 +1,1401 @@
+
+技術インターンシップ用
+Cコンパイラサブセットの自作解説
+
+step000:
+    目標：
+        レキサの作成
+    実行方法：
+    % python3 lex.py 
+
+    結果
+    LexToken(NUMBER,'100',2,5)
+
+    数字 100 をトークン化する例
+
+    ポイント
+        ply の token のルール
+        ・下記にトークンの種類を列挙
+        tokens = (
+            'NUMBER',
+        )
+
+        t_NUMBER : トークンの種類
+        t_NUMBER = r'\d+'
+        正規表現で トークンのパターンを記述する
+
+        ## space と \t は igonore(無視)
+        t_ignore = ' \t'
+
+        コマンドを動かすと、トークンに分割して結果を表示する
+
+        LexToken(NUMBER,'100',2,5)
+                  NUMBERというトークン
+                  100 という文字列
+
+step001:
+    目標：
+        return 49; をトークン化
+    実行方法
+    % python3 lex.py 
+
+    結果
+    LexToken(RETURN,'return',2,5)
+    LexToken(NUMBER,'49',2,12)
+    LexToken(SEMI,';',2,14)
+
+    ポイント
+        retrun
+        49
+        ;
+    これらに分解する
+
+step002:
+    目標：
+        シンプルな AST作成
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    ['return', '3', ';']
+
+    ポイント
+    LexToken(RETURN,'return',2,5)
+    LexToken(NUMBER,'49',2,12)
+    LexToken(SEMI,';',2,14)
+
+    というトークンを eBNF 記法に従って解析する
+
+step003:
+    目標：
+        実行形式の作成
+        codegen で out.s を作成
+        gcc out.s で a.out を作成
+        実行すると a.out の プロセス終了値が返却される
+        echo $? で値が取れる。注意:0~255の範囲のみ  
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    ['return', '8', ';']
+    8
+
+    ポイント
+        上記AST を愚直に out.s に出力する
+
+        どのような .s を出さないといけないかは下記の gcc を参考にする。
+        gcc  -fno-asynchronous-unwind-tables  -S sample.c 
+
+
+        大事なキーワード
+        	.text       プログラム領域(text)を示す。先頭につておく
+                        このほかにも .data 領域 .bss 領域などがある
+            
+        =============================
+            .globl	main
+            .type	main, @function
+        main:
+        =============================
+                        main 関数のシンボルが global
+                        関数タイプ
+                        main: 以下に関数のアセンブリソースが列挙されるを示すラベル
+
+
+        =============================
+            endbr64         ←関数の頭にはおいておくおまじない(発展的話題なので気になったら聞こう)
+            pushq	%rbp    ←ベースポインタの記憶(関数ののスタックの基準となるアドレスを覚えている)
+            movq	%rsp, %rbp  ← スタックポインタをベースポインタへ代入
+            movl	$3, %eax    ← return 3 をするときの 3 を eax レジスタにいれる
+            popq	%rbp        ← スタックポイントを戻す
+            ret                 ← main関数から復帰する
+            .size	main, .-main    ← main 関数のサイズを定義する
+        =============================
+
+        これらを out.s として生成すれば
+        gcc out.s と叩くと、アセンブリソースを解釈して a.out が作られる
+        ./a.out を動かすと main 関数の戻り値がOSに返却される。
+        echo $? で値を見ることができる。0~255の範囲しかNG
+
+        今回は movl	$3, %eax の $3 部分が return xxx; の xxx の数字になればOK;
+
+        参考サイト：
+            x86-64プロセッサのスタックを理解する
+                https://qiita.com/tobira-code/items/75d3034aed8bb9828981
+
+step004:
+    目標：
+        足し算引き算の実装
+        return 4+3; のような形式が解釈可能になる
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    ['return', ['-', ['-', ['NUM', '2'], ['NUM', '1']], ['NUM', '1']], ';']
+
+step005:
+    目標：
+        足し算引き算の実装
+        return 4+3; のような形式が解釈可能になる
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    ['return', ['-', ['-', ['NUM', '3'], ['NUM', '1']], ['NUM', '1']], ';']
+    1
+
+    ポイント
+        return 4+3;
+        又は
+        return 3-1-1;
+        このような処理をCPUで行う。
+
+        これは
+        3,1,-,1,- のような後置記法に変換を行って
+
+        push 3
+        push 1
+        sub    # pop 1, pop 3 , 3 - 1, push 2
+        push 1
+        sub    # pop 1, pop 2 , 2 - 1, push 1
+
+        というスタックタイプの演算器に放り込む事を考える。
+
+        このスタックタイプの演算器は 下記のように置換することができる
+        push 3
+
+        push 1
+
+        pop %rdi
+        pop %rax
+        sub %rdi,%rax
+        push %rax
+
+        結果的に計算結果が スタックに積まれることになるので
+        movl	$3, %eax    ← return 3 をするときの 3 を eax レジスタにいれる
+        上記を下記に書き換えることで、実装できる
+        pop     %eax
+
+
+step006:
+    目標：
+        掛算の実装
+        return 4+3; のような形式が解釈可能になる
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]], ';']
+    9
+
+    ポイント 掛算を付け加える
+        下記で演算子の順序を決めるというチート技で記載する
+        precedence = (
+            ('left','OPTASU','OPHIKU'),
+            ('left','OPKAKE'),
+        )
+    ・第一引数で左結合演算か、右結合演算か指定する
+    ・同じ優先順位レベルの場合はひとつのタプルにまとめて書ける (上記の例の場合 OPTASU と OPHIKU)
+    ・タプルの下のトークンほど優先順位が高い
+
+step007:
+    目標：
+        main関数のパースと構文木の作成
+        int main(){
+            return 3+2*3;
+        }
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    [['func', 'int', 'main', ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]], ';']]]
+
+    ポイント
+        いままでは main を固定だと思っていたけど、それを C言語ソースから取れるようにする。
+        その為に AST をつくり込む必要がある。
+
+        まず lexer に 一部のトークンを追加する
+        eBNF に 関数の構文を定義する
+
+step008:
+    目標：
+        step007のasmソース生成
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [['func', 'int', 'main', ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]], ';']]]
+    ===codegen step1===
+    ['func', 'int', 'main', ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]], ';']]
+    ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]]
+    ===codegen step2===
+    funcname: main
+    9
+
+    ポイント
+        愚直でいいので いままでは main を固定だと思っていたけど、それを C言語ソースから取れるようにする。
+        codegen の中で
+        teigi1 = tree[0]
+        rettype  = teigi1[1]    #戻り値の型 int
+        funcname = teigi1[2]    #関数名 main
+        exp      = teigi1[3][1] #文
+        このように愚直にとって関数名にいれる。
+        無理にソースをスマートにしない。（今後もう少し複雑になるので、その時に考えよう）
+
+
+step009:
+    目標：
+        変数宣言と構文木の作成
+        int main(){
+            int x;
+            int y;
+            return 3+2*3;
+        }
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    [['func', 'int', 'main', [
+        ['SENGEN', 'int', 'x'], 
+        ['SENGEN', 'int', 'y'], 
+        ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]]
+        ]]]]
+
+    ポイント
+        書きましょう
+
+step010:
+    目標：
+        step009 のアセンブラ化 (step1)
+        但し x,y のローカル変数領域はまだ確保しない
+        ほぼ、今までの挙動に合わせたcodegenをするだけ(ASTは雑にパース)
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [['func', 'int', 'main', [['SENGEN', 'int', 'x'], ['SENGEN', 'int', 'y'], ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]]]]]]
+    ===codegen step1===
+    ['func', 'int', 'main', [['SENGEN', 'int', 'x'], ['SENGEN', 'int', 'y'], ['return', ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]]]]]
+    ['+', ['NUM', '3'], ['*', ['NUM', '2'], ['NUM', '3']]]
+    ===codegen step2===
+    funcname: main
+    9
+
+    ポイント
+        愚直でいいので。
+
+    lambda式
+        lambda 引数, 引数, ...: 式
+    filter() 関数
+        第一引数に関数、第二引数にリストなどのイテラブルオブジェクトを指定する。
+        イテラブルの要素に関数を適用し、結果がTrueと判定されたものを抽出する。
+        Python3 では filter() 関数は filter 型のイテレータを返す。
+        結果をリストにしたい場合は list() を使う。
+    使用例
+        list( filter( lambda item: item[0] != 'SENGEN' , teigi1[3] ) )
+        teigi1[3] のリストをイテレートして item に格納し、
+        item[0] が 'SENGEN' でないものだけ抽出しリストにして返す
+
+step011:
+    目標：
+        step010 に namedtupleを導入する
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])]
+    ===codegen step1===
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])
+    [Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]
+    Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])
+    ===codegen step2===
+    funcname: main
+    9
+
+    ポイント
+        ASTの構造を変えよう。
+        流石に tree[0] とかやってるとわからなくなるので、少しだけ namedtupleを導入して少しわかりやすくする
+
+
+        namedtuple は、tuple の弱点である格納したデータに整数のインデックスでしかアクセスできない問題を解決する
+        tuple の拡張データ型と考えてもよい。
+        使用例
+        from collections import namedtuple
+        # Node というシンプルなデータ型を定義
+        #　　Node には label と items という 2つのフィールドがある
+        Node = namedtuple('Node',('label','items'))
+        # 以下のような感じで使う
+        n = Node(label='return',items=[p[2]])
+        n.label # ==> 'return'
+        n.items # ==> [p[2]]
+
+
+step012:
+    目標：
+        ローカル変数の確保を実施する(asmコード生成部)
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])]
+    ===codegen step1===
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])
+    calcframesize :2
+    [Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]
+    Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])
+    ===codegen step2===
+    funcname: main
+    9
+
+    ポイント
+        変数の領域はスタック上に確保することになるため、サイズ分だけずらしましょう。
+        本当は sizeof(int) は 最近の環境だと 4byte だけれども、ここでは 8byte(64bit)とする。
+        理由は、この後出てくる関数呼び出しの実装時に 4byteだとアライメント調整が必要になるため。
+        8byte単位アライメント調整だとこの辺の実装が楽になるので、とりあえずは 8byte にしておこう。
+
+
+step013:
+    目標：
+        ローカル変数への代入を扱えるようにする(構文木)
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = 20;
+            return 3+2*3;
+        }
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    [Node(label='func', items=
+        ['int', 'main',
+            [Node(label='SENGEN', items=
+                ['int', 'x']), Node(label='SENGEN', items=
+                    ['int', 'y']), Node(label='DAINYU', items=
+                        ['x', Node(label='NUM', items=
+                            ['10'])]), Node(label='DAINYU', items=
+                                ['y', Node(label='NUM', items=
+                                    ['20'])]), Node(label='return', items=
+                                        [Node(label='+', items=
+                                            [Node(label='NUM', items=['3']), Node(label='*', items=
+                                                [Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])
+                                                ])
+                                            ]
+                                        ])
+            ]
+        ])
+    
+    ]
+
+step014:
+    目標：
+        ローカル変数への代入ができるようにする(asmコード生成部)
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])]
+    ===codegen step1===
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])
+    calcframesize :2
+    {'x': 16, 'y': 8}
+    [Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]
+    exp:
+    Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])
+    dainyu_list:
+    [Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]
+    ===codegen step2===
+    funcname: main
+    9
+
+    ポイント
+        愚直行う
+        x は -16オフセットの位置
+        y は -8 オフセットの位置
+        このようにして
+        -16(%rbp) -8(%rbp) などとすると、x や y　の領域になる。
+        これを使うことで変数へのアクセスができる。
+
+
+step015:
+    目標：
+        ソース生成部のリファクタリング化
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])]
+    ===codegen step1===
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])
+    calcframesize :2
+    {'x': 16, 'y': 8}
+    ===codegen step2===
+    funcname: main
+    !!entering walk!!
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])]])
+    !!entering walk!!
+    Node(label='SENGEN', items=['int', 'x'])
+    !!entering walk!!
+    Node(label='SENGEN', items=['int', 'y'])
+    !!entering walk!!
+    Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+    !!entering walk!!
+    Node(label='NUM', items=['10'])
+    {'x': 16, 'y': 8}
+    !!entering walk!!
+    Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])
+    !!entering walk!!
+    Node(label='NUM', items=['20'])
+    {'x': 16, 'y': 8}
+    !!entering walk!!
+    Node(label='return', items=[Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])])
+    !!entering walk!!
+    Node(label='+', items=[Node(label='NUM', items=['3']), Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])])
+    !!entering walk!!
+    Node(label='NUM', items=['3'])
+    !!entering walk!!
+    Node(label='*', items=[Node(label='NUM', items=['2']), Node(label='NUM', items=['3'])])
+    !!entering walk!!
+    Node(label='NUM', items=['2'])
+    !!entering walk!!
+    Node(label='NUM', items=['3'])
+    9
+
+    ポイント
+        codegen 関数内で行っていたものを walk関数内に移動させよう
+        framecount �� frameVarNameMap は global変数化しよう。
+        （愚直優先）
+        今後、本当だったら class化してインスタンス変数化してもいいが、いまはglobal。
+
+step016:
+    目標：
+        ローカル変数への参照を扱えるようにする(構文木)
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = 20;
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    [Node(label='func', items=
+        ['int', 'main', 
+            [Node(label='SENGEN', items=
+                ['int', 'x']), Node(label='SENGEN', items=
+                    ['int', 'y']), Node(label='DAINYU', items=
+                        ['x', Node(label='NUM', items=
+                            ['10'])]), Node(label='DAINYU', items=
+                                ['y', Node(label='NUM', items=
+                                    ['20'])]), Node(label='return', items=
+                                        [Node(label='+', items=
+                                            [Node(label='VAR', items=
+                                                ['x']), Node(label='VAR', items=
+                                                    ['y'
+                                                    ])
+                                            ])
+                                        ])
+            ]
+        ])
+    ]    
+
+step017:
+    目標：
+        ローカル変数への参照を扱えるようにする(asmコード生成部)
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+    ===codegen step1===
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+    calcframesize :2
+    {'x': 16, 'y': 8}
+    ===codegen step2===
+    funcname: main
+    !!entering walk!!
+    Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+    !!entering walk!!
+    Node(label='SENGEN', items=['int', 'x'])
+    !!entering walk!!
+    Node(label='SENGEN', items=['int', 'y'])
+    !!entering walk!!
+    Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+    !!entering walk!!
+    Node(label='NUM', items=['10'])
+    {'x': 16, 'y': 8}
+    !!entering walk!!
+    Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])
+    !!entering walk!!
+    Node(label='NUM', items=['20'])
+    {'x': 16, 'y': 8}
+    !!entering walk!!
+    Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+    !!entering walk!!
+    Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+    !!entering walk!!
+    Node(label='VAR', items=['x'])
+    !!entering walk!!
+    Node(label='VAR', items=['y'])
+    30
+
+step018:
+    目標：
+        関数定義を行えるようにする(構文木)
+        int func(){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = 20;
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py
+
+    結果
+    ==AST==
+    [Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+
+======ここから 実習=====
+step019:
+    目標：
+        関数定義を行えるようにする(asmコード生成部)
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', 
+[Node(label='return', items=[Node(label='NUM', 
+items=['10'])])]]), Node(label='func', items=
+['int', 'main', [Node(label='SENGEN', items=['int', 'x']), 
+Node(label='SENGEN', items=['int', 'y']), 
+Node(label='DAINYU', items=['x', Node(label='NUM', 
+items=['10'])]), Node(label='DAINYU', items=['y', 
+Node(label='NUM', items=['20'])]), Node(label='return', 
+items=[Node(label='+', items=[Node(label='VAR', items=['x']), 
+Node(label='VAR', items=['y'])])])]])]
+===codegen step1===
+Node(label='func', items=['int', 'func', [Node(label='return', 
+items=[Node(label='NUM', items=['10'])])]])
+calcframesize :0
+{}
+===codegen step2===
+funcname: func
+!!entering walk!!
+Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+!!entering walk!!
+Node(label='return', items=[Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+===codegen step1===
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+calcframesize :2
+{'x': 16, 'y': 8}
+===codegen step2===
+funcname: main
+!!entering walk!!
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])
+!!entering walk!!
+Node(label='NUM', items=['20'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+30
+
+    ポイント
+        いままでは main だけを出力していたけど、tree 全体を forで回すようにする。
+        つまり teigi1 は tree[0] つまり main だけが入ったASTを渡していたが、
+        今回からは tree の各要素を取るようにする。
+        tree[0] は func
+        tree[1] は main になっているので
+        for teigi in tree: 
+        とすることで、全ての要素となる。
+
+        そのあと スタックフレーム(ローカル変数の記憶領域)を計算し、
+        また変数名とオフセットの対応表も作る。
+
+        あとは出力
+
+
+step020:
+    目標：
+        関数呼び出しを行えるようにする(構文木)
+        int func(){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = 20;
+            func();
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py 
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='FUNCCALL', items=['func', []]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+[
+    Node(label='func', 
+        items=['int', 'func', 
+            [Node(label='return', items=[Node(label='NUM', items=['10'])])]
+        ]),
+    Node(label='func', 
+        items=['int', 'main', 
+            [Node(label='SENGEN', items=['int', 'x']), 
+            Node(label='SENGEN', items=['int', 'y']), 
+            Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]),
+            Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]),
+            Node(label='FUNCCALL', items=['func', []]), 
+            Node(label='return', items=[
+                                    Node(label='+', items=[Node(label='VAR', items=['x']),
+                                    Node(label='VAR', items=['y'])])]
+            )]
+        ]
+    )
+]
+
+
+    ポイント
+        bun に func(); をパースできるようにして
+        Node(label='FUNCCALL', items=['func', []]) なノードを追加する。
+
+        実は次々ステップで考え方を変える必要があるが、とりあ���ず、はこれにする。
+        BNFが簡単になるので、まずは呼び出せることを目標とする。
+
+        先取りではあるが itemsの１番目は関数名、2番目は引数リストと先に考えて置き、
+        []空リストを入れておく。これくらいはいいよね…
+
+
+step021:
+    目標：
+        関数呼び出しを行えるようにする(asmコード生成部)
+        int func(){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = 20;
+            func();
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='FUNCCALL', items=['func', []]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+===codegen step1===
+Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+calcframesize :0
+{}
+===codegen step2===
+funcname: func
+!!entering walk!!
+Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+!!entering walk!!
+Node(label='return', items=[Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+===codegen step1===
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='FUNCCALL', items=['func', []]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+calcframesize :2
+{'x': 16, 'y': 8}
+===codegen step2===
+funcname: main
+!!entering walk!!
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])]), Node(label='FUNCCALL', items=['func', []]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])
+!!entering walk!!
+Node(label='NUM', items=['20'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='FUNCCALL', items=['func', []])
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+30
+
+    ポイント
+        Node(label='FUNCCALL', items=['func', []]) なノードは
+
+        call func
+
+        となればよい。
+        引数、関数の戻り値などを本来は考えないといけないのであるがここでは
+        とりあえず、忘れておく。
+
+step022:
+    目標：
+        関数呼び出しの結果戻り値を変数に入れる(構文木)
+        int func(){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func();
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py 
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', []])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+[
+Node(label='func', 
+    items=['int', 'func', [Node(label='return', 
+    items=[Node(label='NUM', items=['10'])])]]),
+Node(label='func', 
+    items=['int', 'main', [
+Node(label='SENGEN', items=['int', 'x']), 
+Node(label='SENGEN', items=['int', 'y']), 
+Node(label='DAINYU', 
+    items=['x', Node(label='NUM', items=['10'])]), 
+Node(label='DAINYU', 
+    items=['y', Node(label='FUNCCALL', items=['func', []])]), 
+Node(label='return', 
+    items=[Node(label='+', 
+    items=[Node(label='VAR', items=['x']), 
+Node(label='VAR', items=['y'])])])]])]
+
+
+
+
+ 
+==AST==
+[Node(label='func', 
+    items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), 
+Node(label='func', 
+    items=['int', 'main', 
+        [Node(label='SENGEN', items=['int', 'x']), 
+        Node(label='SENGEN', items=['int', 'y']), 
+        Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), 
+        Node(label='EXPRESSION', items=[Node(label='FUNCCALL', items=['func', []])]), 
+        Node(label='return', items=[
+            Node(label='+', items=[
+                Node(label='VAR', items=['x']), 
+                Node(label='VAR', items=['y'])
+            ])
+        ])
+    ]])
+]
+
+    ポイント
+        bun に func(); をパースできるようにして
+        Node(label='FUNCCALL', items=['func', []]) なノードを追加していた。
+
+        func();
+        の時は良かったが
+        y = func(); の場合は戻り値を考慮しないといけない。
+
+        ここで先ほどの y = 20; について考える。
+        SYMBOL = NUMBER なBNFではなく
+        SYMBOL = expression という、変数名 = 式 という文法定義にしていた。
+
+        y = func(); としているが、例えば y = func() + 10; 等は当然許されてよく、
+        関数呼び出しは式の一要素として見ることができる。
+
+        そこで 式 = SYMBOL ( ) な物を呼び出せるようにしておくことで、なんとかなる。
+
+        ただし、これを入れると、
+        func(); は式単体となる。
+
+        C言語の文法で
+        1+2;
+        はコンパイルはできる。意味はないが。
+        とすると
+        SYMBOL = expression ;
+        だけではなく
+        expression ;
+        単体も許すように変更する。
+
+        これで、
+        func();
+        y = func();
+        1+2;
+        y = 1+2;
+        全て対応できるようになる。
+
+
+step023:
+    目標：
+        関数呼び出しの結果戻り値を変数に入れる(asmコード生成部)
+        int func(){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func();
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', []])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+===codegen step1===
+Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+calcframesize :0
+{}
+===codegen step2===
+funcname: func
+!!entering walk!!
+Node(label='func', items=['int', 'func', [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+!!entering walk!!
+Node(label='return', items=[Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+===codegen step1===
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', []])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+calcframesize :2
+{'x': 16, 'y': 8}
+===codegen step2===
+funcname: main
+!!entering walk!!
+Node(label='func', items=['int', 'main', [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', []])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', []])])
+!!entering walk!!
+Node(label='FUNCCALL', items=['func', []])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+20
+
+    ポイント
+        関数呼び出しをして関数から戻ってくるときは %rax に戻り値が入ってくる。
+        これを式としてみた場合、call した後に push %rax をすることで式と同一にしている。
+
+
+step024:
+    目標：
+        ソースコードの不要なコメントを綺麗に
+
+step025:
+    目標：
+        関数呼び出しの引数をOKにする (構文木)
+        int func( int p ){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func( x );
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py 
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+[Node(label='func', 
+    items=['int', 'func', [['int', 'p']], 
+[Node(label='return', 
+    items=[Node(label='NUM', items=['10'])])]]),
+ Node(label='func', 
+    items=['int', 'main', [], 
+[Node(label='SENGEN', 
+    items=['int', 'x']), 
+Node(label='SENGEN', items=['int', 'y']), 
+Node(label='DAINYU', items=['x',
+Node(label='NUM', items=['10'])]), 
+Node(label='DAINYU', items=['y', 
+Node(label='FUNCCALL', items=['func', 
+[Node(label='VAR', items=['x'])]])]), 
+Node(label='return', items=[Node(label='+', 
+    items=[Node(label='VAR', items=['x']), 
+Node(label='VAR', items=['y'])])])]]
+)]
+
+    ポイント
+        関数定義の箇所で引数を可能にする。BNFは愚直に単一にする。
+        しかし、ASTは最初から複数を可能にしておくとよいかも？
+
+        関数呼び出しの箇所に引数を可能にする。ここも愚直で単一に。
+        なお、式とすることで複雑な記述を受理することができる。
+        またASTは複数を可能にしておくとよいかも。
+
+        ASTとして引数を可変長対応しておくことで、最初からwalk部を考慮することができるようになる。
+
+
+step026:
+    目標：
+        関数呼び出しの引数をOKにする (asmコード生成部)
+        int func( int p ){
+            return 10;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func( x );
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='return', items=[Node(label='NUM', items=['10'])])]]), Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+===codegen step1===
+Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+calcframesize :1
+{'p': 8}
+===codegen step2===
+funcname: func
+!!entering walk!!
+Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='return', items=[Node(label='NUM', items=['10'])])]])
+!!entering walk!!
+Node(label='return', items=[Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+===codegen step1===
+Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+calcframesize :2
+{'x': 16, 'y': 8}
+===codegen step2===
+funcname: main
+!!entering walk!!
+Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])])
+!!entering walk!!
+Node(label='FUNCCALL', items=['func', [Node(label='VAR', items=['x'])]])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+20
+
+    ポイント
+        関数呼び出しの引数は、レジスタ渡しをする
+        1番目から順にこちらを利用する。'rdi','rsi','rdx','rcx','r8','r9'
+        これらに値をいれてcallする。
+        その為に、呼び出し元の引数は右から評価することとする。
+        例えば func(1,2,3,4); の場合、
+        push $4
+        push $3
+        push $2
+        push $1
+        として、その後
+        pop %rdi
+        pop %rsi
+        pop %rdx
+        pop %rcx
+        とする。
+        今回は引数一つのみでよい。
+
+        関数側では
+        func( int p0 , int p1 , int p2 , int p3 )
+        となっているが、これを暫定的に下記と同じとするようにする。
+        func( int p0 , int p1 , int p2 , int p3 ){
+            int p0;
+            int p1;
+            int p2;
+            int p3;
+            p0 = %rdi;
+            p1 = %rsi;
+            p2 = %rdx;
+            p3 = %rcx;
+        }
+        その為、疑似的にローカル変数が定義されているとするようにコード生成を行う。
+
+        関数引数もローカル変数と同様に fc, fm で管理する
+        ============
+        func(int p0, int p1) {
+            int x;
+            int y;
+        }
+        ============
+        fc: 4
+        fm: { p0: 32, p1: 24, x: 16, y: 8 }
+        ============
+        [stack]
+        |p0 | <-- -32(%rbp)
+        |p1 | <-- -24(%rbp)
+        |x | <-- -16(%rbp)
+        |y | <-- -8(%rbp)
+        |rbp| <-- %rbp
+        ============
+
+
+step027:
+    目標：
+        関数呼び出しの引数をOKにする 
+        int func( int p ){
+            return 10+p;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func( x );
+            return x+y;
+        }
+
+    ポイント
+        実は step026 で対応済み
+
+
+
+step028:
+    目標：
+        ローカル変数に対応する 
+        int func( int p ){
+            int x;
+            int y;
+            x = 10;
+            y = 30;
+            return x+y+p;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            y = func( x );
+            return x+y;
+        }
+
+    ポイント
+        実は step026 で対応済み
+
+
+step029:
+    目標：
+        if() に 対応する (構文木)
+        int func( int p ){
+            int x;
+            int y;
+            x = 10;
+            y = 30;
+            return x+y+p;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            if ( x == 10){
+                y = 20;
+            }
+            return x+y;
+        }
+    実行方法
+    % python3 compile.py 
+
+    実行結果
+
+==AST==
+[Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), Node(label='return', items=[Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])])]]), Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='IF', items=[[Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])], [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+[Node(label='func', 
+    items=['int', 'func', [['int', 'p']],
+        [Node(label='SENGEN', items=['int', 'x']), 
+        Node(label='SENGEN', items=['int', 'y']), 
+        Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), 
+        Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), 
+        Node(label='return', items=[Node(label='+', items=[Node(label='+', 
+                items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), 
+                Node(label='VAR', items=['p'])])])]]), 
+Node(label='func', 
+    items=['int', 'main', [], 
+        [Node(label='SENGEN', items=['int', 'x']), 
+        Node(label='SENGEN', items=['int', 'y']), 
+        Node(label='DAINYU', items=['x', 
+        Node(label='NUM', items=['10'])]), 
+        Node(label='IF', 
+            items=[
+                [Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])],
+                    [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]]), 
+        Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+
+    ポイント
+        愚直に if ( 式 == 式 ) {  bunlist } をASTとする。
+        本来だと 式 == 式 を条件式としてくくりたくなるが、分かりやすさ優先でこれにする。
+
+step030:
+    目標：
+        if() に 対応する (asmコード生成部)
+        int func( int p ){
+            int x;
+            int y;
+            x = 10;
+            y = 30;
+            return x+y+p;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            if ( x == 10){
+                y = 20;
+            }
+            return x+y;
+        }
+
+    実行方法
+    % python3 compile.py  && gcc out.s  && ./a.out ; echo $?
+
+    実行結果
+==AST==
+[Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), Node(label='return', items=[Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])])]]), Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='IF', items=[[Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])], [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])]
+===codegen step1===
+Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), Node(label='return', items=[Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])])]])
+calcframesize :3
+{'p': 24, 'x': 16, 'y': 8}
+===codegen step2===
+funcname: func
+!!entering walk!!
+Node(label='func', items=['int', 'func', [['int', 'p']], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), Node(label='return', items=[Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'p': 24, 'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])])
+!!entering walk!!
+Node(label='NUM', items=['30'])
+{'p': 24, 'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])]), Node(label='VAR', items=['p'])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+!!entering walk!!
+Node(label='VAR', items=['p'])
+===codegen step1===
+Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='IF', items=[[Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])], [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+calcframesize :2
+{'x': 16, 'y': 8}
+===codegen step2===
+funcname: main
+!!entering walk!!
+Node(label='func', items=['int', 'main', [], [Node(label='SENGEN', items=['int', 'x']), Node(label='SENGEN', items=['int', 'y']), Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), Node(label='IF', items=[[Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])], [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]]), Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])]])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'x'])
+!!entering walk!!
+Node(label='SENGEN', items=['int', 'y'])
+!!entering walk!!
+Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='IF', items=[[Node(label='VAR', items=['x']), '==', Node(label='NUM', items=['10'])], [Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])]])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='NUM', items=['10'])
+!!entering walk!!
+Node(label='DAINYU', items=['y', Node(label='NUM', items=['20'])])
+!!entering walk!!
+Node(label='NUM', items=['20'])
+{'x': 16, 'y': 8}
+!!entering walk!!
+Node(label='return', items=[Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])])
+!!entering walk!!
+Node(label='+', items=[Node(label='VAR', items=['x']), Node(label='VAR', items=['y'])])
+!!entering walk!!
+Node(label='VAR', items=['x'])
+!!entering walk!!
+Node(label='VAR', items=['y'])
+30
+
+
+    ポイント
+        愚直に if ( 式 == 式 ) {  bunlist } をASTとする。
+        左辺式
+        右辺式
+        それぞれを解くとスタックに式の値がpushされる
+        これを２度popしてレジスタに入れ cmp レジスタ,レジスタ で比較する。
+        比較すると、CPUのフラグレジスタの ZF (引き算をして0 すなわち等しい時に1,そうでないときに0)を見て
+        条件分岐をする。
+        JNE は 等しくないとき、 JE は等しいとき、 JMP は無条件ジャンプとなる。
+        ラベル名を指定してジャンプするが、ラベル名をユニークにするために、Label名用のカウンタを用意する。
+        ラベル名のカウンタは IF に入るたびにカウントアップする。
+
+step031:
+step032:
+    目標：
+        if() に 対応する (構文木)&(asmコード生成部)
+        int func( int p ){
+            int x;
+            int y;
+            x = 10;
+            y = 30;
+            return x+y+p;
+        }
+        int main(){
+            int x;
+            int y;
+            x = 10;
+            if ( x == 10){
+                y = 20;
+            }else{
+                y = 40;
+            }
+            return x+y;
+        }
+
+step033:
+
+step034:
+step035:
+
+
+
+stepXXX:
+    課題がコンパイルできるようにする。　(step030時点でコンパイルできる)
+
+    int fib( int num ){
+        if (num == 0) {
+            return 0;
+        }
+        if (num == 1) {
+            return 1;
+        }
+        return fib(num - 1) + fib(num - 2);    
+    }
+    int main(){
+        int ret;
+        int ans;
+        r = 1;
+        ans = fib(40);
+        if ( ans == 102334155 ){
+            r = 2;
+        }
+        return r;
+    }
+
+

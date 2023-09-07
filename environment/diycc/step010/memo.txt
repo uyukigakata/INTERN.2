@@ -1,0 +1,29 @@
+
+    AX      演算用
+    BX      ベース
+    CX      カウント
+    DX      データ
+
+    ADD   A,B   A<-A+B 
+    ADD   A,C   A<-A+C
+    ADD   B,A   B<-B+A
+
+    AX      16
+    AH AL   8:8
+
+    EAX     32
+    EAX
+        16
+        16  AX
+
+    RAX     64     
+
+
+from collections import namedtuple
+Node = namedtuple('Node',('lable','items'))
+
+    (+)
+   |    |
+  (-)   5
+  | | 
+  3 3

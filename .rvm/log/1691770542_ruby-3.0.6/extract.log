@@ -1,0 +1,78 @@
+[2023-08-11 16:15:51] __rvm_package_extract
+__rvm_package_extract () 
+{ 
+    rvm_debug __rvm_package_extract:$#: "$@";
+    \typeset __extract_src __extract_target __tempdir __path __file __return;
+    __extract_src="$1";
+    __extract_target="$2";
+    shift 2;
+    __return=0;
+    __tempdir="$( TMPDIR="${rvm_tmp_path}" mktemp -d -t rvm-tmp.XXXXXXXXX )";
+    __rvm_package_extract_run "$__extract_src" "$__tempdir" "$@" || __return=$?;
+    if (( __return == 0 )); then
+        for __path in "$__tempdir"/*;
+        do
+            __file="${__path##*/}";
+            if [[ -n "${__file}" && -e "$__extract_target/${__file}" ]]; then
+                \command \rm -rf "$__extract_target/${__file}" || __return=$?;
+            fi;
+            \command \mv -f "${__path}" "$__extract_target/" || __return=$?;
+        done;
+    fi;
+    if [[ -n "$__tempdir" ]]; then
+        \command \rm -rf "$__tempdir";
+    fi;
+    return $__return
+}
+current path: /home/ec2-user/.rvm/src
+PATH=/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+command(3): __rvm_package_extract /home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz /home/ec2-user/.rvm/tmp/rvm_src_14049
+++ rvm_debug __rvm_package_extract:2: /home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz /home/ec2-user/.rvm/tmp/rvm_src_14049
+++ ((  0  ))
+++ return 0
+++ typeset __extract_src __extract_target __tempdir __path __file __return
+++ __extract_src=/home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz
+++ __extract_target=/home/ec2-user/.rvm/tmp/rvm_src_14049
+++ shift 2
+++ __return=0
++++ TMPDIR=/home/ec2-user/.rvm/tmp
++++ mktemp -d -t rvm-tmp.XXXXXXXXX
+++ __tempdir=/home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44
+++ __rvm_package_extract_run /home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44
+++ typeset __extract_run_src __extract_run_target __exclude_elements
+++ __extract_run_src=/home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz
+++ __extract_run_target=/home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44
+++ shift 2
+++ __exclude_elements=()
+++ [[    != *\ \-\-\n\o\-\s\a\m\e\-\o\w\n\e\r\ * ]]
+++ __rvm_grep -- --no-same-owner
+++ GREP_OPTIONS=
+++ command grep -- --no-same-owner
+++ grep -- --no-same-owner
+++ __rvm_tar --help
+++ rvm_tar_options=--no-same-owner
+++ [[ -d /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44 ]]
+++ case "$__extract_run_src" in
+++ __map_tar_excludes
+++ typeset __exclude_element
+++ [[ -n '' ]]
+++ __rvm_tar -xzf /home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz -C /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44 --no-same-owner
+++ tar -xzf /home/ec2-user/.rvm/archives/ruby-3.0.6.tar.gz -C /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44 --no-same-owner
+++ __rvm_fix_group_permissions /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44/ruby-3.0.6
+++ umask -S
+++ __rvm_grep g=rw
+++ GREP_OPTIONS=
+++ command grep g=rw
+++ grep g=rw
+++ chmod -R g+rwX /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44/ruby-3.0.6
+++ ((  __return == 0  ))
+++ for __path in '"$__tempdir"/*'
+++ __file=ruby-3.0.6
+++ [[ -n ruby-3.0.6 ]]
+++ [[ -e /home/ec2-user/.rvm/tmp/rvm_src_14049/ruby-3.0.6 ]]
+++ command mv -f /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44/ruby-3.0.6 /home/ec2-user/.rvm/tmp/rvm_src_14049/
+++ mv -f /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44/ruby-3.0.6 /home/ec2-user/.rvm/tmp/rvm_src_14049/
+++ [[ -n /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44 ]]
+++ command rm -rf /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44
+++ rm -rf /home/ec2-user/.rvm/tmp/rvm-tmp.UFbttJn44
+++ return 0

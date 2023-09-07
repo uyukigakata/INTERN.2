@@ -1,0 +1,8 @@
+export PATH="/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:$PATH"
+export GEM_HOME='/home/ec2-user/.rvm/gems/ruby-3.0.6@global'
+export GEM_PATH='/home/ec2-user/.rvm/gems/ruby-3.0.6@global'
+export MY_RUBY_HOME='/home/ec2-user/.rvm/rubies/ruby-3.0.6'
+export IRBRC='/home/ec2-user/.rvm/rubies/ruby-3.0.6/.irbrc'
+unset MAGLEV_HOME
+unset RBXOPT
+export RUBY_VERSION='ruby-3.0.6'

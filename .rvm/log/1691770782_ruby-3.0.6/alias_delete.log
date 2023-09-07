@@ -1,0 +1,84 @@
+[2023-08-11 16:19:42] alias_delete_execute
+alias_delete_execute () 
+{ 
+    for _path in "$rvm_rubies_path" "$rvm_gems_path" "$rvm_environments_path" "$rvm_wrappers_path";
+    do
+        if [[ -L "$_path/$1" ]]; then
+            \command \rm -fv "$_path/$1" || return $?;
+        fi;
+    done;
+    __rvm_db_ "$rvm_path/config/alias" "$1" "delete";
+    alias_after_delete_default "$1" || return $?
+}
+current path: /home/ec2-user
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6/bin:/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6:/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+command(2): alias_delete_execute default
++ for _path in '"$rvm_rubies_path"' '"$rvm_gems_path"' '"$rvm_environments_path"' '"$rvm_wrappers_path"'
++ [[ -L /home/ec2-user/.rvm/rubies/default ]]
++ for _path in '"$rvm_rubies_path"' '"$rvm_gems_path"' '"$rvm_environments_path"' '"$rvm_wrappers_path"'
++ [[ -L /home/ec2-user/.rvm/gems/default ]]
++ for _path in '"$rvm_rubies_path"' '"$rvm_gems_path"' '"$rvm_environments_path"' '"$rvm_wrappers_path"'
++ [[ -L /home/ec2-user/.rvm/environments/default ]]
++ for _path in '"$rvm_rubies_path"' '"$rvm_gems_path"' '"$rvm_environments_path"' '"$rvm_wrappers_path"'
++ [[ -L /home/ec2-user/.rvm/wrappers/default ]]
++ __rvm_db_ /home/ec2-user/.rvm/config/alias default delete
++ typeset __db __key __value
++ __db=/home/ec2-user/.rvm/config/alias
++ __key=default
++ shift 2
++ __value=delete
++ case "${__value}" in
++ __rvm_db_remove /home/ec2-user/.rvm/config/alias default
++ [[ -f /home/ec2-user/.rvm/config/alias ]]
++ __rvm_sed -e '\#^default=# d' -e '/^$/d' /home/ec2-user/.rvm/config/alias
++ sed -e '\#^default=# d' -e '/^$/d' /home/ec2-user/.rvm/config/alias
++ command mv -f /home/ec2-user/.rvm/config/alias.new /home/ec2-user/.rvm/config/alias
++ mv -f /home/ec2-user/.rvm/config/alias.new /home/ec2-user/.rvm/config/alias
++ alias_after_delete_default default
++ [[ default == \d\e\f\a\u\l\t ]]
++ for _path in '"$rvm_bin_path"/default_*'
++ [[ -f /home/ec2-user/.rvm/bin/default_* ]]
++ _path='/home/ec2-user/.rvm/bin/default_*'
++ [[ -f /home/ec2-user/.rvm/bin/default_* ]]
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path='*'
++ command rm -fv '/home/ec2-user/.rvm/bin/*'
++ rm -fv '/home/ec2-user/.rvm/bin/*'
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=gem
++ command rm -fv /home/ec2-user/.rvm/bin/gem
++ rm -fv /home/ec2-user/.rvm/bin/gem
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=irb
++ command rm -fv /home/ec2-user/.rvm/bin/irb
++ rm -fv /home/ec2-user/.rvm/bin/irb
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=erb
++ command rm -fv /home/ec2-user/.rvm/bin/erb
++ rm -fv /home/ec2-user/.rvm/bin/erb
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=ri
++ command rm -fv /home/ec2-user/.rvm/bin/ri
++ rm -fv /home/ec2-user/.rvm/bin/ri
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=rdoc
++ command rm -fv /home/ec2-user/.rvm/bin/rdoc
++ rm -fv /home/ec2-user/.rvm/bin/rdoc
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=testrb
++ command rm -fv /home/ec2-user/.rvm/bin/testrb
++ rm -fv /home/ec2-user/.rvm/bin/testrb
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=rake
++ command rm -fv /home/ec2-user/.rvm/bin/rake
++ rm -fv /home/ec2-user/.rvm/bin/rake
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=ruby
++ command rm -fv /home/ec2-user/.rvm/bin/ruby
++ rm -fv /home/ec2-user/.rvm/bin/ruby
++ for _path in '"$rvm_path"/wrappers/default/*' gem irb erb ri rdoc testrb rake ruby bundle
++ _path=bundle
++ command rm -fv /home/ec2-user/.rvm/bin/bundle
++ rm -fv /home/ec2-user/.rvm/bin/bundle

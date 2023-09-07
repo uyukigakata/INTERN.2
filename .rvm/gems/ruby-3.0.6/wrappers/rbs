@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if
+  [[ -s "/home/ec2-user/.rvm/gems/ruby-3.0.6/environment" ]]
+then
+  source "/home/ec2-user/.rvm/gems/ruby-3.0.6/environment"
+  exec rbs "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/home/ec2-user/.rvm/gems/ruby-3.0.6/environment'" >&2
+  exit 1
+fi

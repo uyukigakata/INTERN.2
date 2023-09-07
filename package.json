@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-cleanup": "^2.1.2",
+    "tmp": "^0.0.33"
+  }
+}

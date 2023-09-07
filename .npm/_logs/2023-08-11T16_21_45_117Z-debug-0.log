@@ -1,0 +1,1044 @@
+0 verbose cli /home/ec2-user/.nvm/versions/node/v16.20.2/bin/node /home/ec2-user/.nvm/versions/node/v16.20.2/bin/npm
+1 info using npm@8.19.4
+2 info using node@v16.20.2
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 13ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:project Completed in 6ms
+10 timing config:load:file:/home/ec2-user/.npmrc Completed in 0ms
+11 timing config:load:user Completed in 0ms
+12 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/etc/npmrc Completed in 0ms
+13 timing config:load:global Completed in 0ms
+14 timing config:load:validate Completed in 1ms
+15 timing config:load:credentials Completed in 0ms
+16 timing config:load:setEnvs Completed in 1ms
+17 timing config:load Completed in 23ms
+18 timing npm:load:configload Completed in 23ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install prettier esformatter js-beautify
+22 verbose argv "install" "--global" "prettier" "esformatter" "js-beautify"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing config:load:flatten Completed in 2ms
+25 timing npm:load:display Completed in 3ms
+26 verbose logfile logs-max:10 dir:/home/ec2-user/.npm/_logs
+27 verbose logfile /home/ec2-user/.npm/_logs/2023-08-11T16_21_45_117Z-debug-0.log
+28 timing npm:load:logFile Completed in 4ms
+29 timing npm:load:timers Completed in 0ms
+30 timing npm:load:configScope Completed in 0ms
+31 timing npm:load Completed in 33ms
+32 timing arborist:ctor Completed in 0ms
+33 silly logfile done cleaning log files
+34 timing idealTree:init Completed in 5ms
+35 timing idealTree:userRequests Completed in 2ms
+36 silly idealTree buildDeps
+37 silly fetch manifest prettier@*
+38 http fetch GET 200 https://registry.npmjs.org/prettier 109ms (cache miss)
+39 silly fetch manifest esformatter@*
+40 http fetch GET 200 https://registry.npmjs.org/esformatter 31ms (cache miss)
+41 silly fetch manifest js-beautify@*
+42 http fetch GET 200 https://registry.npmjs.org/js-beautify 34ms (cache miss)
+43 silly placeDep ROOT esformatter@0.11.3 OK for:  want: *
+44 silly placeDep ROOT js-beautify@1.14.9 OK for:  want: *
+45 silly placeDep ROOT prettier@3.0.1 OK for:  want: *
+46 silly fetch manifest acorn-to-esprima@^2.0.6
+47 silly fetch manifest babel-traverse@^6.4.5
+48 silly fetch manifest debug@^4.1.1
+49 silly fetch manifest disparity@^3.0.0
+50 silly fetch manifest esformatter-parser@^1.0.0
+51 silly fetch manifest glob@^7.1.6
+52 silly fetch manifest minimatch@^3.0.2
+53 silly fetch manifest minimist@^1.2.5
+54 silly fetch manifest mout@^1.2.2
+55 silly fetch manifest npm-run@^5.0.1
+56 silly fetch manifest resolve@^1.15.1
+57 silly fetch manifest rocambole@>=0.7 <2.0
+58 silly fetch manifest rocambole-indent@^2.0.4
+59 silly fetch manifest rocambole-linebreak@^1.0.2
+60 silly fetch manifest rocambole-node@~1.0
+61 silly fetch manifest rocambole-token@^1.1.2
+62 silly fetch manifest rocambole-whitespace@^1.0.0
+63 silly fetch manifest stdin@*
+64 silly fetch manifest strip-json-comments@^3.0.1
+65 silly fetch manifest supports-color@^7.1.0
+66 silly fetch manifest user-home@^2.0.0
+67 silly fetch manifest config-chain@^1.1.13
+68 silly fetch manifest editorconfig@^1.0.3
+69 silly fetch manifest glob@^8.1.0
+70 silly fetch manifest nopt@^6.0.0
+71 http fetch GET 200 https://registry.npmjs.org/acorn-to-esprima 82ms (cache miss)
+72 http fetch GET 200 https://registry.npmjs.org/esformatter-parser 155ms (cache miss)
+73 http fetch GET 200 https://registry.npmjs.org/rocambole-linebreak 159ms (cache miss)
+74 http fetch GET 200 https://registry.npmjs.org/rocambole-indent 161ms (cache miss)
+75 http fetch GET 200 https://registry.npmjs.org/stdin 159ms (cache miss)
+76 http fetch GET 200 https://registry.npmjs.org/rocambole-node 163ms (cache miss)
+77 http fetch GET 200 https://registry.npmjs.org/npm-run 166ms (cache miss)
+78 http fetch GET 200 https://registry.npmjs.org/rocambole 165ms (cache miss)
+79 http fetch GET 200 https://registry.npmjs.org/disparity 171ms (cache miss)
+80 http fetch GET 200 https://registry.npmjs.org/rocambole-token 165ms (cache miss)
+81 http fetch GET 200 https://registry.npmjs.org/user-home 166ms (cache miss)
+82 http fetch GET 200 https://registry.npmjs.org/strip-json-comments 169ms (cache miss)
+83 http fetch GET 200 https://registry.npmjs.org/minimist 176ms (cache miss)
+84 http fetch GET 200 https://registry.npmjs.org/config-chain 169ms (cache miss)
+85 http fetch GET 200 https://registry.npmjs.org/mout 178ms (cache miss)
+86 http fetch GET 200 https://registry.npmjs.org/supports-color 173ms (cache miss)
+87 http fetch GET 200 https://registry.npmjs.org/editorconfig 173ms (cache miss)
+88 http fetch GET 200 https://registry.npmjs.org/nopt 169ms (cache miss)
+89 http fetch GET 200 https://registry.npmjs.org/babel-traverse 191ms (cache miss)
+90 http fetch GET 200 https://registry.npmjs.org/debug 192ms (cache miss)
+91 http fetch GET 200 https://registry.npmjs.org/rocambole-whitespace 188ms (cache miss)
+92 http fetch GET 200 https://registry.npmjs.org/resolve 192ms (cache miss)
+93 http fetch GET 200 https://registry.npmjs.org/glob 197ms (cache miss)
+94 http fetch GET 200 https://registry.npmjs.org/minimatch 200ms (cache miss)
+95 http fetch GET 200 https://registry.npmjs.org/glob 191ms (cache miss)
+96 timing idealTree:#root Completed in 400ms
+97 silly placeDep node_modules/esformatter acorn-to-esprima@2.0.8 OK for: esformatter@0.11.3 want: ^2.0.6
+98 silly placeDep node_modules/esformatter babel-traverse@6.26.0 OK for: esformatter@0.11.3 want: ^6.4.5
+99 silly placeDep node_modules/esformatter debug@4.3.4 OK for: esformatter@0.11.3 want: ^4.1.1
+100 silly placeDep node_modules/esformatter disparity@3.2.0 OK for: esformatter@0.11.3 want: ^3.0.0
+101 silly placeDep node_modules/esformatter esformatter-parser@1.0.0 OK for: esformatter@0.11.3 want: ^1.0.0
+102 silly placeDep node_modules/esformatter glob@7.2.3 OK for: esformatter@0.11.3 want: ^7.1.6
+103 silly placeDep node_modules/esformatter minimatch@3.1.2 OK for: esformatter@0.11.3 want: ^3.0.2
+104 silly placeDep node_modules/esformatter minimist@1.2.8 OK for: esformatter@0.11.3 want: ^1.2.5
+105 silly placeDep node_modules/esformatter mout@1.2.4 OK for: esformatter@0.11.3 want: ^1.2.2
+106 silly placeDep node_modules/esformatter npm-run@5.0.1 OK for: esformatter@0.11.3 want: ^5.0.1
+107 silly placeDep node_modules/esformatter resolve@1.22.4 OK for: esformatter@0.11.3 want: ^1.15.1
+108 silly placeDep node_modules/esformatter rocambole@0.7.0 OK for: esformatter@0.11.3 want: >=0.7 <2.0
+109 silly placeDep node_modules/esformatter rocambole-indent@2.0.4 OK for: esformatter@0.11.3 want: ^2.0.4
+110 silly placeDep node_modules/esformatter rocambole-linebreak@1.0.2 OK for: esformatter@0.11.3 want: ^1.0.2
+111 silly placeDep node_modules/esformatter rocambole-node@1.0.0 OK for: esformatter@0.11.3 want: ~1.0
+112 silly placeDep node_modules/esformatter rocambole-token@1.2.1 OK for: esformatter@0.11.3 want: ^1.1.2
+113 silly placeDep node_modules/esformatter rocambole-whitespace@1.0.0 OK for: esformatter@0.11.3 want: ^1.0.0
+114 silly placeDep node_modules/esformatter stdin@0.0.1 OK for: esformatter@0.11.3 want: *
+115 silly placeDep node_modules/esformatter strip-json-comments@3.1.1 OK for: esformatter@0.11.3 want: ^3.0.1
+116 silly placeDep node_modules/esformatter supports-color@7.2.0 OK for: esformatter@0.11.3 want: ^7.1.0
+117 silly placeDep node_modules/esformatter user-home@2.0.0 OK for: esformatter@0.11.3 want: ^2.0.0
+118 silly fetch manifest babel-code-frame@^6.26.0
+119 silly fetch manifest babel-messages@^6.23.0
+120 silly fetch manifest babel-runtime@^6.26.0
+121 silly fetch manifest babel-types@^6.26.0
+122 silly fetch manifest babylon@^6.18.0
+123 silly fetch manifest debug@^2.6.8
+124 silly fetch manifest globals@^9.18.0
+125 silly fetch manifest invariant@^2.2.2
+126 silly fetch manifest lodash@^4.17.4
+127 silly fetch manifest ms@2.1.2
+128 silly fetch manifest ansi-styles@^4.2.1
+129 silly fetch manifest diff@^4.0.2
+130 silly fetch manifest babylon@^6.8.0
+131 silly fetch manifest fs.realpath@^1.0.0
+132 silly fetch manifest inflight@^1.0.4
+133 silly fetch manifest inherits@2
+134 silly fetch manifest once@^1.3.0
+135 silly fetch manifest path-is-absolute@^1.0.0
+136 silly fetch manifest brace-expansion@^1.1.7
+137 silly fetch manifest npm-path@^2.0.4
+138 silly fetch manifest npm-which@^3.0.1
+139 silly fetch manifest serializerr@^1.0.3
+140 silly fetch manifest is-core-module@^2.13.0
+141 silly fetch manifest path-parse@^1.0.7
+142 silly fetch manifest supports-preserve-symlinks-flag@^1.0.0
+143 silly fetch manifest esprima@^2.1
+144 silly fetch manifest debug@^2.1.3
+145 silly fetch manifest mout@^0.11.0
+146 silly fetch manifest semver@^4.3.1
+147 silly fetch manifest repeat-string@^1.5.0
+148 silly fetch manifest has-flag@^4.0.0
+149 silly fetch manifest os-homedir@^1.0.0
+150 http fetch GET 200 https://registry.npmjs.org/fs.realpath 128ms (cache miss)
+151 http fetch GET 200 https://registry.npmjs.org/invariant 140ms (cache miss)
+152 http fetch GET 200 https://registry.npmjs.org/inherits 136ms (cache miss)
+153 http fetch GET 200 https://registry.npmjs.org/brace-expansion 134ms (cache miss)
+154 http fetch GET 200 https://registry.npmjs.org/inflight 139ms (cache miss)
+155 http fetch GET 200 https://registry.npmjs.org/path-is-absolute 137ms (cache miss)
+156 http fetch GET 200 https://registry.npmjs.org/serializerr 134ms (cache miss)
+157 http fetch GET 200 https://registry.npmjs.org/lodash 144ms (cache miss)
+158 http fetch GET 200 https://registry.npmjs.org/babel-messages 154ms (cache miss)
+159 http fetch GET 200 https://registry.npmjs.org/npm-which 138ms (cache miss)
+160 http fetch GET 200 https://registry.npmjs.org/supports-preserve-symlinks-flag 136ms (cache miss)
+161 http fetch GET 200 https://registry.npmjs.org/once 142ms (cache miss)
+162 http fetch GET 200 https://registry.npmjs.org/path-parse 138ms (cache miss)
+163 http fetch GET 200 https://registry.npmjs.org/os-homedir 133ms (cache miss)
+164 http fetch GET 200 https://registry.npmjs.org/ms 149ms (cache miss)
+165 http fetch GET 200 https://registry.npmjs.org/npm-path 143ms (cache miss)
+166 http fetch GET 200 https://registry.npmjs.org/has-flag 137ms (cache miss)
+167 http fetch GET 200 https://registry.npmjs.org/babel-types 160ms (cache miss)
+168 http fetch GET 200 https://registry.npmjs.org/esprima 142ms (cache miss)
+169 http fetch GET 200 https://registry.npmjs.org/ansi-styles 155ms (cache miss)
+170 http fetch GET 200 https://registry.npmjs.org/diff 163ms (cache miss)
+171 http fetch GET 200 https://registry.npmjs.org/repeat-string 152ms (cache miss)
+172 http fetch GET 200 https://registry.npmjs.org/babel-code-frame 189ms (cache miss)
+173 http fetch GET 200 https://registry.npmjs.org/babel-runtime 192ms (cache miss)
+174 http fetch GET 200 https://registry.npmjs.org/is-core-module 176ms (cache miss)
+175 http fetch GET 200 https://registry.npmjs.org/semver 176ms (cache miss)
+176 http fetch GET 200 https://registry.npmjs.org/globals 196ms (cache miss)
+177 http fetch GET 200 https://registry.npmjs.org/babylon 201ms (cache miss)
+178 http fetch GET 200 https://registry.npmjs.org/babylon 197ms (cache miss)
+179 timing idealTree:node_modules/esformatter Completed in 255ms
+180 silly placeDep node_modules/js-beautify config-chain@1.1.13 OK for: js-beautify@1.14.9 want: ^1.1.13
+181 silly placeDep node_modules/js-beautify editorconfig@1.0.4 OK for: js-beautify@1.14.9 want: ^1.0.3
+182 silly placeDep node_modules/js-beautify glob@8.1.0 OK for: js-beautify@1.14.9 want: ^8.1.0
+183 silly placeDep node_modules/js-beautify nopt@6.0.0 OK for: js-beautify@1.14.9 want: ^6.0.0
+184 silly fetch manifest proto-list@~1.2.1
+185 silly fetch manifest ini@^1.3.4
+186 silly fetch manifest @one-ini/wasm@0.1.1
+187 silly fetch manifest commander@^10.0.0
+188 silly fetch manifest minimatch@9.0.1
+189 silly fetch manifest semver@^7.5.3
+190 silly fetch manifest minimatch@^5.0.1
+191 silly fetch manifest abbrev@^1.0.0
+192 http fetch GET 200 https://registry.npmjs.org/proto-list 39ms (cache miss)
+193 http fetch GET 200 https://registry.npmjs.org/abbrev 36ms (cache miss)
+194 http fetch GET 200 https://registry.npmjs.org/commander 46ms (cache miss)
+195 http fetch GET 200 https://registry.npmjs.org/ini 57ms (cache miss)
+196 http fetch GET 200 https://registry.npmjs.org/@one-ini%2fwasm 64ms (cache miss)
+197 timing idealTree:node_modules/js-beautify Completed in 73ms
+198 timing idealTree:node_modules/prettier Completed in 0ms
+199 timing idealTree:node_modules/esformatter/node_modules/acorn-to-esprima Completed in 0ms
+200 silly placeDep node_modules/esformatter babel-code-frame@6.26.0 OK for: babel-traverse@6.26.0 want: ^6.26.0
+201 silly placeDep node_modules/esformatter babel-messages@6.23.0 OK for: babel-traverse@6.26.0 want: ^6.23.0
+202 silly placeDep node_modules/esformatter babel-runtime@6.26.0 OK for: babel-traverse@6.26.0 want: ^6.26.0
+203 silly placeDep node_modules/esformatter babel-types@6.26.0 OK for: babel-traverse@6.26.0 want: ^6.26.0
+204 silly placeDep node_modules/esformatter babylon@6.18.0 OK for: babel-traverse@6.26.0 want: ^6.18.0
+205 silly placeDep node_modules/esformatter/node_modules/babel-traverse debug@2.6.9 OK for: babel-traverse@6.26.0 want: ^2.6.8
+206 silly placeDep node_modules/esformatter globals@9.18.0 OK for: babel-traverse@6.26.0 want: ^9.18.0
+207 silly placeDep node_modules/esformatter invariant@2.2.4 OK for: babel-traverse@6.26.0 want: ^2.2.2
+208 silly placeDep node_modules/esformatter lodash@4.17.21 OK for: babel-traverse@6.26.0 want: ^4.17.4
+209 silly fetch manifest chalk@^1.1.3
+210 silly fetch manifest esutils@^2.0.2
+211 silly fetch manifest js-tokens@^3.0.2
+212 silly fetch manifest core-js@^2.4.0
+213 silly fetch manifest regenerator-runtime@^0.11.0
+214 silly fetch manifest to-fast-properties@^1.0.3
+215 silly fetch manifest ms@2.0.0
+216 silly fetch manifest loose-envify@^1.0.0
+217 http fetch GET 200 https://registry.npmjs.org/js-tokens 33ms (cache miss)
+218 http fetch GET 200 https://registry.npmjs.org/loose-envify 57ms (cache miss)
+219 http fetch GET 200 https://registry.npmjs.org/esutils 62ms (cache miss)
+220 http fetch GET 200 https://registry.npmjs.org/to-fast-properties 59ms (cache miss)
+221 http fetch GET 200 https://registry.npmjs.org/regenerator-runtime 61ms (cache miss)
+222 http fetch GET 200 https://registry.npmjs.org/chalk 64ms (cache miss)
+223 http fetch GET 200 https://registry.npmjs.org/core-js 63ms (cache miss)
+224 timing idealTree:node_modules/esformatter/node_modules/babel-traverse Completed in 82ms
+225 silly placeDep node_modules/esformatter chalk@1.1.3 OK for: babel-code-frame@6.26.0 want: ^1.1.3
+226 silly placeDep node_modules/esformatter esutils@2.0.3 OK for: babel-code-frame@6.26.0 want: ^2.0.2
+227 silly placeDep node_modules/esformatter js-tokens@3.0.2 OK for: babel-code-frame@6.26.0 want: ^3.0.2
+228 silly fetch manifest ansi-styles@^2.2.1
+229 silly fetch manifest escape-string-regexp@^1.0.2
+230 silly fetch manifest has-ansi@^2.0.0
+231 silly fetch manifest strip-ansi@^3.0.0
+232 silly fetch manifest supports-color@^2.0.0
+233 http fetch GET 200 https://registry.npmjs.org/strip-ansi 36ms (cache miss)
+234 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp 39ms (cache miss)
+235 http fetch GET 200 https://registry.npmjs.org/has-ansi 53ms (cache miss)
+236 timing idealTree:node_modules/esformatter/node_modules/babel-code-frame Completed in 60ms
+237 timing idealTree:node_modules/esformatter/node_modules/babel-messages Completed in 0ms
+238 silly placeDep node_modules/esformatter core-js@2.6.12 OK for: babel-runtime@6.26.0 want: ^2.4.0
+239 silly placeDep node_modules/esformatter regenerator-runtime@0.11.1 OK for: babel-runtime@6.26.0 want: ^0.11.0
+240 timing idealTree:node_modules/esformatter/node_modules/babel-runtime Completed in 2ms
+241 silly placeDep node_modules/esformatter to-fast-properties@1.0.3 OK for: babel-types@6.26.0 want: ^1.0.3
+242 timing idealTree:node_modules/esformatter/node_modules/babel-types Completed in 1ms
+243 timing idealTree:node_modules/esformatter/node_modules/babylon Completed in 0ms
+244 silly placeDep node_modules/esformatter ansi-styles@2.2.1 OK for: chalk@1.1.3 want: ^2.2.1
+245 silly placeDep node_modules/esformatter escape-string-regexp@1.0.5 OK for: chalk@1.1.3 want: ^1.0.2
+246 silly placeDep node_modules/esformatter has-ansi@2.0.0 OK for: chalk@1.1.3 want: ^2.0.0
+247 silly placeDep node_modules/esformatter strip-ansi@3.0.1 OK for: chalk@1.1.3 want: ^3.0.0
+248 silly placeDep node_modules/esformatter/node_modules/chalk supports-color@2.0.0 OK for: chalk@1.1.3 want: ^2.0.0
+249 silly fetch manifest ansi-regex@^2.0.0
+250 http fetch GET 200 https://registry.npmjs.org/ansi-regex 31ms (cache miss)
+251 timing idealTree:node_modules/esformatter/node_modules/chalk Completed in 37ms
+252 timing idealTree:node_modules/esformatter/node_modules/ansi-styles Completed in 0ms
+253 timing idealTree:node_modules/esformatter/node_modules/core-js Completed in 0ms
+254 silly placeDep node_modules/esformatter ms@2.1.2 OK for: debug@4.3.4 want: 2.1.2
+255 timing idealTree:node_modules/esformatter/node_modules/debug Completed in 1ms
+256 silly placeDep node_modules/esformatter/node_modules/disparity ansi-styles@4.3.0 OK for: disparity@3.2.0 want: ^4.2.1
+257 silly placeDep node_modules/esformatter diff@4.0.2 OK for: disparity@3.2.0 want: ^4.0.2
+258 silly fetch manifest color-convert@^2.0.1
+259 http fetch GET 200 https://registry.npmjs.org/color-convert 43ms (cache miss)
+260 timing idealTree:node_modules/esformatter/node_modules/disparity Completed in 46ms
+261 timing idealTree:node_modules/esformatter/node_modules/diff Completed in 0ms
+262 timing idealTree:node_modules/esformatter/node_modules/escape-string-regexp Completed in 0ms
+263 timing idealTree:node_modules/esformatter/node_modules/esformatter-parser Completed in 0ms
+264 timing idealTree:node_modules/esformatter/node_modules/esutils Completed in 0ms
+265 silly placeDep node_modules/esformatter fs.realpath@1.0.0 OK for: glob@7.2.3 want: ^1.0.0
+266 silly placeDep node_modules/esformatter inflight@1.0.6 OK for: glob@7.2.3 want: ^1.0.4
+267 silly placeDep node_modules/esformatter inherits@2.0.4 OK for: glob@7.2.3 want: 2
+268 silly placeDep node_modules/esformatter once@1.4.0 OK for: glob@7.2.3 want: ^1.3.0
+269 silly placeDep node_modules/esformatter path-is-absolute@1.0.1 OK for: glob@7.2.3 want: ^1.0.0
+270 silly fetch manifest wrappy@1
+271 http fetch GET 200 https://registry.npmjs.org/wrappy 52ms (cache miss)
+272 timing idealTree:node_modules/esformatter/node_modules/glob Completed in 62ms
+273 timing idealTree:node_modules/esformatter/node_modules/fs.realpath Completed in 0ms
+274 timing idealTree:node_modules/esformatter/node_modules/globals Completed in 0ms
+275 silly placeDep node_modules/esformatter ansi-regex@2.1.1 OK for: has-ansi@2.0.0 want: ^2.0.0
+276 timing idealTree:node_modules/esformatter/node_modules/has-ansi Completed in 1ms
+277 timing idealTree:node_modules/esformatter/node_modules/ansi-regex Completed in 0ms
+278 silly placeDep node_modules/esformatter wrappy@1.0.2 OK for: inflight@1.0.6 want: 1
+279 timing idealTree:node_modules/esformatter/node_modules/inflight Completed in 1ms
+280 timing idealTree:node_modules/esformatter/node_modules/inherits Completed in 0ms
+281 silly placeDep node_modules/esformatter loose-envify@1.4.0 OK for: invariant@2.2.4 want: ^1.0.0
+282 timing idealTree:node_modules/esformatter/node_modules/invariant Completed in 1ms
+283 timing idealTree:node_modules/esformatter/node_modules/js-tokens Completed in 0ms
+284 timing idealTree:node_modules/esformatter/node_modules/lodash Completed in 0ms
+285 timing idealTree:node_modules/esformatter/node_modules/loose-envify Completed in 0ms
+286 silly placeDep node_modules/esformatter brace-expansion@1.1.11 OK for: minimatch@3.1.2 want: ^1.1.7
+287 silly fetch manifest balanced-match@^1.0.0
+288 silly fetch manifest concat-map@0.0.1
+289 http fetch GET 200 https://registry.npmjs.org/concat-map 55ms (cache miss)
+290 http fetch GET 200 https://registry.npmjs.org/balanced-match 56ms (cache miss)
+291 timing idealTree:node_modules/esformatter/node_modules/minimatch Completed in 58ms
+292 silly placeDep node_modules/esformatter balanced-match@1.0.2 OK for: brace-expansion@1.1.11 want: ^1.0.0
+293 silly placeDep node_modules/esformatter concat-map@0.0.1 OK for: brace-expansion@1.1.11 want: 0.0.1
+294 timing idealTree:node_modules/esformatter/node_modules/brace-expansion Completed in 3ms
+295 timing idealTree:node_modules/esformatter/node_modules/balanced-match Completed in 0ms
+296 timing idealTree:node_modules/esformatter/node_modules/concat-map Completed in 0ms
+297 timing idealTree:node_modules/esformatter/node_modules/minimist Completed in 0ms
+298 timing idealTree:node_modules/esformatter/node_modules/mout Completed in 0ms
+299 timing idealTree:node_modules/esformatter/node_modules/ms Completed in 0ms
+300 silly placeDep node_modules/esformatter npm-path@2.0.4 OK for: npm-run@5.0.1 want: ^2.0.4
+301 silly placeDep node_modules/esformatter npm-which@3.0.1 OK for: npm-run@5.0.1 want: ^3.0.1
+302 silly placeDep node_modules/esformatter serializerr@1.0.3 OK for: npm-run@5.0.1 want: ^1.0.3
+303 silly fetch manifest which@^1.2.10
+304 silly fetch manifest commander@^2.9.0
+305 silly fetch manifest protochain@^1.0.5
+306 http fetch GET 200 https://registry.npmjs.org/protochain 31ms (cache miss)
+307 http fetch GET 200 https://registry.npmjs.org/which 44ms (cache miss)
+308 timing idealTree:node_modules/esformatter/node_modules/npm-run Completed in 51ms
+309 silly placeDep node_modules/esformatter which@1.3.1 OK for: npm-path@2.0.4 want: ^1.2.10
+310 silly fetch manifest isexe@^2.0.0
+311 http fetch GET 200 https://registry.npmjs.org/isexe 32ms (cache miss)
+312 timing idealTree:node_modules/esformatter/node_modules/npm-path Completed in 35ms
+313 silly placeDep node_modules/esformatter commander@2.20.3 OK for: npm-which@3.0.1 want: ^2.9.0
+314 timing idealTree:node_modules/esformatter/node_modules/npm-which Completed in 1ms
+315 timing idealTree:node_modules/esformatter/node_modules/commander Completed in 0ms
+316 timing idealTree:node_modules/esformatter/node_modules/once Completed in 0ms
+317 timing idealTree:node_modules/esformatter/node_modules/path-is-absolute Completed in 0ms
+318 timing idealTree:node_modules/esformatter/node_modules/regenerator-runtime Completed in 0ms
+319 silly placeDep node_modules/esformatter is-core-module@2.13.0 OK for: resolve@1.22.4 want: ^2.13.0
+320 silly placeDep node_modules/esformatter path-parse@1.0.7 OK for: resolve@1.22.4 want: ^1.0.7
+321 silly placeDep node_modules/esformatter supports-preserve-symlinks-flag@1.0.0 OK for: resolve@1.22.4 want: ^1.0.0
+322 silly fetch manifest has@^1.0.3
+323 http fetch GET 200 https://registry.npmjs.org/has 29ms (cache miss)
+324 timing idealTree:node_modules/esformatter/node_modules/resolve Completed in 32ms
+325 silly placeDep node_modules/esformatter has@1.0.3 OK for: is-core-module@2.13.0 want: ^1.0.3
+326 silly fetch manifest function-bind@^1.1.1
+327 http fetch GET 200 https://registry.npmjs.org/function-bind 42ms (cache miss)
+328 timing idealTree:node_modules/esformatter/node_modules/is-core-module Completed in 44ms
+329 silly placeDep node_modules/esformatter function-bind@1.1.1 OK for: has@1.0.3 want: ^1.1.1
+330 timing idealTree:node_modules/esformatter/node_modules/has Completed in 1ms
+331 timing idealTree:node_modules/esformatter/node_modules/function-bind Completed in 0ms
+332 timing idealTree:node_modules/esformatter/node_modules/path-parse Completed in 0ms
+333 silly placeDep node_modules/esformatter esprima@2.7.3 OK for: rocambole@0.7.0 want: ^2.1
+334 timing idealTree:node_modules/esformatter/node_modules/rocambole Completed in 1ms
+335 timing idealTree:node_modules/esformatter/node_modules/esprima Completed in 0ms
+336 silly placeDep node_modules/esformatter/node_modules/rocambole-indent debug@2.6.9 OK for: rocambole-indent@2.0.4 want: ^2.1.3
+337 silly placeDep node_modules/esformatter/node_modules/rocambole-indent mout@0.11.1 OK for: rocambole-indent@2.0.4 want: ^0.11.0
+338 timing idealTree:node_modules/esformatter/node_modules/rocambole-indent Completed in 2ms
+339 silly placeDep node_modules/esformatter/node_modules/rocambole-linebreak debug@2.6.9 OK for: rocambole-linebreak@1.0.2 want: ^2.1.3
+340 silly placeDep node_modules/esformatter semver@4.3.6 OK for: rocambole-linebreak@1.0.2 want: ^4.3.1
+341 timing idealTree:node_modules/esformatter/node_modules/rocambole-linebreak Completed in 2ms
+342 timing idealTree:node_modules/esformatter/node_modules/rocambole-node Completed in 0ms
+343 timing idealTree:node_modules/esformatter/node_modules/rocambole-token Completed in 0ms
+344 silly placeDep node_modules/esformatter/node_modules/rocambole-whitespace debug@2.6.9 OK for: rocambole-whitespace@1.0.0 want: ^2.1.3
+345 silly placeDep node_modules/esformatter repeat-string@1.6.1 OK for: rocambole-whitespace@1.0.0 want: ^1.5.0
+346 timing idealTree:node_modules/esformatter/node_modules/rocambole-whitespace Completed in 2ms
+347 timing idealTree:node_modules/esformatter/node_modules/repeat-string Completed in 0ms
+348 timing idealTree:node_modules/esformatter/node_modules/semver Completed in 0ms
+349 silly placeDep node_modules/esformatter protochain@1.0.5 OK for: serializerr@1.0.3 want: ^1.0.5
+350 timing idealTree:node_modules/esformatter/node_modules/serializerr Completed in 1ms
+351 timing idealTree:node_modules/esformatter/node_modules/protochain Completed in 0ms
+352 timing idealTree:node_modules/esformatter/node_modules/stdin Completed in 0ms
+353 timing idealTree:node_modules/esformatter/node_modules/strip-ansi Completed in 0ms
+354 timing idealTree:node_modules/esformatter/node_modules/strip-json-comments Completed in 0ms
+355 silly placeDep node_modules/esformatter has-flag@4.0.0 OK for: supports-color@7.2.0 want: ^4.0.0
+356 timing idealTree:node_modules/esformatter/node_modules/supports-color Completed in 1ms
+357 timing idealTree:node_modules/esformatter/node_modules/has-flag Completed in 0ms
+358 timing idealTree:node_modules/esformatter/node_modules/supports-preserve-symlinks-flag Completed in 0ms
+359 timing idealTree:node_modules/esformatter/node_modules/to-fast-properties Completed in 0ms
+360 silly placeDep node_modules/esformatter os-homedir@1.0.2 OK for: user-home@2.0.0 want: ^1.0.0
+361 timing idealTree:node_modules/esformatter/node_modules/user-home Completed in 1ms
+362 timing idealTree:node_modules/esformatter/node_modules/os-homedir Completed in 0ms
+363 silly placeDep node_modules/esformatter isexe@2.0.0 OK for: which@1.3.1 want: ^2.0.0
+364 timing idealTree:node_modules/esformatter/node_modules/which Completed in 1ms
+365 timing idealTree:node_modules/esformatter/node_modules/isexe Completed in 0ms
+366 timing idealTree:node_modules/esformatter/node_modules/wrappy Completed in 0ms
+367 silly placeDep node_modules/js-beautify ini@1.3.8 OK for: config-chain@1.1.13 want: ^1.3.4
+368 silly placeDep node_modules/js-beautify proto-list@1.2.4 OK for: config-chain@1.1.13 want: ~1.2.1
+369 timing idealTree:node_modules/js-beautify/node_modules/config-chain Completed in 2ms
+370 silly placeDep node_modules/js-beautify @one-ini/wasm@0.1.1 OK for: editorconfig@1.0.4 want: 0.1.1
+371 silly placeDep node_modules/js-beautify commander@10.0.1 OK for: editorconfig@1.0.4 want: ^10.0.0
+372 silly placeDep node_modules/js-beautify minimatch@9.0.1 OK for: editorconfig@1.0.4 want: 9.0.1
+373 silly placeDep node_modules/js-beautify semver@7.5.4 OK for: editorconfig@1.0.4 want: ^7.5.3
+374 silly fetch manifest brace-expansion@^2.0.1
+375 silly fetch manifest lru-cache@^6.0.0
+376 http fetch GET 200 https://registry.npmjs.org/lru-cache 44ms (cache miss)
+377 timing idealTree:node_modules/js-beautify/node_modules/editorconfig Completed in 50ms
+378 timing idealTree:node_modules/js-beautify/node_modules/@one-ini/wasm Completed in 0ms
+379 timing idealTree:node_modules/js-beautify/node_modules/commander Completed in 0ms
+380 silly placeDep node_modules/js-beautify fs.realpath@1.0.0 OK for: glob@8.1.0 want: ^1.0.0
+381 silly placeDep node_modules/js-beautify inflight@1.0.6 OK for: glob@8.1.0 want: ^1.0.4
+382 silly placeDep node_modules/js-beautify inherits@2.0.4 OK for: glob@8.1.0 want: 2
+383 silly placeDep node_modules/js-beautify/node_modules/glob minimatch@5.1.6 OK for: glob@8.1.0 want: ^5.0.1
+384 silly placeDep node_modules/js-beautify once@1.4.0 OK for: glob@8.1.0 want: ^1.3.0
+385 timing idealTree:node_modules/js-beautify/node_modules/glob Completed in 4ms
+386 timing idealTree:node_modules/js-beautify/node_modules/fs.realpath Completed in 0ms
+387 silly placeDep node_modules/js-beautify wrappy@1.0.2 OK for: inflight@1.0.6 want: 1
+388 timing idealTree:node_modules/js-beautify/node_modules/inflight Completed in 1ms
+389 timing idealTree:node_modules/js-beautify/node_modules/inherits Completed in 0ms
+390 timing idealTree:node_modules/js-beautify/node_modules/ini Completed in 0ms
+391 silly placeDep node_modules/js-beautify brace-expansion@2.0.1 OK for: minimatch@9.0.1 want: ^2.0.1
+392 timing idealTree:node_modules/js-beautify/node_modules/minimatch Completed in 1ms
+393 silly placeDep node_modules/js-beautify balanced-match@1.0.2 OK for: brace-expansion@2.0.1 want: ^1.0.0
+394 timing idealTree:node_modules/js-beautify/node_modules/brace-expansion Completed in 0ms
+395 timing idealTree:node_modules/js-beautify/node_modules/balanced-match Completed in 0ms
+396 silly placeDep node_modules/js-beautify abbrev@1.1.1 OK for: nopt@6.0.0 want: ^1.0.0
+397 timing idealTree:node_modules/js-beautify/node_modules/nopt Completed in 0ms
+398 timing idealTree:node_modules/js-beautify/node_modules/abbrev Completed in 0ms
+399 timing idealTree:node_modules/js-beautify/node_modules/once Completed in 0ms
+400 timing idealTree:node_modules/js-beautify/node_modules/proto-list Completed in 0ms
+401 silly placeDep node_modules/js-beautify lru-cache@6.0.0 OK for: semver@7.5.4 want: ^6.0.0
+402 silly fetch manifest yallist@^4.0.0
+403 http fetch GET 200 https://registry.npmjs.org/yallist 32ms (cache miss)
+404 timing idealTree:node_modules/js-beautify/node_modules/semver Completed in 34ms
+405 silly placeDep node_modules/js-beautify yallist@4.0.0 OK for: lru-cache@6.0.0 want: ^4.0.0
+406 timing idealTree:node_modules/js-beautify/node_modules/lru-cache Completed in 1ms
+407 timing idealTree:node_modules/js-beautify/node_modules/wrappy Completed in 0ms
+408 timing idealTree:node_modules/js-beautify/node_modules/yallist Completed in 0ms
+409 silly placeDep node_modules/esformatter/node_modules/babel-traverse ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+410 timing idealTree:node_modules/esformatter/node_modules/babel-traverse/node_modules/debug Completed in 2ms
+411 timing idealTree:node_modules/esformatter/node_modules/babel-traverse/node_modules/ms Completed in 0ms
+412 timing idealTree:node_modules/esformatter/node_modules/chalk/node_modules/supports-color Completed in 0ms
+413 silly placeDep node_modules/esformatter color-convert@2.0.1 OK for: ansi-styles@4.3.0 want: ^2.0.1
+414 silly fetch manifest color-name@~1.1.4
+415 http fetch GET 200 https://registry.npmjs.org/color-name 28ms (cache miss)
+416 timing idealTree:node_modules/esformatter/node_modules/disparity/node_modules/ansi-styles Completed in 32ms
+417 silly placeDep node_modules/esformatter color-name@1.1.4 OK for: color-convert@2.0.1 want: ~1.1.4
+418 timing idealTree:node_modules/esformatter/node_modules/color-convert Completed in 1ms
+419 timing idealTree:node_modules/esformatter/node_modules/color-name Completed in 0ms
+420 silly placeDep node_modules/esformatter/node_modules/rocambole-indent ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+421 timing idealTree:node_modules/esformatter/node_modules/rocambole-indent/node_modules/debug Completed in 1ms
+422 timing idealTree:node_modules/esformatter/node_modules/rocambole-indent/node_modules/mout Completed in 0ms
+423 timing idealTree:node_modules/esformatter/node_modules/rocambole-indent/node_modules/ms Completed in 0ms
+424 silly placeDep node_modules/esformatter/node_modules/rocambole-linebreak ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+425 timing idealTree:node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/debug Completed in 1ms
+426 timing idealTree:node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/ms Completed in 0ms
+427 silly placeDep node_modules/esformatter/node_modules/rocambole-whitespace ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+428 timing idealTree:node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/debug Completed in 1ms
+429 timing idealTree:node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/ms Completed in 0ms
+430 timing idealTree:node_modules/js-beautify/node_modules/glob/node_modules/minimatch Completed in 0ms
+431 timing idealTree:buildDeps Completed in 1401ms
+432 timing idealTree:fixDepFlags Completed in 2ms
+433 timing idealTree Completed in 1412ms
+434 timing reify:loadTrees Completed in 1413ms
+435 timing reify:diffTrees Completed in 3ms
+436 silly reify moves {}
+437 timing reify:retireShallow Completed in 2ms
+438 timing reify:createSparse Completed in 22ms
+439 timing reify:loadBundles Completed in 0ms
+440 silly audit bulk request {
+440 silly audit   esformatter: [ '0.11.3' ],
+440 silly audit   'js-beautify': [ '1.14.9' ],
+440 silly audit   prettier: [ '3.0.1' ],
+440 silly audit   'acorn-to-esprima': [ '2.0.8' ],
+440 silly audit   'babel-traverse': [ '6.26.0' ],
+440 silly audit   debug: [ '4.3.4', '2.6.9' ],
+440 silly audit   disparity: [ '3.2.0' ],
+440 silly audit   'esformatter-parser': [ '1.0.0' ],
+440 silly audit   glob: [ '7.2.3', '8.1.0' ],
+440 silly audit   minimatch: [ '3.1.2', '9.0.1', '5.1.6' ],
+440 silly audit   minimist: [ '1.2.8' ],
+440 silly audit   mout: [ '1.2.4', '0.11.1' ],
+440 silly audit   'npm-run': [ '5.0.1' ],
+440 silly audit   resolve: [ '1.22.4' ],
+440 silly audit   rocambole: [ '0.7.0' ],
+440 silly audit   'rocambole-indent': [ '2.0.4' ],
+440 silly audit   'rocambole-linebreak': [ '1.0.2' ],
+440 silly audit   'rocambole-node': [ '1.0.0' ],
+440 silly audit   'rocambole-token': [ '1.2.1' ],
+440 silly audit   'rocambole-whitespace': [ '1.0.0' ],
+440 silly audit   stdin: [ '0.0.1' ],
+440 silly audit   'strip-json-comments': [ '3.1.1' ],
+440 silly audit   'supports-color': [ '7.2.0', '2.0.0' ],
+440 silly audit   'user-home': [ '2.0.0' ],
+440 silly audit   'config-chain': [ '1.1.13' ],
+440 silly audit   editorconfig: [ '1.0.4' ],
+440 silly audit   nopt: [ '6.0.0' ],
+440 silly audit   'babel-code-frame': [ '6.26.0' ],
+440 silly audit   'babel-messages': [ '6.23.0' ],
+440 silly audit   'babel-runtime': [ '6.26.0' ],
+440 silly audit   'babel-types': [ '6.26.0' ],
+440 silly audit   babylon: [ '6.18.0' ],
+440 silly audit   globals: [ '9.18.0' ],
+440 silly audit   invariant: [ '2.2.4' ],
+440 silly audit   lodash: [ '4.17.21' ],
+440 silly audit   chalk: [ '1.1.3' ],
+440 silly audit   esutils: [ '2.0.3' ],
+440 silly audit   'js-tokens': [ '3.0.2' ],
+440 silly audit   'core-js': [ '2.6.12' ],
+440 silly audit   'regenerator-runtime': [ '0.11.1' ],
+440 silly audit   'to-fast-properties': [ '1.0.3' ],
+440 silly audit   'ansi-styles': [ '2.2.1', '4.3.0' ],
+440 silly audit   'escape-string-regexp': [ '1.0.5' ],
+440 silly audit   'has-ansi': [ '2.0.0' ],
+440 silly audit   'strip-ansi': [ '3.0.1' ],
+440 silly audit   ms: [ '2.1.2', '2.0.0' ],
+440 silly audit   diff: [ '4.0.2' ],
+440 silly audit   'fs.realpath': [ '1.0.0' ],
+440 silly audit   inflight: [ '1.0.6' ],
+440 silly audit   inherits: [ '2.0.4' ],
+440 silly audit   once: [ '1.4.0' ],
+440 silly audit   'path-is-absolute': [ '1.0.1' ],
+440 silly audit   'ansi-regex': [ '2.1.1' ],
+440 silly audit   wrappy: [ '1.0.2' ],
+440 silly audit   'loose-envify': [ '1.4.0' ],
+440 silly audit   'brace-expansion': [ '1.1.11', '2.0.1' ],
+440 silly audit   'balanced-match': [ '1.0.2' ],
+440 silly audit   'concat-map': [ '0.0.1' ],
+440 silly audit   'npm-path': [ '2.0.4' ],
+440 silly audit   'npm-which': [ '3.0.1' ],
+440 silly audit   serializerr: [ '1.0.3' ],
+440 silly audit   which: [ '1.3.1' ],
+440 silly audit   commander: [ '2.20.3', '10.0.1' ],
+440 silly audit   'is-core-module': [ '2.13.0' ],
+440 silly audit   'path-parse': [ '1.0.7' ],
+440 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+440 silly audit   has: [ '1.0.3' ],
+440 silly audit   'function-bind': [ '1.1.1' ],
+440 silly audit   esprima: [ '2.7.3' ],
+440 silly audit   semver: [ '4.3.6', '7.5.4' ],
+440 silly audit   'repeat-string': [ '1.6.1' ],
+440 silly audit   protochain: [ '1.0.5' ],
+440 silly audit   'has-flag': [ '4.0.0' ],
+440 silly audit   'os-homedir': [ '1.0.2' ],
+440 silly audit   isexe: [ '2.0.0' ],
+440 silly audit   ini: [ '1.3.8' ],
+440 silly audit   'proto-list': [ '1.2.4' ],
+440 silly audit   '@one-ini/wasm': [ '0.1.1' ],
+440 silly audit   abbrev: [ '1.1.1' ],
+440 silly audit   'lru-cache': [ '6.0.0' ],
+440 silly audit   yallist: [ '4.0.0' ],
+440 silly audit   'color-convert': [ '2.0.1' ],
+440 silly audit   'color-name': [ '1.1.4' ]
+440 silly audit }
+441 silly tarball no local data for prettier@https://registry.npmjs.org/prettier/-/prettier-3.0.1.tgz. Extracting by manifest.
+442 silly tarball no local data for js-beautify@https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.9.tgz. Extracting by manifest.
+443 silly tarball no local data for yallist@https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz. Extracting by manifest.
+444 silly tarball no local data for lru-cache@https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz. Extracting by manifest.
+445 silly tarball no local data for esformatter@https://registry.npmjs.org/esformatter/-/esformatter-0.11.3.tgz. Extracting by manifest.
+446 silly tarball no local data for abbrev@https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz. Extracting by manifest.
+447 silly tarball no local data for balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz. Extracting by manifest.
+448 silly tarball no local data for brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz. Extracting by manifest.
+449 silly tarball no local data for wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz. Extracting by manifest.
+450 silly tarball no local data for once@https://registry.npmjs.org/once/-/once-1.4.0.tgz. Extracting by manifest.
+451 silly tarball no local data for inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz. Extracting by manifest.
+452 silly tarball no local data for inflight@https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz. Extracting by manifest.
+453 silly tarball no local data for fs.realpath@https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz. Extracting by manifest.
+454 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-7.5.4.tgz. Extracting by manifest.
+455 silly tarball no local data for minimatch@https://registry.npmjs.org/minimatch/-/minimatch-9.0.1.tgz. Extracting by manifest.
+456 silly tarball no local data for commander@https://registry.npmjs.org/commander/-/commander-10.0.1.tgz. Extracting by manifest.
+457 silly tarball no local data for @one-ini/wasm@https://registry.npmjs.org/@one-ini/wasm/-/wasm-0.1.1.tgz. Extracting by manifest.
+458 silly tarball no local data for proto-list@https://registry.npmjs.org/proto-list/-/proto-list-1.2.4.tgz. Extracting by manifest.
+459 silly tarball no local data for ini@https://registry.npmjs.org/ini/-/ini-1.3.8.tgz. Extracting by manifest.
+460 silly tarball no local data for nopt@https://registry.npmjs.org/nopt/-/nopt-6.0.0.tgz. Extracting by manifest.
+461 silly tarball no local data for glob@https://registry.npmjs.org/glob/-/glob-8.1.0.tgz. Extracting by manifest.
+462 silly tarball no local data for minimatch@https://registry.npmjs.org/minimatch/-/minimatch-5.1.6.tgz. Extracting by manifest.
+463 silly tarball no local data for editorconfig@https://registry.npmjs.org/editorconfig/-/editorconfig-1.0.4.tgz. Extracting by manifest.
+464 silly tarball no local data for config-chain@https://registry.npmjs.org/config-chain/-/config-chain-1.1.13.tgz. Extracting by manifest.
+465 silly tarball no local data for color-name@https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz. Extracting by manifest.
+466 silly tarball no local data for color-convert@https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz. Extracting by manifest.
+467 silly tarball no local data for isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz. Extracting by manifest.
+468 silly tarball no local data for os-homedir@https://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz. Extracting by manifest.
+469 silly tarball no local data for has-flag@https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz. Extracting by manifest.
+470 silly tarball no local data for protochain@https://registry.npmjs.org/protochain/-/protochain-1.0.5.tgz. Extracting by manifest.
+471 silly tarball no local data for repeat-string@https://registry.npmjs.org/repeat-string/-/repeat-string-1.6.1.tgz. Extracting by manifest.
+472 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-4.3.6.tgz. Extracting by manifest.
+473 silly tarball no local data for esprima@https://registry.npmjs.org/esprima/-/esprima-2.7.3.tgz. Extracting by manifest.
+474 silly tarball no local data for function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz. Extracting by manifest.
+475 silly tarball no local data for has@https://registry.npmjs.org/has/-/has-1.0.3.tgz. Extracting by manifest.
+476 silly tarball no local data for supports-preserve-symlinks-flag@https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz. Extracting by manifest.
+477 silly tarball no local data for path-parse@https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz. Extracting by manifest.
+478 silly tarball no local data for is-core-module@https://registry.npmjs.org/is-core-module/-/is-core-module-2.13.0.tgz. Extracting by manifest.
+479 silly tarball no local data for commander@https://registry.npmjs.org/commander/-/commander-2.20.3.tgz. Extracting by manifest.
+480 silly tarball no local data for which@https://registry.npmjs.org/which/-/which-1.3.1.tgz. Extracting by manifest.
+481 silly tarball no local data for serializerr@https://registry.npmjs.org/serializerr/-/serializerr-1.0.3.tgz. Extracting by manifest.
+482 silly tarball no local data for npm-which@https://registry.npmjs.org/npm-which/-/npm-which-3.0.1.tgz. Extracting by manifest.
+483 silly tarball no local data for npm-path@https://registry.npmjs.org/npm-path/-/npm-path-2.0.4.tgz. Extracting by manifest.
+484 silly tarball no local data for concat-map@https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz. Extracting by manifest.
+485 silly tarball no local data for balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz. Extracting by manifest.
+486 silly tarball no local data for brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz. Extracting by manifest.
+487 silly tarball no local data for loose-envify@https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz. Extracting by manifest.
+488 silly tarball no local data for wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz. Extracting by manifest.
+489 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz. Extracting by manifest.
+490 silly tarball no local data for path-is-absolute@https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz. Extracting by manifest.
+491 silly tarball no local data for once@https://registry.npmjs.org/once/-/once-1.4.0.tgz. Extracting by manifest.
+492 silly tarball no local data for inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz. Extracting by manifest.
+493 silly tarball no local data for inflight@https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz. Extracting by manifest.
+494 silly tarball no local data for fs.realpath@https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz. Extracting by manifest.
+495 silly tarball no local data for diff@https://registry.npmjs.org/diff/-/diff-4.0.2.tgz. Extracting by manifest.
+496 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.1.2.tgz. Extracting by manifest.
+497 silly tarball no local data for strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz. Extracting by manifest.
+498 silly tarball no local data for has-ansi@https://registry.npmjs.org/has-ansi/-/has-ansi-2.0.0.tgz. Extracting by manifest.
+499 silly tarball no local data for escape-string-regexp@https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz. Extracting by manifest.
+500 silly tarball no local data for ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz. Extracting by manifest.
+501 silly tarball no local data for to-fast-properties@https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-1.0.3.tgz. Extracting by manifest.
+502 silly tarball no local data for regenerator-runtime@https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz. Extracting by manifest.
+503 silly tarball no local data for core-js@https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz. Extracting by manifest.
+504 silly tarball no local data for js-tokens@https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz. Extracting by manifest.
+505 silly tarball no local data for esutils@https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz. Extracting by manifest.
+506 silly tarball no local data for chalk@https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz. Extracting by manifest.
+507 silly tarball no local data for supports-color@https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz. Extracting by manifest.
+508 silly tarball no local data for lodash@https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz. Extracting by manifest.
+509 silly tarball no local data for invariant@https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz. Extracting by manifest.
+510 silly tarball no local data for globals@https://registry.npmjs.org/globals/-/globals-9.18.0.tgz. Extracting by manifest.
+511 silly tarball no local data for babylon@https://registry.npmjs.org/babylon/-/babylon-6.18.0.tgz. Extracting by manifest.
+512 silly tarball no local data for babel-types@https://registry.npmjs.org/babel-types/-/babel-types-6.26.0.tgz. Extracting by manifest.
+513 silly tarball no local data for babel-runtime@https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz. Extracting by manifest.
+514 silly tarball no local data for babel-messages@https://registry.npmjs.org/babel-messages/-/babel-messages-6.23.0.tgz. Extracting by manifest.
+515 silly tarball no local data for babel-code-frame@https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.26.0.tgz. Extracting by manifest.
+516 silly tarball no local data for user-home@https://registry.npmjs.org/user-home/-/user-home-2.0.0.tgz. Extracting by manifest.
+517 silly tarball no local data for supports-color@https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz. Extracting by manifest.
+518 silly tarball no local data for strip-json-comments@https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz. Extracting by manifest.
+519 silly tarball no local data for stdin@https://registry.npmjs.org/stdin/-/stdin-0.0.1.tgz. Extracting by manifest.
+520 silly tarball no local data for rocambole-whitespace@https://registry.npmjs.org/rocambole-whitespace/-/rocambole-whitespace-1.0.0.tgz. Extracting by manifest.
+521 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+522 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+523 silly tarball no local data for rocambole-token@https://registry.npmjs.org/rocambole-token/-/rocambole-token-1.2.1.tgz. Extracting by manifest.
+524 silly tarball no local data for rocambole-node@https://registry.npmjs.org/rocambole-node/-/rocambole-node-1.0.0.tgz. Extracting by manifest.
+525 silly tarball no local data for rocambole-linebreak@https://registry.npmjs.org/rocambole-linebreak/-/rocambole-linebreak-1.0.2.tgz. Extracting by manifest.
+526 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+527 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+528 silly tarball no local data for rocambole-indent@https://registry.npmjs.org/rocambole-indent/-/rocambole-indent-2.0.4.tgz. Extracting by manifest.
+529 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+530 silly tarball no local data for mout@https://registry.npmjs.org/mout/-/mout-0.11.1.tgz. Extracting by manifest.
+531 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+532 silly tarball no local data for rocambole@https://registry.npmjs.org/rocambole/-/rocambole-0.7.0.tgz. Extracting by manifest.
+533 silly tarball no local data for resolve@https://registry.npmjs.org/resolve/-/resolve-1.22.4.tgz. Extracting by manifest.
+534 silly tarball no local data for npm-run@https://registry.npmjs.org/npm-run/-/npm-run-5.0.1.tgz. Extracting by manifest.
+535 silly tarball no local data for mout@https://registry.npmjs.org/mout/-/mout-1.2.4.tgz. Extracting by manifest.
+536 silly tarball no local data for minimist@https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz. Extracting by manifest.
+537 silly tarball no local data for minimatch@https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz. Extracting by manifest.
+538 silly tarball no local data for glob@https://registry.npmjs.org/glob/-/glob-7.2.3.tgz. Extracting by manifest.
+539 silly tarball no local data for esformatter-parser@https://registry.npmjs.org/esformatter-parser/-/esformatter-parser-1.0.0.tgz. Extracting by manifest.
+540 silly tarball no local data for disparity@https://registry.npmjs.org/disparity/-/disparity-3.2.0.tgz. Extracting by manifest.
+541 silly tarball no local data for ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz. Extracting by manifest.
+542 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.3.4.tgz. Extracting by manifest.
+543 silly tarball no local data for babel-traverse@https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.26.0.tgz. Extracting by manifest.
+544 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+545 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+546 silly tarball no local data for acorn-to-esprima@https://registry.npmjs.org/acorn-to-esprima/-/acorn-to-esprima-2.0.8.tgz. Extracting by manifest.
+547 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 277ms
+548 timing auditReport:getReport Completed in 280ms
+549 silly audit report {
+549 silly audit report   mout: [
+549 silly audit report     {
+549 silly audit report       id: 1089241,
+549 silly audit report       url: 'https://github.com/advisories/GHSA-vvv8-xw5f-3f88',
+549 silly audit report       title: 'Prototype Pollution in mout',
+549 silly audit report       severity: 'high',
+549 silly audit report       vulnerable_versions: '<=1.2.3',
+549 silly audit report       cwe: [Array],
+549 silly audit report       cvss: [Object]
+549 silly audit report     },
+549 silly audit report     {
+549 silly audit report       id: 1088767,
+549 silly audit report       url: 'https://github.com/advisories/GHSA-pc58-wgmc-hfjr',
+549 silly audit report       title: 'Prototype Pollution in mout',
+549 silly audit report       severity: 'high',
+549 silly audit report       vulnerable_versions: '<1.2.3',
+549 silly audit report       cwe: [Array],
+549 silly audit report       cvss: [Object]
+549 silly audit report     }
+549 silly audit report   ],
+549 silly audit report   semver: [
+549 silly audit report     {
+549 silly audit report       id: 1092459,
+549 silly audit report       url: 'https://github.com/advisories/GHSA-c2qf-rxjj-qqgw',
+549 silly audit report       title: 'semver vulnerable to Regular Expression Denial of Service',
+549 silly audit report       severity: 'moderate',
+549 silly audit report       vulnerable_versions: '<5.7.2',
+549 silly audit report       cwe: [Array],
+549 silly audit report       cvss: [Object]
+549 silly audit report     }
+549 silly audit report   ]
+549 silly audit report }
+550 timing metavuln:packument:mout Completed in 0ms
+551 timing metavuln:packument:semver Completed in 0ms
+552 timing metavuln:cache:get:security-advisory:mout:/nbhF/mEwaGudtG89fxRlKpTDyyjHkwNURnTk9dVURrGBcQ5Ee+eFBafWiSV3BUPbyrIZQIOXnK3UPRVoFvGUQ== Completed in 2ms
+553 timing metavuln:load:security-advisory:mout:1089241 Completed in 3ms
+554 timing metavuln:cache:get:security-advisory:mout:Y40sg8Y+Z3+x71ysbBp65PH1ZiDM7nbaNkcw5To7P5fNPMNszkYu6GP53BmAHsQ4BR+RhlftRHQUTX/Qz65apg== Completed in 5ms
+555 timing metavuln:load:security-advisory:mout:1088767 Completed in 2ms
+556 timing metavuln:cache:get:security-advisory:semver:4rAGLI77ah4GjE+TMeF3bs1i2q5PTlh8Yy3a788BL+nsbnDjtFmvZQR4wF1DxsFHGN6S44lxm3JWgPb3W5s30Q== Completed in 8ms
+557 timing metavuln:load:security-advisory:semver:1092459 Completed in 8ms
+558 http fetch GET 200 https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz 735ms (cache miss)
+559 timing reifyNode:node_modules/js-beautify/node_modules/inflight Completed in 809ms
+560 timing metavuln:cache:put:security-advisory:mout:Y40sg8Y+Z3+x71ysbBp65PH1ZiDM7nbaNkcw5To7P5fNPMNszkYu6GP53BmAHsQ4BR+RhlftRHQUTX/Qz65apg== Completed in 539ms
+561 timing metavuln:calculate:security-advisory:mout:1088767 Completed in 546ms
+562 http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 772ms (cache miss)
+563 timing reifyNode:node_modules/js-beautify/node_modules/inherits Completed in 845ms
+564 http fetch GET 200 https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz 779ms (cache miss)
+565 timing reifyNode:node_modules/js-beautify/node_modules/abbrev Completed in 845ms
+566 timing metavuln:cache:put:security-advisory:semver:4rAGLI77ah4GjE+TMeF3bs1i2q5PTlh8Yy3a788BL+nsbnDjtFmvZQR4wF1DxsFHGN6S44lxm3JWgPb3W5s30Q== Completed in 560ms
+567 timing metavuln:calculate:security-advisory:semver:1092459 Completed in 576ms
+568 http fetch GET 200 https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz 785ms (cache miss)
+569 timing reifyNode:node_modules/js-beautify/node_modules/brace-expansion Completed in 853ms
+570 http fetch GET 200 https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz 780ms (cache miss)
+571 timing reifyNode:node_modules/js-beautify/node_modules/fs.realpath Completed in 854ms
+572 http fetch GET 200 https://registry.npmjs.org/proto-list/-/proto-list-1.2.4.tgz 775ms (cache miss)
+573 timing reifyNode:node_modules/js-beautify/node_modules/proto-list Completed in 854ms
+574 http fetch GET 200 https://registry.npmjs.org/ini/-/ini-1.3.8.tgz 775ms (cache miss)
+575 timing reifyNode:node_modules/js-beautify/node_modules/ini Completed in 855ms
+576 http fetch GET 200 https://registry.npmjs.org/minimatch/-/minimatch-5.1.6.tgz 772ms (cache miss)
+577 timing reifyNode:node_modules/js-beautify/node_modules/glob/node_modules/minimatch Completed in 855ms
+578 http fetch GET 200 https://registry.npmjs.org/editorconfig/-/editorconfig-1.0.4.tgz 779ms (cache miss)
+579 timing reifyNode:node_modules/js-beautify/node_modules/editorconfig Completed in 864ms
+580 http fetch GET 200 https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz 818ms (cache miss)
+581 timing reifyNode:node_modules/js-beautify/node_modules/yallist Completed in 871ms
+582 http fetch GET 200 https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 802ms (cache miss)
+583 timing reifyNode:node_modules/js-beautify/node_modules/wrappy Completed in 871ms
+584 http fetch GET 200 https://registry.npmjs.org/npm-which/-/npm-which-3.0.1.tgz 749ms (cache miss)
+585 http fetch GET 200 https://registry.npmjs.org/once/-/once-1.4.0.tgz 812ms (cache miss)
+586 timing reifyNode:node_modules/js-beautify/node_modules/once Completed in 882ms
+587 http fetch GET 200 https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz 829ms (cache miss)
+588 timing reifyNode:node_modules/js-beautify/node_modules/lru-cache Completed in 883ms
+589 http fetch GET 200 https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz 783ms (cache miss)
+590 timing reifyNode:node_modules/esformatter/node_modules/has-flag Completed in 884ms
+591 http fetch GET 200 https://registry.npmjs.org/has/-/has-1.0.3.tgz 778ms (cache miss)
+592 timing reifyNode:node_modules/esformatter/node_modules/has Completed in 884ms
+593 http fetch GET 200 https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz 778ms (cache miss)
+594 timing reifyNode:node_modules/esformatter/node_modules/supports-preserve-symlinks-flag Completed in 885ms
+595 http fetch GET 200 https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz 777ms (cache miss)
+596 timing reifyNode:node_modules/esformatter/node_modules/path-parse Completed in 885ms
+597 http fetch GET 200 https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz 759ms (cache miss)
+598 timing reifyNode:node_modules/esformatter/node_modules/balanced-match Completed in 886ms
+599 timing reifyNode:node_modules/esformatter/node_modules/npm-which Completed in 886ms
+600 http fetch GET 200 https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 756ms (cache miss)
+601 timing reifyNode:node_modules/esformatter/node_modules/wrappy Completed in 886ms
+602 http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 753ms (cache miss)
+603 timing reifyNode:node_modules/esformatter/node_modules/inherits Completed in 887ms
+604 http fetch GET 200 https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz 758ms (cache miss)
+605 timing reifyNode:node_modules/esformatter/node_modules/loose-envify Completed in 887ms
+606 http fetch GET 200 https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz 753ms (cache miss)
+607 timing reifyNode:node_modules/esformatter/node_modules/inflight Completed in 888ms
+608 timing metavuln:cache:put:security-advisory:mout:/nbhF/mEwaGudtG89fxRlKpTDyyjHkwNURnTk9dVURrGBcQ5Ee+eFBafWiSV3BUPbyrIZQIOXnK3UPRVoFvGUQ== Completed in 614ms
+609 timing metavuln:calculate:security-advisory:mout:1089241 Completed in 619ms
+610 timing metavuln:packument:rocambole-indent Completed in 0ms
+611 http fetch GET 200 https://registry.npmjs.org/glob/-/glob-8.1.0.tgz 813ms (cache miss)
+612 timing reifyNode:node_modules/js-beautify/node_modules/glob Completed in 895ms
+613 http fetch GET 200 https://registry.npmjs.org/config-chain/-/config-chain-1.1.13.tgz 810ms (cache miss)
+614 timing reifyNode:node_modules/js-beautify/node_modules/config-chain Completed in 895ms
+615 http fetch GET 200 https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 810ms (cache miss)
+616 timing reifyNode:node_modules/esformatter/node_modules/color-name Completed in 896ms
+617 http fetch GET 200 https://registry.npmjs.org/@one-ini/wasm/-/wasm-0.1.1.tgz 818ms (cache miss)
+618 timing reifyNode:node_modules/js-beautify/node_modules/@one-ini/wasm Completed in 896ms
+619 http fetch GET 200 https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz 791ms (cache miss)
+620 timing reifyNode:node_modules/esformatter/node_modules/function-bind Completed in 896ms
+621 http fetch GET 200 https://registry.npmjs.org/which/-/which-1.3.1.tgz 785ms (cache miss)
+622 timing reifyNode:node_modules/esformatter/node_modules/which Completed in 896ms
+623 http fetch GET 200 https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz 770ms (cache miss)
+624 timing reifyNode:node_modules/esformatter/node_modules/concat-map Completed in 896ms
+625 http fetch GET 200 https://registry.npmjs.org/once/-/once-1.4.0.tgz 764ms (cache miss)
+626 timing reifyNode:node_modules/esformatter/node_modules/once Completed in 897ms
+627 http fetch GET 200 https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz 761ms (cache miss)
+628 timing reifyNode:node_modules/esformatter/node_modules/fs.realpath Completed in 897ms
+629 http fetch GET 200 https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz 756ms (cache miss)
+630 timing reifyNode:node_modules/esformatter/node_modules/escape-string-regexp Completed in 897ms
+631 http fetch GET 200 https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-1.0.3.tgz 755ms (cache miss)
+632 timing reifyNode:node_modules/esformatter/node_modules/to-fast-properties Completed in 898ms
+633 timing metavuln:cache:get:security-advisory:rocambole-indent:ehAIirTcdzlcaxASsm/egowf+0BASO4tgU8T0+DaYgY+IH787S9wzYAqLmodKnMEiTnvx+q1GOyIKfrPixMBSg== Completed in 9ms
+634 timing metavuln:load:security-advisory:rocambole-indent:/nbhF/mEwaGudtG89fxRlKpTDyyjHkwNURnTk9dVURrGBcQ5Ee+eFBafWiSV3BUPbyrIZQIOXnK3UPRVoFvGUQ== Completed in 1ms
+635 http fetch GET 200 https://registry.npmjs.org/nopt/-/nopt-6.0.0.tgz 825ms (cache miss)
+636 timing reifyNode:node_modules/js-beautify/node_modules/nopt Completed in 906ms
+637 http fetch GET 200 https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz 839ms (cache miss)
+638 timing reifyNode:node_modules/js-beautify/node_modules/balanced-match Completed in 906ms
+639 http fetch GET 200 https://registry.npmjs.org/os-homedir/-/os-homedir-1.0.2.tgz 806ms (cache miss)
+640 timing reifyNode:node_modules/esformatter/node_modules/os-homedir Completed in 907ms
+641 http fetch GET 200 https://registry.npmjs.org/protochain/-/protochain-1.0.5.tgz 805ms (cache miss)
+642 timing reifyNode:node_modules/esformatter/node_modules/protochain Completed in 907ms
+643 http fetch GET 200 https://registry.npmjs.org/is-core-module/-/is-core-module-2.13.0.tgz 797ms (cache miss)
+644 timing reifyNode:node_modules/esformatter/node_modules/is-core-module Completed in 906ms
+645 http fetch GET 200 https://registry.npmjs.org/npm-path/-/npm-path-2.0.4.tgz 781ms (cache miss)
+646 http fetch GET 200 https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 829ms (cache miss)
+647 timing reifyNode:node_modules/esformatter/node_modules/color-convert Completed in 918ms
+648 http fetch GET 200 https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 819ms (cache miss)
+649 timing reifyNode:node_modules/esformatter/node_modules/isexe Completed in 918ms
+650 http fetch GET 200 https://registry.npmjs.org/repeat-string/-/repeat-string-1.6.1.tgz 816ms (cache miss)
+651 timing reifyNode:node_modules/esformatter/node_modules/repeat-string Completed in 918ms
+652 timing reifyNode:node_modules/esformatter/node_modules/npm-path Completed in 918ms
+653 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.2.tgz 780ms (cache miss)
+654 timing reifyNode:node_modules/esformatter/node_modules/ms Completed in 918ms
+655 http fetch GET 200 https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz 751ms (cache miss)
+656 timing reifyNode:node_modules/esformatter/node_modules/supports-color Completed in 919ms
+657 http fetch GET 200 https://registry.npmjs.org/serializerr/-/serializerr-1.0.3.tgz 812ms (cache miss)
+658 timing reifyNode:node_modules/esformatter/node_modules/serializerr Completed in 924ms
+659 http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.2.1.tgz 783ms (cache miss)
+660 timing reifyNode:node_modules/esformatter/node_modules/ansi-styles Completed in 925ms
+661 http fetch GET 200 https://registry.npmjs.org/has-ansi/-/has-ansi-2.0.0.tgz 785ms (cache miss)
+662 timing reifyNode:node_modules/esformatter/node_modules/has-ansi Completed in 925ms
+663 http fetch GET 200 https://registry.npmjs.org/rocambole-whitespace/-/rocambole-whitespace-1.0.0.tgz 748ms (cache miss)
+664 timing reifyNode:node_modules/esformatter/node_modules/rocambole-whitespace Completed in 928ms
+665 http fetch GET 200 https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz 780ms (cache miss)
+666 timing reifyNode:node_modules/esformatter/node_modules/regenerator-runtime Completed in 932ms
+667 http fetch GET 200 https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz 778ms (cache miss)
+668 timing reifyNode:node_modules/esformatter/node_modules/js-tokens Completed in 933ms
+669 http fetch GET 200 https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz 775ms (cache miss)
+670 timing reifyNode:node_modules/esformatter/node_modules/chalk/node_modules/supports-color Completed in 932ms
+671 http fetch GET 200 https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz 773ms (cache miss)
+672 timing reifyNode:node_modules/esformatter/node_modules/invariant Completed in 932ms
+673 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz 807ms (cache miss)
+674 timing reifyNode:node_modules/esformatter/node_modules/ansi-regex Completed in 938ms
+675 http fetch GET 200 https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz 806ms (cache miss)
+676 timing reifyNode:node_modules/esformatter/node_modules/path-is-absolute Completed in 938ms
+677 http fetch GET 200 https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.26.0.tgz 776ms (cache miss)
+678 timing reifyNode:node_modules/esformatter/node_modules/babel-code-frame Completed in 941ms
+679 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz 804ms (cache miss)
+680 timing reifyNode:node_modules/esformatter/node_modules/strip-ansi Completed in 943ms
+681 http fetch GET 200 https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz 779ms (cache miss)
+682 http fetch GET 200 https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz 765ms (cache miss)
+683 timing reifyNode:node_modules/esformatter/node_modules/strip-json-comments Completed in 943ms
+684 http fetch GET 200 https://registry.npmjs.org/babel-messages/-/babel-messages-6.23.0.tgz 779ms (cache miss)
+685 timing reifyNode:node_modules/esformatter/node_modules/babel-messages Completed in 943ms
+686 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 755ms (cache miss)
+687 timing reifyNode:node_modules/esformatter/node_modules/rocambole-indent/node_modules/ms Completed in 944ms
+688 http fetch GET 200 https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz 821ms (cache miss)
+689 timing reifyNode:node_modules/esformatter/node_modules/brace-expansion Completed in 949ms
+690 http fetch GET 200 https://registry.npmjs.org/user-home/-/user-home-2.0.0.tgz 783ms (cache miss)
+691 timing reifyNode:node_modules/esformatter/node_modules/user-home Completed in 949ms
+692 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.3.4.tgz 740ms (cache miss)
+693 timing reifyNode:node_modules/esformatter/node_modules/debug Completed in 951ms
+694 http fetch GET 200 https://registry.npmjs.org/rocambole-linebreak/-/rocambole-linebreak-1.0.2.tgz 768ms (cache miss)
+695 timing reifyNode:node_modules/esformatter/node_modules/rocambole-linebreak Completed in 953ms
+696 http fetch GET 200 https://registry.npmjs.org/acorn-to-esprima/-/acorn-to-esprima-2.0.8.tgz 737ms (cache miss)
+697 timing reifyNode:node_modules/esformatter/node_modules/acorn-to-esprima Completed in 953ms
+698 http fetch GET 200 https://registry.npmjs.org/commander/-/commander-2.20.3.tgz 845ms (cache miss)
+699 timing reifyNode:node_modules/esformatter/node_modules/commander Completed in 955ms
+700 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 769ms (cache miss)
+701 timing reifyNode:node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/ms Completed in 955ms
+702 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 742ms (cache miss)
+703 timing reifyNode:node_modules/esformatter/node_modules/babel-traverse/node_modules/ms Completed in 955ms
+704 http fetch GET 200 https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz 803ms (cache miss)
+705 timing reifyNode:node_modules/esformatter/node_modules/chalk Completed in 959ms
+706 http fetch GET 200 https://registry.npmjs.org/globals/-/globals-9.18.0.tgz 800ms (cache miss)
+707 timing reifyNode:node_modules/esformatter/node_modules/globals Completed in 960ms
+708 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 779ms (cache miss)
+709 timing reifyNode:node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/ms Completed in 960ms
+710 http fetch GET 200 https://registry.npmjs.org/rocambole-indent/-/rocambole-indent-2.0.4.tgz 773ms (cache miss)
+711 timing reifyNode:node_modules/esformatter/node_modules/rocambole-indent Completed in 961ms
+712 http fetch GET 200 https://registry.npmjs.org/npm-run/-/npm-run-5.0.1.tgz 768ms (cache miss)
+713 timing reifyNode:node_modules/esformatter/node_modules/npm-run Completed in 961ms
+714 http fetch GET 200 https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz 766ms (cache miss)
+715 http fetch GET 200 https://registry.npmjs.org/esformatter-parser/-/esformatter-parser-1.0.0.tgz 753ms (cache miss)
+716 timing reifyNode:node_modules/esformatter/node_modules/esformatter-parser Completed in 961ms
+717 http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 752ms (cache miss)
+718 timing reifyNode:node_modules/esformatter/node_modules/disparity/node_modules/ansi-styles Completed in 962ms
+719 http fetch GET 200 https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz 809ms (cache miss)
+720 timing reifyNode:node_modules/esformatter/node_modules/esutils Completed in 964ms
+721 http fetch GET 200 https://registry.npmjs.org/rocambole-token/-/rocambole-token-1.2.1.tgz 782ms (cache miss)
+722 timing reifyNode:node_modules/esformatter/node_modules/rocambole-token Completed in 965ms
+723 http fetch GET 200 https://registry.npmjs.org/rocambole-node/-/rocambole-node-1.0.0.tgz 781ms (cache miss)
+724 timing reifyNode:node_modules/esformatter/node_modules/rocambole-node Completed in 966ms
+725 http fetch GET 200 https://registry.npmjs.org/stdin/-/stdin-0.0.1.tgz 787ms (cache miss)
+726 timing reifyNode:node_modules/esformatter/node_modules/stdin Completed in 966ms
+727 http fetch GET 200 https://registry.npmjs.org/disparity/-/disparity-3.2.0.tgz 757ms (cache miss)
+728 timing reifyNode:node_modules/esformatter/node_modules/disparity Completed in 966ms
+729 http fetch GET 200 https://registry.npmjs.org/esprima/-/esprima-2.7.3.tgz 865ms (cache miss)
+730 timing reifyNode:node_modules/esformatter/node_modules/esprima Completed in 978ms
+731 http fetch GET 200 https://registry.npmjs.org/glob/-/glob-7.2.3.tgz 772ms (cache miss)
+732 timing reifyNode:node_modules/esformatter/node_modules/glob Completed in 979ms
+733 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 795ms (cache miss)
+734 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 800ms (cache miss)
+735 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 795ms (cache miss)
+736 http fetch GET 200 https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz 780ms (cache miss)
+737 timing reifyNode:node_modules/esformatter/node_modules/minimatch Completed in 985ms
+738 timing reifyNode:node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/debug Completed in 988ms
+739 timing reifyNode:node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/debug Completed in 991ms
+740 timing reifyNode:node_modules/esformatter/node_modules/rocambole-indent/node_modules/debug Completed in 991ms
+741 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 777ms (cache miss)
+742 timing reifyNode:node_modules/esformatter/node_modules/babel-traverse/node_modules/debug Completed in 996ms
+743 timing metavuln:cache:put:security-advisory:rocambole-indent:ehAIirTcdzlcaxASsm/egowf+0BASO4tgU8T0+DaYgY+IH787S9wzYAqLmodKnMEiTnvx+q1GOyIKfrPixMBSg== Completed in 109ms
+744 timing metavuln:calculate:security-advisory:rocambole-indent:/nbhF/mEwaGudtG89fxRlKpTDyyjHkwNURnTk9dVURrGBcQ5Ee+eFBafWiSV3BUPbyrIZQIOXnK3UPRVoFvGUQ== Completed in 119ms
+745 timing metavuln:packument:rocambole-linebreak Completed in 0ms
+746 timing metavuln:cache:get:security-advisory:rocambole-linebreak:AshRBwB6kHb6LjCO4UxHInw+xDZmsWwt6izlXjZqfmd0CtGGw6pgd0Aml+0sJlecRSDw+OZKC8Sf3ffQVoJSrw== Completed in 8ms
+747 timing metavuln:load:security-advisory:rocambole-linebreak:4rAGLI77ah4GjE+TMeF3bs1i2q5PTlh8Yy3a788BL+nsbnDjtFmvZQR4wF1DxsFHGN6S44lxm3JWgPb3W5s30Q== Completed in 1ms
+748 http fetch GET 200 https://registry.npmjs.org/commander/-/commander-10.0.1.tgz 946ms (cache miss)
+749 timing reifyNode:node_modules/js-beautify/node_modules/commander Completed in 1023ms
+750 timing reifyNode:node_modules/esformatter/node_modules/minimist Completed in 1027ms
+751 http fetch GET 200 https://registry.npmjs.org/babylon/-/babylon-6.18.0.tgz 870ms (cache miss)
+752 timing reifyNode:node_modules/esformatter/node_modules/babylon Completed in 1032ms
+753 http fetch GET 200 https://registry.npmjs.org/babel-types/-/babel-types-6.26.0.tgz 870ms (cache miss)
+754 timing reifyNode:node_modules/esformatter/node_modules/babel-types Completed in 1032ms
+755 http fetch GET 200 https://registry.npmjs.org/semver/-/semver-4.3.6.tgz 951ms (cache miss)
+756 timing reifyNode:node_modules/esformatter/node_modules/semver Completed in 1054ms
+757 timing metavuln:cache:put:security-advisory:rocambole-linebreak:AshRBwB6kHb6LjCO4UxHInw+xDZmsWwt6izlXjZqfmd0CtGGw6pgd0Aml+0sJlecRSDw+OZKC8Sf3ffQVoJSrw== Completed in 70ms
+758 timing metavuln:calculate:security-advisory:rocambole-linebreak:4rAGLI77ah4GjE+TMeF3bs1i2q5PTlh8Yy3a788BL+nsbnDjtFmvZQR4wF1DxsFHGN6S44lxm3JWgPb3W5s30Q== Completed in 79ms
+759 timing auditReport:init Completed in 819ms
+760 timing reify:audit Completed in 1100ms
+761 http fetch GET 200 https://registry.npmjs.org/rocambole/-/rocambole-0.7.0.tgz 905ms (cache miss)
+762 timing reifyNode:node_modules/esformatter/node_modules/rocambole Completed in 1096ms
+763 http fetch GET 200 https://registry.npmjs.org/semver/-/semver-7.5.4.tgz 1037ms (cache miss)
+764 timing reifyNode:node_modules/js-beautify/node_modules/semver Completed in 1112ms
+765 http fetch GET 200 https://registry.npmjs.org/diff/-/diff-4.0.2.tgz 976ms (cache miss)
+766 timing reifyNode:node_modules/esformatter/node_modules/diff Completed in 1113ms
+767 http fetch GET 200 https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.26.0.tgz 907ms (cache miss)
+768 timing reifyNode:node_modules/esformatter/node_modules/babel-traverse Completed in 1119ms
+769 http fetch GET 200 https://registry.npmjs.org/minimatch/-/minimatch-9.0.1.tgz 1056ms (cache miss)
+770 timing reifyNode:node_modules/js-beautify/node_modules/minimatch Completed in 1135ms
+771 http fetch GET 200 https://registry.npmjs.org/esformatter/-/esformatter-0.11.3.tgz 1083ms (cache miss)
+772 timing reifyNode:node_modules/esformatter Completed in 1148ms
+773 http fetch GET 200 https://registry.npmjs.org/js-beautify/-/js-beautify-1.14.9.tgz 1168ms (cache miss)
+774 timing reifyNode:node_modules/js-beautify Completed in 1225ms
+775 http fetch GET 200 https://registry.npmjs.org/resolve/-/resolve-1.22.4.tgz 1127ms (cache miss)
+776 timing reifyNode:node_modules/esformatter/node_modules/resolve Completed in 1322ms
+777 timing reifyNode:node_modules/esformatter/node_modules/babel-runtime Completed in 1369ms
+778 http fetch GET 200 https://registry.npmjs.org/mout/-/mout-0.11.1.tgz 1509ms (cache miss)
+779 timing reifyNode:node_modules/esformatter/node_modules/rocambole-indent/node_modules/mout Completed in 1702ms
+780 http fetch GET 200 https://registry.npmjs.org/mout/-/mout-1.2.4.tgz 1516ms (cache miss)
+781 timing reifyNode:node_modules/esformatter/node_modules/mout Completed in 1711ms
+782 http fetch GET 200 https://registry.npmjs.org/prettier/-/prettier-3.0.1.tgz 1680ms (cache miss)
+783 timing reifyNode:node_modules/prettier Completed in 1732ms
+784 http fetch GET 200 https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz 1740ms (cache miss)
+785 timing reifyNode:node_modules/esformatter/node_modules/lodash Completed in 1899ms
+786 http fetch GET 200 https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz 1888ms (cache miss)
+787 warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+788 timing reifyNode:node_modules/esformatter/node_modules/core-js Completed in 2043ms
+789 timing reify:unpack Completed in 2045ms
+790 timing reify:unretire Completed in 1ms
+791 timing build:queue Completed in 4ms
+792 timing build:link:node_modules/esformatter Completed in 6ms
+793 timing build:link:node_modules/js-beautify Completed in 5ms
+794 timing build:link:node_modules/prettier Completed in 5ms
+795 timing build:link:node_modules/esformatter/node_modules/babylon Completed in 5ms
+796 timing build:link:node_modules/js-beautify/node_modules/editorconfig Completed in 4ms
+797 timing build:link:node_modules/esformatter/node_modules/disparity Completed in 5ms
+798 timing build:link:node_modules/esformatter/node_modules/esprima Completed in 5ms
+799 timing build:link:node_modules/esformatter/node_modules/loose-envify Completed in 5ms
+800 timing build:link:node_modules/esformatter/node_modules/npm-path Completed in 5ms
+801 timing build:link:node_modules/esformatter/node_modules/npm-run Completed in 5ms
+802 timing build:link:node_modules/esformatter/node_modules/npm-which Completed in 5ms
+803 timing build:link:node_modules/esformatter/node_modules/resolve Completed in 5ms
+804 timing build:link:node_modules/esformatter/node_modules/semver Completed in 5ms
+805 timing build:link:node_modules/esformatter/node_modules/which Completed in 5ms
+806 timing build:link:node_modules/js-beautify/node_modules/nopt Completed in 5ms
+807 timing build:link:node_modules/js-beautify/node_modules/semver Completed in 5ms
+808 timing build:link Completed in 7ms
+809 info run core-js@2.6.12 postinstall node_modules/esformatter/node_modules/core-js node -e "try{require('./postinstall')}catch(e){}"
+810 info run core-js@2.6.12 postinstall { code: 0, signal: null }
+811 timing build:run:postinstall:node_modules/esformatter/node_modules/core-js Completed in 54ms
+812 timing build:run:postinstall Completed in 54ms
+813 timing build:deps Completed in 65ms
+814 timing build Completed in 66ms
+815 timing reify:build Completed in 66ms
+816 timing reify:trash Completed in 1ms
+817 timing reify Completed in 3566ms
+818 silly ADD node_modules/prettier
+819 silly ADD node_modules/js-beautify
+820 silly ADD node_modules/js-beautify/node_modules/yallist
+821 silly ADD node_modules/js-beautify/node_modules/lru-cache
+822 silly ADD node_modules/js-beautify/node_modules/abbrev
+823 silly ADD node_modules/js-beautify/node_modules/balanced-match
+824 silly ADD node_modules/js-beautify/node_modules/brace-expansion
+825 silly ADD node_modules/js-beautify/node_modules/wrappy
+826 silly ADD node_modules/js-beautify/node_modules/once
+827 silly ADD node_modules/js-beautify/node_modules/inherits
+828 silly ADD node_modules/js-beautify/node_modules/inflight
+829 silly ADD node_modules/js-beautify/node_modules/fs.realpath
+830 silly ADD node_modules/js-beautify/node_modules/semver
+831 silly ADD node_modules/js-beautify/node_modules/minimatch
+832 silly ADD node_modules/js-beautify/node_modules/commander
+833 silly ADD node_modules/js-beautify/node_modules/@one-ini/wasm
+834 silly ADD node_modules/js-beautify/node_modules/proto-list
+835 silly ADD node_modules/js-beautify/node_modules/ini
+836 silly ADD node_modules/js-beautify/node_modules/nopt
+837 silly ADD node_modules/js-beautify/node_modules/glob
+838 silly ADD node_modules/js-beautify/node_modules/glob/node_modules/minimatch
+839 silly ADD node_modules/js-beautify/node_modules/editorconfig
+840 silly ADD node_modules/js-beautify/node_modules/config-chain
+841 silly ADD node_modules/esformatter
+842 silly ADD node_modules/esformatter/node_modules/color-name
+843 silly ADD node_modules/esformatter/node_modules/color-convert
+844 silly ADD node_modules/esformatter/node_modules/isexe
+845 silly ADD node_modules/esformatter/node_modules/os-homedir
+846 silly ADD node_modules/esformatter/node_modules/has-flag
+847 silly ADD node_modules/esformatter/node_modules/protochain
+848 silly ADD node_modules/esformatter/node_modules/repeat-string
+849 silly ADD node_modules/esformatter/node_modules/semver
+850 silly ADD node_modules/esformatter/node_modules/esprima
+851 silly ADD node_modules/esformatter/node_modules/function-bind
+852 silly ADD node_modules/esformatter/node_modules/has
+853 silly ADD node_modules/esformatter/node_modules/supports-preserve-symlinks-flag
+854 silly ADD node_modules/esformatter/node_modules/path-parse
+855 silly ADD node_modules/esformatter/node_modules/is-core-module
+856 silly ADD node_modules/esformatter/node_modules/commander
+857 silly ADD node_modules/esformatter/node_modules/which
+858 silly ADD node_modules/esformatter/node_modules/serializerr
+859 silly ADD node_modules/esformatter/node_modules/npm-which
+860 silly ADD node_modules/esformatter/node_modules/npm-path
+861 silly ADD node_modules/esformatter/node_modules/concat-map
+862 silly ADD node_modules/esformatter/node_modules/balanced-match
+863 silly ADD node_modules/esformatter/node_modules/brace-expansion
+864 silly ADD node_modules/esformatter/node_modules/loose-envify
+865 silly ADD node_modules/esformatter/node_modules/wrappy
+866 silly ADD node_modules/esformatter/node_modules/ansi-regex
+867 silly ADD node_modules/esformatter/node_modules/path-is-absolute
+868 silly ADD node_modules/esformatter/node_modules/once
+869 silly ADD node_modules/esformatter/node_modules/inherits
+870 silly ADD node_modules/esformatter/node_modules/inflight
+871 silly ADD node_modules/esformatter/node_modules/fs.realpath
+872 silly ADD node_modules/esformatter/node_modules/diff
+873 silly ADD node_modules/esformatter/node_modules/ms
+874 silly ADD node_modules/esformatter/node_modules/strip-ansi
+875 silly ADD node_modules/esformatter/node_modules/has-ansi
+876 silly ADD node_modules/esformatter/node_modules/escape-string-regexp
+877 silly ADD node_modules/esformatter/node_modules/ansi-styles
+878 silly ADD node_modules/esformatter/node_modules/to-fast-properties
+879 silly ADD node_modules/esformatter/node_modules/regenerator-runtime
+880 silly ADD node_modules/esformatter/node_modules/core-js
+881 silly ADD node_modules/esformatter/node_modules/js-tokens
+882 silly ADD node_modules/esformatter/node_modules/esutils
+883 silly ADD node_modules/esformatter/node_modules/chalk
+884 silly ADD node_modules/esformatter/node_modules/chalk/node_modules/supports-color
+885 silly ADD node_modules/esformatter/node_modules/lodash
+886 silly ADD node_modules/esformatter/node_modules/invariant
+887 silly ADD node_modules/esformatter/node_modules/globals
+888 silly ADD node_modules/esformatter/node_modules/babylon
+889 silly ADD node_modules/esformatter/node_modules/babel-types
+890 silly ADD node_modules/esformatter/node_modules/babel-runtime
+891 silly ADD node_modules/esformatter/node_modules/babel-messages
+892 silly ADD node_modules/esformatter/node_modules/babel-code-frame
+893 silly ADD node_modules/esformatter/node_modules/user-home
+894 silly ADD node_modules/esformatter/node_modules/supports-color
+895 silly ADD node_modules/esformatter/node_modules/strip-json-comments
+896 silly ADD node_modules/esformatter/node_modules/stdin
+897 silly ADD node_modules/esformatter/node_modules/rocambole-whitespace
+898 silly ADD node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/ms
+899 silly ADD node_modules/esformatter/node_modules/rocambole-whitespace/node_modules/debug
+900 silly ADD node_modules/esformatter/node_modules/rocambole-token
+901 silly ADD node_modules/esformatter/node_modules/rocambole-node
+902 silly ADD node_modules/esformatter/node_modules/rocambole-linebreak
+903 silly ADD node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/ms
+904 silly ADD node_modules/esformatter/node_modules/rocambole-linebreak/node_modules/debug
+905 silly ADD node_modules/esformatter/node_modules/rocambole-indent
+906 silly ADD node_modules/esformatter/node_modules/rocambole-indent/node_modules/ms
+907 silly ADD node_modules/esformatter/node_modules/rocambole-indent/node_modules/mout
+908 silly ADD node_modules/esformatter/node_modules/rocambole-indent/node_modules/debug
+909 silly ADD node_modules/esformatter/node_modules/rocambole
+910 silly ADD node_modules/esformatter/node_modules/resolve
+911 silly ADD node_modules/esformatter/node_modules/npm-run
+912 silly ADD node_modules/esformatter/node_modules/mout
+913 silly ADD node_modules/esformatter/node_modules/minimist
+914 silly ADD node_modules/esformatter/node_modules/minimatch
+915 silly ADD node_modules/esformatter/node_modules/glob
+916 silly ADD node_modules/esformatter/node_modules/esformatter-parser
+917 silly ADD node_modules/esformatter/node_modules/disparity
+918 silly ADD node_modules/esformatter/node_modules/disparity/node_modules/ansi-styles
+919 silly ADD node_modules/esformatter/node_modules/debug
+920 silly ADD node_modules/esformatter/node_modules/babel-traverse
+921 silly ADD node_modules/esformatter/node_modules/babel-traverse/node_modules/ms
+922 silly ADD node_modules/esformatter/node_modules/babel-traverse/node_modules/debug
+923 silly ADD node_modules/esformatter/node_modules/acorn-to-esprima
+924 timing command:install Completed in 3575ms
+925 verbose exit 0
+926 timing npm Completed in 3690ms
+927 info ok

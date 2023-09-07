@@ -1,0 +1,15 @@
+#ifndef EXTCONF_H
+#define EXTCONF_H
+#define HAVE_FFI_H 1
+#define RUBY_LIBFFI_MODVERSION 3000013
+#define HAVE_FFI_PREP_CIF_VAR 1
+#define HAVE_SYS_MMAN_H 1
+#define HAVE_DLFCN_H 1
+#define HAVE_DLOPEN 1
+#define HAVE_DLCLOSE 1
+#define HAVE_DLSYM 1
+#define HAVE_DLERROR 1
+#define SIGNEDNESS_OF_SIZE_T +1
+#define HAVE_RUBY_MEMORY_VIEW_H 1
+#define HAVE_TYPE_RB_MEMORY_VIEW_T 1
+#endif

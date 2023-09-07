@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"assets:ETI"Rails::Application#assets;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"3Returns Sprockets::Environment for app config.;T:
+@fileI"lib/sprockets/railtie.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Rails::Application;TcRDoc::NormalClass0

@@ -1,0 +1,35 @@
+[2023-08-11 16:19:39] __rvm_set_executable
+__rvm_set_executable () 
+{ 
+    for __file in "$@";
+    do
+        [[ -x "${__file}" ]] || chmod +x "${__file}";
+    done
+}
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+PATH=/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+command(13): __rvm_set_executable /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/bundle /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/bundler /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/erb /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/gem /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/irb /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/racc /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rake /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rbs /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rdoc /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ri /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ruby /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/typeprof
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/bundle ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/bundler ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/erb ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/gem ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/irb ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/racc ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rake ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rbs ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/rdoc ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ri ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ruby ]]
+++ for __file in '"$@"'
+++ [[ -x /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/typeprof ]]

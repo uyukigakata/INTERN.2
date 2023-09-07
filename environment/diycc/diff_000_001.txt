@@ -1,0 +1,31 @@
+diff -ur step000/lex.py step001/lex.py
+--- step000/lex.py	2022-08-24 08:41:16.000000000 +0000
++++ step001/lex.py	2022-06-27 20:30:34.000000000 +0000
+@@ -3,6 +3,9 @@
+ ##トークンの定義
+ tokens = (
+     'NUMBER',
++
++    'SEMI',
++    'RETURN'
+ )
+ 
+ ## トークンのパターン
+@@ -10,6 +13,8 @@
+ ## r'\d+' は r'' はraw文字列を意味する。 \d+ は 正規表現で \d(数字) の +(1個以上の繰り返し)
+ t_NUMBER = r'\d+'
+ 
++t_SEMI   = ';'
++t_RETURN = 'return'
+ 
+ ## space と \t は igonore(無視)
+ t_ignore = ' \t'
+@@ -31,7 +36,7 @@
+ if __name__ == '__main__':  
+     # ここからテスト
+     data = '''
+-    100
++    return 49;
+     '''
+     lexer.input(data)    
+     while True:

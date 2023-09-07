@@ -1,0 +1,203 @@
+[2023-08-11 16:15:42] requirements_centos_libs_install
+requirements_centos_libs_install () 
+{ 
+    __rvm_try_sudo yum install -y "$@" || return $?
+}
+current path: /home/ec2-user
+PATH=/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+command(7): requirements_centos_libs_install libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel
+++ __rvm_try_sudo yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel
+++ typeset -a command_to_run
+++ typeset sudo_path sbin_path missing_paths
+++ command_to_run=("$@")
+++ ((  UID == 0  ))
+++ case "$rvm_autolibs_flag_number" in
+++ is_a_function __rvm_sudo
+++ typeset -f __rvm_sudo
+++ missing_paths=
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /sbin ]]
+++ [[ :/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin: != *\:\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/sbin ]]
+++ [[ :/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin: != *\:\/\u\s\r\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/local/sbin ]]
+++ [[ :/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin: != *\:\/\u\s\r\/\l\o\c\a\l\/\s\b\i\n\:* ]]
+++ [[ -n '' ]]
+++ command_to_run=(__rvm_sudo -p "%p password required for '$*': " "${command_to_run[@]}")
+++ __rvm_sudo -p '%p password required for '\''yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel'\'': ' yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel
+++ command sudo -p '%p password required for '\''yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel'\'': ' yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel
+++ sudo -p '%p password required for '\''yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel'\'': ' yum install -y libffi-devel readline-devel ruby sqlite-devel libyaml-devel openssl-devel
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+244 packages excluded due to repository priority protections
+Resolving Dependencies
+--> Running transaction check
+---> Package libffi-devel.x86_64 0:3.0.13-18.amzn2.0.2 will be installed
+---> Package libyaml-devel.x86_64 0:0.1.4-11.amzn2.0.2 will be installed
+---> Package openssl-devel.x86_64 1:1.0.2k-24.amzn2.0.7 will be installed
+--> Processing Dependency: krb5-devel(x86-64) for package: 1:openssl-devel-1.0.2k-24.amzn2.0.7.x86_64
+---> Package readline-devel.x86_64 0:6.2-10.amzn2.0.2 will be installed
+--> Processing Dependency: ncurses-devel for package: readline-devel-6.2-10.amzn2.0.2.x86_64
+---> Package ruby.x86_64 0:2.0.0.648-36.amzn2.0.5 will be installed
+--> Processing Dependency: ruby-libs(x86-64) = 2.0.0.648-36.amzn2.0.5 for package: ruby-2.0.0.648-36.amzn2.0.5.x86_64
+--> Processing Dependency: rubygem(bigdecimal) >= 1.2.0 for package: ruby-2.0.0.648-36.amzn2.0.5.x86_64
+--> Processing Dependency: ruby(rubygems) >= 2.0.14.1 for package: ruby-2.0.0.648-36.amzn2.0.5.x86_64
+--> Processing Dependency: libruby.so.2.0()(64bit) for package: ruby-2.0.0.648-36.amzn2.0.5.x86_64
+---> Package sqlite-devel.x86_64 0:3.7.17-8.amzn2.1.2 will be installed
+--> Running transaction check
+---> Package krb5-devel.x86_64 0:1.15.1-55.amzn2.2.5 will be installed
+--> Processing Dependency: libkadm5(x86-64) = 1.15.1-55.amzn2.2.5 for package: krb5-devel-1.15.1-55.amzn2.2.5.x86_64
+--> Processing Dependency: libverto-devel for package: krb5-devel-1.15.1-55.amzn2.2.5.x86_64
+--> Processing Dependency: libselinux-devel for package: krb5-devel-1.15.1-55.amzn2.2.5.x86_64
+--> Processing Dependency: libcom_err-devel for package: krb5-devel-1.15.1-55.amzn2.2.5.x86_64
+--> Processing Dependency: keyutils-libs-devel for package: krb5-devel-1.15.1-55.amzn2.2.5.x86_64
+---> Package ncurses-devel.x86_64 0:6.0-8.20170212.amzn2.1.5 will be installed
+--> Processing Dependency: ncurses-c++-libs(x86-64) = 6.0-8.20170212.amzn2.1.5 for package: ncurses-devel-6.0-8.20170212.amzn2.1.5.x86_64
+--> Processing Dependency: libncurses++w.so.6()(64bit) for package: ncurses-devel-6.0-8.20170212.amzn2.1.5.x86_64
+--> Processing Dependency: libncurses++.so.6()(64bit) for package: ncurses-devel-6.0-8.20170212.amzn2.1.5.x86_64
+---> Package ruby-libs.x86_64 0:2.0.0.648-36.amzn2.0.5 will be installed
+---> Package rubygem-bigdecimal.x86_64 0:1.2.0-36.amzn2.0.5 will be installed
+---> Package rubygems.noarch 0:2.0.14.1-36.amzn2.0.5 will be installed
+--> Processing Dependency: rubygem(rdoc) >= 4.0.0 for package: rubygems-2.0.14.1-36.amzn2.0.5.noarch
+--> Processing Dependency: rubygem(psych) >= 2.0.0 for package: rubygems-2.0.14.1-36.amzn2.0.5.noarch
+--> Processing Dependency: rubygem(io-console) >= 0.4.2 for package: rubygems-2.0.14.1-36.amzn2.0.5.noarch
+--> Running transaction check
+---> Package keyutils-libs-devel.x86_64 0:1.5.8-3.amzn2.0.2 will be installed
+---> Package libcom_err-devel.x86_64 0:1.42.9-19.amzn2.0.1 will be installed
+---> Package libkadm5.x86_64 0:1.15.1-55.amzn2.2.5 will be installed
+---> Package libselinux-devel.x86_64 0:2.5-12.amzn2.0.2 will be installed
+--> Processing Dependency: libsepol-devel(x86-64) >= 2.5-6 for package: libselinux-devel-2.5-12.amzn2.0.2.x86_64
+--> Processing Dependency: pkgconfig(libsepol) for package: libselinux-devel-2.5-12.amzn2.0.2.x86_64
+---> Package libverto-devel.x86_64 0:0.2.5-4.amzn2.0.2 will be installed
+---> Package ncurses-c++-libs.x86_64 0:6.0-8.20170212.amzn2.1.5 will be installed
+---> Package rubygem-io-console.x86_64 0:0.4.2-36.amzn2.0.5 will be installed
+---> Package rubygem-psych.x86_64 0:2.0.0-36.amzn2.0.5 will be installed
+---> Package rubygem-rdoc.noarch 0:4.0.0-36.amzn2.0.5 will be installed
+--> Processing Dependency: ruby(irb) = 2.0.0.648 for package: rubygem-rdoc-4.0.0-36.amzn2.0.5.noarch
+--> Processing Dependency: rubygem(json) >= 1.7.7 for package: rubygem-rdoc-4.0.0-36.amzn2.0.5.noarch
+--> Running transaction check
+---> Package libsepol-devel.x86_64 0:2.5-8.1.amzn2.0.2 will be installed
+---> Package ruby-irb.noarch 0:2.0.0.648-36.amzn2.0.5 will be installed
+---> Package rubygem-json.x86_64 0:1.7.7-36.amzn2.0.5 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch     Version                      Repository    Size
+================================================================================
+Installing:
+ libffi-devel          x86_64   3.0.13-18.amzn2.0.2          amzn2-core    23 k
+ libyaml-devel         x86_64   0.1.4-11.amzn2.0.2           amzn2-core    82 k
+ openssl-devel         x86_64   1:1.0.2k-24.amzn2.0.7        amzn2-core   1.5 M
+ readline-devel        x86_64   6.2-10.amzn2.0.2             amzn2-core   139 k
+ ruby                  x86_64   2.0.0.648-36.amzn2.0.5       amzn2-core    74 k
+ sqlite-devel          x86_64   3.7.17-8.amzn2.1.2           amzn2-core   105 k
+Installing for dependencies:
+ keyutils-libs-devel   x86_64   1.5.8-3.amzn2.0.2            amzn2-core    37 k
+ krb5-devel            x86_64   1.15.1-55.amzn2.2.5          amzn2-core   274 k
+ libcom_err-devel      x86_64   1.42.9-19.amzn2.0.1          amzn2-core    32 k
+ libkadm5              x86_64   1.15.1-55.amzn2.2.5          amzn2-core   181 k
+ libselinux-devel      x86_64   2.5-12.amzn2.0.2             amzn2-core   187 k
+ libsepol-devel        x86_64   2.5-8.1.amzn2.0.2            amzn2-core    77 k
+ libverto-devel        x86_64   0.2.5-4.amzn2.0.2            amzn2-core    12 k
+ ncurses-c++-libs      x86_64   6.0-8.20170212.amzn2.1.5     amzn2-core    52 k
+ ncurses-devel         x86_64   6.0-8.20170212.amzn2.1.5     amzn2-core   502 k
+ ruby-irb              noarch   2.0.0.648-36.amzn2.0.5       amzn2-core    95 k
+ ruby-libs             x86_64   2.0.0.648-36.amzn2.0.5       amzn2-core   2.8 M
+ rubygem-bigdecimal    x86_64   1.2.0-36.amzn2.0.5           amzn2-core    85 k
+ rubygem-io-console    x86_64   0.4.2-36.amzn2.0.5           amzn2-core    57 k
+ rubygem-json          x86_64   1.7.7-36.amzn2.0.5           amzn2-core    82 k
+ rubygem-psych         x86_64   2.0.0-36.amzn2.0.5           amzn2-core    85 k
+ rubygem-rdoc          noarch   4.0.0-36.amzn2.0.5           amzn2-core   325 k
+ rubygems              noarch   2.0.14.1-36.amzn2.0.5        amzn2-core   216 k
+
+Transaction Summary
+================================================================================
+Install  6 Packages (+17 Dependent packages)
+
+Total download size: 6.9 M
+Installed size: 19 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                               22 MB/s | 6.9 MB  00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : ruby-libs-2.0.0.648-36.amzn2.0.5.x86_64                     1/23 
+  Installing : rubygem-bigdecimal-1.2.0-36.amzn2.0.5.x86_64                2/23 
+  Installing : rubygem-io-console-0.4.2-36.amzn2.0.5.x86_64                3/23 
+  Installing : ruby-irb-2.0.0.648-36.amzn2.0.5.noarch                      4/23 
+  Installing : ruby-2.0.0.648-36.amzn2.0.5.x86_64                          5/23 
+  Installing : rubygem-psych-2.0.0-36.amzn2.0.5.x86_64                     6/23 
+  Installing : rubygems-2.0.14.1-36.amzn2.0.5.noarch                       7/23 
+  Installing : rubygem-json-1.7.7-36.amzn2.0.5.x86_64                      8/23 
+  Installing : rubygem-rdoc-4.0.0-36.amzn2.0.5.noarch                      9/23 
+  Installing : keyutils-libs-devel-1.5.8-3.amzn2.0.2.x86_64               10/23 
+  Installing : libverto-devel-0.2.5-4.amzn2.0.2.x86_64                    11/23 
+  Installing : libsepol-devel-2.5-8.1.amzn2.0.2.x86_64                    12/23 
+  Installing : libselinux-devel-2.5-12.amzn2.0.2.x86_64                   13/23 
+  Installing : libcom_err-devel-1.42.9-19.amzn2.0.1.x86_64                14/23 
+  Installing : libkadm5-1.15.1-55.amzn2.2.5.x86_64                        15/23 
+  Installing : krb5-devel-1.15.1-55.amzn2.2.5.x86_64                      16/23 
+  Installing : ncurses-c++-libs-6.0-8.20170212.amzn2.1.5.x86_64           17/23 
+  Installing : ncurses-devel-6.0-8.20170212.amzn2.1.5.x86_64              18/23 
+  Installing : readline-devel-6.2-10.amzn2.0.2.x86_64                     19/23 
+  Installing : 1:openssl-devel-1.0.2k-24.amzn2.0.7.x86_64                 20/23 
+  Installing : sqlite-devel-3.7.17-8.amzn2.1.2.x86_64                     21/23 
+  Installing : libffi-devel-3.0.13-18.amzn2.0.2.x86_64                    22/23 
+  Installing : libyaml-devel-0.1.4-11.amzn2.0.2.x86_64                    23/23 
+  Verifying  : libyaml-devel-0.1.4-11.amzn2.0.2.x86_64                     1/23 
+  Verifying  : ncurses-c++-libs-6.0-8.20170212.amzn2.1.5.x86_64            2/23 
+  Verifying  : rubygem-json-1.7.7-36.amzn2.0.5.x86_64                      3/23 
+  Verifying  : rubygem-bigdecimal-1.2.0-36.amzn2.0.5.x86_64                4/23 
+  Verifying  : libkadm5-1.15.1-55.amzn2.2.5.x86_64                         5/23 
+  Verifying  : 1:openssl-devel-1.0.2k-24.amzn2.0.7.x86_64                  6/23 
+  Verifying  : libcom_err-devel-1.42.9-19.amzn2.0.1.x86_64                 7/23 
+  Verifying  : libsepol-devel-2.5-8.1.amzn2.0.2.x86_64                     8/23 
+  Verifying  : libverto-devel-0.2.5-4.amzn2.0.2.x86_64                     9/23 
+  Verifying  : ruby-libs-2.0.0.648-36.amzn2.0.5.x86_64                    10/23 
+  Verifying  : libffi-devel-3.0.13-18.amzn2.0.2.x86_64                    11/23 
+  Verifying  : rubygem-rdoc-4.0.0-36.amzn2.0.5.noarch                     12/23 
+  Verifying  : rubygems-2.0.14.1-36.amzn2.0.5.noarch                      13/23 
+  Verifying  : libselinux-devel-2.5-12.amzn2.0.2.x86_64                   14/23 
+  Verifying  : rubygem-io-console-0.4.2-36.amzn2.0.5.x86_64               15/23 
+  Verifying  : ncurses-devel-6.0-8.20170212.amzn2.1.5.x86_64              16/23 
+  Verifying  : ruby-2.0.0.648-36.amzn2.0.5.x86_64                         17/23 
+  Verifying  : readline-devel-6.2-10.amzn2.0.2.x86_64                     18/23 
+  Verifying  : rubygem-psych-2.0.0-36.amzn2.0.5.x86_64                    19/23 
+  Verifying  : krb5-devel-1.15.1-55.amzn2.2.5.x86_64                      20/23 
+  Verifying  : sqlite-devel-3.7.17-8.amzn2.1.2.x86_64                     21/23 
+  Verifying  : keyutils-libs-devel-1.5.8-3.amzn2.0.2.x86_64               22/23 
+  Verifying  : ruby-irb-2.0.0.648-36.amzn2.0.5.noarch                     23/23 
+
+Installed:
+  libffi-devel.x86_64 0:3.0.13-18.amzn2.0.2                                     
+  libyaml-devel.x86_64 0:0.1.4-11.amzn2.0.2                                     
+  openssl-devel.x86_64 1:1.0.2k-24.amzn2.0.7                                    
+  readline-devel.x86_64 0:6.2-10.amzn2.0.2                                      
+  ruby.x86_64 0:2.0.0.648-36.amzn2.0.5                                          
+  sqlite-devel.x86_64 0:3.7.17-8.amzn2.1.2                                      
+
+Dependency Installed:
+  keyutils-libs-devel.x86_64 0:1.5.8-3.amzn2.0.2                                
+  krb5-devel.x86_64 0:1.15.1-55.amzn2.2.5                                       
+  libcom_err-devel.x86_64 0:1.42.9-19.amzn2.0.1                                 
+  libkadm5.x86_64 0:1.15.1-55.amzn2.2.5                                         
+  libselinux-devel.x86_64 0:2.5-12.amzn2.0.2                                    
+  libsepol-devel.x86_64 0:2.5-8.1.amzn2.0.2                                     
+  libverto-devel.x86_64 0:0.2.5-4.amzn2.0.2                                     
+  ncurses-c++-libs.x86_64 0:6.0-8.20170212.amzn2.1.5                            
+  ncurses-devel.x86_64 0:6.0-8.20170212.amzn2.1.5                               
+  ruby-irb.noarch 0:2.0.0.648-36.amzn2.0.5                                      
+  ruby-libs.x86_64 0:2.0.0.648-36.amzn2.0.5                                     
+  rubygem-bigdecimal.x86_64 0:1.2.0-36.amzn2.0.5                                
+  rubygem-io-console.x86_64 0:0.4.2-36.amzn2.0.5                                
+  rubygem-json.x86_64 0:1.7.7-36.amzn2.0.5                                      
+  rubygem-psych.x86_64 0:2.0.0-36.amzn2.0.5                                     
+  rubygem-rdoc.noarch 0:4.0.0-36.amzn2.0.5                                      
+  rubygems.noarch 0:2.0.14.1-36.amzn2.0.5                                       
+
+Complete!

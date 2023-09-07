@@ -1,0 +1,171 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> teigi
+Rule 1     teigi -> RETURN expression SEMI
+Rule 2     expression -> NUMBER
+Rule 3     expression -> expression OPTASU expression
+Rule 4     expression -> expression OPHIKU expression
+Rule 5     expression -> expression OPKAKE expression
+
+Terminals, with rules where they appear
+
+NUMBER               : 2
+OPHIKU               : 4
+OPKAKE               : 5
+OPTASU               : 3
+RETURN               : 1
+SEMI                 : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 3 3 4 4 5 5
+teigi                : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . teigi
+    (1) teigi -> . RETURN expression SEMI
+
+    RETURN          shift and go to state 2
+
+    teigi                          shift and go to state 1
+
+state 1
+
+    (0) S' -> teigi .
+
+
+
+state 2
+
+    (1) teigi -> RETURN . expression SEMI
+    (2) expression -> . NUMBER
+    (3) expression -> . expression OPTASU expression
+    (4) expression -> . expression OPHIKU expression
+    (5) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 4
+
+    expression                     shift and go to state 3
+
+state 3
+
+    (1) teigi -> RETURN expression . SEMI
+    (3) expression -> expression . OPTASU expression
+    (4) expression -> expression . OPHIKU expression
+    (5) expression -> expression . OPKAKE expression
+
+    SEMI            shift and go to state 5
+    OPTASU          shift and go to state 6
+    OPHIKU          shift and go to state 7
+    OPKAKE          shift and go to state 8
+
+
+state 4
+
+    (2) expression -> NUMBER .
+
+    SEMI            reduce using rule 2 (expression -> NUMBER .)
+    OPTASU          reduce using rule 2 (expression -> NUMBER .)
+    OPHIKU          reduce using rule 2 (expression -> NUMBER .)
+    OPKAKE          reduce using rule 2 (expression -> NUMBER .)
+
+
+state 5
+
+    (1) teigi -> RETURN expression SEMI .
+
+    $end            reduce using rule 1 (teigi -> RETURN expression SEMI .)
+
+
+state 6
+
+    (3) expression -> expression OPTASU . expression
+    (2) expression -> . NUMBER
+    (3) expression -> . expression OPTASU expression
+    (4) expression -> . expression OPHIKU expression
+    (5) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 4
+
+    expression                     shift and go to state 9
+
+state 7
+
+    (4) expression -> expression OPHIKU . expression
+    (2) expression -> . NUMBER
+    (3) expression -> . expression OPTASU expression
+    (4) expression -> . expression OPHIKU expression
+    (5) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 4
+
+    expression                     shift and go to state 10
+
+state 8
+
+    (5) expression -> expression OPKAKE . expression
+    (2) expression -> . NUMBER
+    (3) expression -> . expression OPTASU expression
+    (4) expression -> . expression OPHIKU expression
+    (5) expression -> . expression OPKAKE expression
+
+    NUMBER          shift and go to state 4
+
+    expression                     shift and go to state 11
+
+state 9
+
+    (3) expression -> expression OPTASU expression .
+    (3) expression -> expression . OPTASU expression
+    (4) expression -> expression . OPHIKU expression
+    (5) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 3 (expression -> expression OPTASU expression .)
+    OPTASU          reduce using rule 3 (expression -> expression OPTASU expression .)
+    OPHIKU          reduce using rule 3 (expression -> expression OPTASU expression .)
+    OPKAKE          shift and go to state 8
+
+  ! OPKAKE          [ reduce using rule 3 (expression -> expression OPTASU expression .) ]
+  ! OPTASU          [ shift and go to state 6 ]
+  ! OPHIKU          [ shift and go to state 7 ]
+
+
+state 10
+
+    (4) expression -> expression OPHIKU expression .
+    (3) expression -> expression . OPTASU expression
+    (4) expression -> expression . OPHIKU expression
+    (5) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 4 (expression -> expression OPHIKU expression .)
+    OPTASU          reduce using rule 4 (expression -> expression OPHIKU expression .)
+    OPHIKU          reduce using rule 4 (expression -> expression OPHIKU expression .)
+    OPKAKE          shift and go to state 8
+
+  ! OPKAKE          [ reduce using rule 4 (expression -> expression OPHIKU expression .) ]
+  ! OPTASU          [ shift and go to state 6 ]
+  ! OPHIKU          [ shift and go to state 7 ]
+
+
+state 11
+
+    (5) expression -> expression OPKAKE expression .
+    (3) expression -> expression . OPTASU expression
+    (4) expression -> expression . OPHIKU expression
+    (5) expression -> expression . OPKAKE expression
+
+    SEMI            reduce using rule 5 (expression -> expression OPKAKE expression .)
+    OPTASU          reduce using rule 5 (expression -> expression OPKAKE expression .)
+    OPHIKU          reduce using rule 5 (expression -> expression OPKAKE expression .)
+    OPKAKE          reduce using rule 5 (expression -> expression OPKAKE expression .)
+
+  ! OPTASU          [ shift and go to state 6 ]
+  ! OPHIKU          [ shift and go to state 7 ]
+  ! OPKAKE          [ shift and go to state 8 ]
+

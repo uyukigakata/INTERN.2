@@ -1,0 +1,94 @@
+0 verbose cli /home/ec2-user/.nvm/versions/node/v16.20.2/bin/node /home/ec2-user/.nvm/versions/node/v16.20.2/bin/npm
+1 info using npm@8.19.4
+2 info using node@v16.20.2
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:project Completed in 7ms
+10 timing config:load:file:/home/ec2-user/.npmrc Completed in 3ms
+11 timing config:load:user Completed in 4ms
+12 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/etc/npmrc Completed in 4ms
+13 timing config:load:global Completed in 5ms
+14 timing config:load:validate Completed in 0ms
+15 timing config:load:credentials Completed in 1ms
+16 timing config:load:setEnvs Completed in 1ms
+17 timing config:load Completed in 22ms
+18 timing npm:load:configload Completed in 22ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 1ms
+21 verbose title npm install cdk
+22 verbose argv "install" "--global" "cdk"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing config:load:flatten Completed in 2ms
+25 timing npm:load:display Completed in 3ms
+26 verbose logfile logs-max:10 dir:/home/ec2-user/.npm/_logs
+27 verbose logfile /home/ec2-user/.npm/_logs/2023-08-11T16_22_02_322Z-debug-0.log
+28 timing npm:load:logFile Completed in 4ms
+29 timing npm:load:timers Completed in 0ms
+30 timing npm:load:configScope Completed in 0ms
+31 timing npm:load Completed in 33ms
+32 timing arborist:ctor Completed in 1ms
+33 silly logfile done cleaning log files
+34 timing idealTree:init Completed in 5ms
+35 timing idealTree:userRequests Completed in 2ms
+36 silly idealTree buildDeps
+37 silly fetch manifest cdk@*
+38 http fetch GET 200 https://registry.npmjs.org/cdk 108ms (cache miss)
+39 silly placeDep ROOT cdk@2.91.0 OK for:  want: *
+40 silly fetch manifest aws-cdk@2.91.0
+41 http fetch GET 200 https://registry.npmjs.org/aws-cdk 40ms (cache miss)
+42 timing idealTree:#root Completed in 170ms
+43 silly placeDep node_modules/cdk aws-cdk@2.91.0 OK for: cdk@2.91.0 want: 2.91.0
+44 silly fetch manifest fsevents@2.3.2
+45 http fetch GET 200 https://registry.npmjs.org/fsevents 28ms (cache miss)
+46 timing idealTree:node_modules/cdk Completed in 32ms
+47 silly placeDep node_modules/cdk fsevents@2.3.2 OK for: aws-cdk@2.91.0 want: 2.3.2
+48 timing idealTree:node_modules/cdk/node_modules/aws-cdk Completed in 2ms
+49 timing idealTree:node_modules/cdk/node_modules/fsevents Completed in 0ms
+50 timing idealTree:buildDeps Completed in 206ms
+51 timing idealTree:fixDepFlags Completed in 1ms
+52 timing idealTree Completed in 215ms
+53 timing reify:loadTrees Completed in 216ms
+54 timing reify:diffTrees Completed in 0ms
+55 silly reify moves {}
+56 timing reify:retireShallow Completed in 1ms
+57 timing reify:createSparse Completed in 1ms
+58 timing reify:loadBundles Completed in 0ms
+59 silly audit bulk request { cdk: [ '2.91.0' ], 'aws-cdk': [ '2.91.0' ], fsevents: [ '2.3.2' ] }
+60 verbose reify failed optional dependency /home/ec2-user/.nvm/versions/node/v16.20.2/lib/node_modules/cdk/node_modules/fsevents
+61 silly reify mark deleted [
+61 silly reify   '/home/ec2-user/.nvm/versions/node/v16.20.2/lib/node_modules/cdk/node_modules/fsevents'
+61 silly reify ]
+62 timing reifyNode:node_modules/cdk/node_modules/fsevents Completed in 3ms
+63 silly tarball no local data for cdk@https://registry.npmjs.org/cdk/-/cdk-2.91.0.tgz. Extracting by manifest.
+64 silly tarball no local data for aws-cdk@https://registry.npmjs.org/aws-cdk/-/aws-cdk-2.91.0.tgz. Extracting by manifest.
+65 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 62ms
+66 timing auditReport:getReport Completed in 63ms
+67 silly audit report {}
+68 timing auditReport:init Completed in 0ms
+69 timing reify:audit Completed in 65ms
+70 http fetch GET 200 https://registry.npmjs.org/cdk/-/cdk-2.91.0.tgz 60ms (cache miss)
+71 timing reifyNode:node_modules/cdk Completed in 72ms
+72 http fetch GET 200 https://registry.npmjs.org/aws-cdk/-/aws-cdk-2.91.0.tgz 850ms (cache miss)
+73 timing reifyNode:node_modules/cdk/node_modules/aws-cdk Completed in 863ms
+74 timing reify:unpack Completed in 863ms
+75 timing reify:unretire Completed in 0ms
+76 timing build:queue Completed in 1ms
+77 timing build:link:node_modules/cdk Completed in 2ms
+78 timing build:link:node_modules/cdk/node_modules/aws-cdk Completed in 2ms
+79 timing build:link Completed in 2ms
+80 timing build:deps Completed in 3ms
+81 timing build Completed in 3ms
+82 timing reify:build Completed in 3ms
+83 timing reify:trash Completed in 14ms
+84 timing reify Completed in 1109ms
+85 silly ADD node_modules/cdk
+86 silly ADD
+87 silly ADD node_modules/cdk/node_modules/aws-cdk
+88 timing command:install Completed in 1115ms
+89 verbose exit 0
+90 timing npm Completed in 1234ms
+91 info ok

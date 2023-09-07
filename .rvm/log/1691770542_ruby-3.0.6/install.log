@@ -1,0 +1,369 @@
+[2023-08-11 16:19:35] __rvm_make
+__rvm_make () 
+{ 
+    \make "$@" || return $?
+}
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+PATH=/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+command(2): __rvm_make install
+++ make install
+./revision.h unchanged
+	BASERUBY = echo executable host ruby is required.  use --with-baseruby option.; false
+	CC = gcc
+	LD = ld
+	LDSHARED = gcc -shared
+	CFLAGS = -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -std=gnu99  -fPIC 
+	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fno-strict-overflow -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I./include -I. -I./enc/unicode/12.1.0
+	CPPFLAGS =   
+	DLDFLAGS = -Wl,--compress-debug-sections=zlib -Wl,-soname,libruby.so.3.0  -fstack-protector-strong  
+	SOLIBS = -lz -lpthread -lrt -lrt -ldl -lcrypt -lm 
+	LANG = en_US.UTF-8
+	LC_ALL = 
+	LC_CTYPE = 
+	MFLAGS = 
+gcc (GCC) 7.3.1 20180712 (Red Hat 7.3.1-15)
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+generating enc.mk
+making srcs under enc
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `srcs'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+generating transdb.h
+transdb.h unchanged
+generating makefiles ext/configure-ext.mk
+ext/configure-ext.mk updated
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+generating makefile exts.mk
+exts.mk unchanged
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/RUBY_ALIGNOF'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/RUBY_ALIGNOF'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/arith_seq/extract'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/arith_seq/extract'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/concat'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/concat'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/resize'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/resize'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bignum'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bignum'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-14834'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-14834'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-3571'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-3571'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-5832'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-5832'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug_reporter'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug_reporter'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/class'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/class'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/cxxanyargs'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/cxxanyargs'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/debug'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/debug'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/dln/empty'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/dln/empty'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/enumerator_kw'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/enumerator_kw'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/exception'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/exception'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/fatal'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/fatal'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/file'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/file'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/float'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/float'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/funcall'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/funcall'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/gvl/call_without_gvl'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/gvl/call_without_gvl'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/hash'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/hash'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/integer'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/integer'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iseq_load'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iseq_load'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iter'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iter'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/dot.dot'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/dot.dot'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/protect'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/protect'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/compat'
+linking shared-object -test-/marshal/compat.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/compat'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/internal_ivar'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/internal_ivar'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/usr'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/usr'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_status'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_status'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_view'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_view'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/method'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/method'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/notimplement'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/notimplement'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/num2int'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/num2int'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/path_to_class'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/path_to_class'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/popen_deadlock'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/popen_deadlock'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/postponed_job'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/postponed_job'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/printf'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/printf'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/proc'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/proc'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/random'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/random'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rational'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rational'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rb_call_super_kw'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rb_call_super_kw'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/recursion'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/recursion'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/regexp'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/regexp'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/scan_args'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/scan_args'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/foreach'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/foreach'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/numhash'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/numhash'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/update'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/update'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/string'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/string'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/struct'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/struct'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/symbol'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/symbol'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/thread_fd_close'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/thread_fd_close'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/time'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/time'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/tracepoint'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/tracepoint'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/typeddata'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/typeddata'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/vm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/vm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/wait_for_single_fd'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/wait_for_single_fd'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/bigdecimal'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/bigdecimal'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/cgi/escape'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/cgi/escape'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/continuation'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/continuation'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/coverage'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/coverage'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/date'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/date'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/dbm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/dbm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/bubblebabble'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/bubblebabble'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/md5'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/md5'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/rmd160'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/rmd160'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha1'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha1'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha2'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha2'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/etc'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/etc'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fcntl'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fcntl'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiber'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiber'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiddle'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiddle'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/gdbm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/gdbm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/console'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/console'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/nonblock'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/nonblock'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/wait'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/wait'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/generator'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/generator'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/parser'
+linking shared-object json/ext/parser.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/parser'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/monitor'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/monitor'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/nkf'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/nkf'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/objspace'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/objspace'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/openssl'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/openssl'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pathname'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pathname'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/psych'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/psych'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pty'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pty'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/racc/cparse'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/racc/cparse'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rbconfig/sizeof'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rbconfig/sizeof'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/readline'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/readline'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/ripper'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/ripper'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rubyvm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rubyvm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/socket'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/socket'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/stringio'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/stringio'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/strscan'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/strscan'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/syslog'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/syslog'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/zlib'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/zlib'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+./revision.h unchanged
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+*** Following extensions are not compiled:
+dbm:
+	Could not be configured. It will not be installed.
+	Check ext/dbm/mkmf.log for more details.
+gdbm:
+	Could not be configured. It will not be installed.
+	Check ext/gdbm/mkmf.log for more details.
+*** Fix the problems, then remove these directories and try again if you want.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+making enc
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `enc'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+making trans
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `./enc/trans'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+making encs
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `encs'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+./miniruby -I./lib -I. -I.ext/common  ./tool/runruby.rb --extout=.ext  -- --disable-gems -r./x86_64-linux-fake ./tool/rbinstall.rb --make="make" --dest-dir="" --extout=".ext" --mflags="" --make-flags="" --data-mode=0644 --prog-mode=0755 --installed-list .installed.list --mantype="doc" --exclude=doc
+installing binary commands:         /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin
+installing base libraries:          /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib
+installing arch files:              /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/3.0.0/x86_64-linux
+installing pkgconfig data:          /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/pkgconfig
+installing extension objects:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/3.0.0/x86_64-linux
+installing extension objects:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/site_ruby/3.0.0/x86_64-linux
+installing extension objects:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/vendor_ruby/3.0.0/x86_64-linux
+installing extension headers:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/include/ruby-3.0.0/x86_64-linux
+installing extension scripts:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/3.0.0
+installing extension scripts:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/site_ruby/3.0.0
+installing extension scripts:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/vendor_ruby/3.0.0
+installing extension headers:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/include/ruby-3.0.0/ruby
+installing command scripts:         /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin
+installing library scripts:         /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/3.0.0
+installing common headers:          /home/ec2-user/.rvm/rubies/ruby-3.0.6/include/ruby-3.0.0
+installing manpages:                /home/ec2-user/.rvm/rubies/ruby-3.0.6/share/man/man1
+installing default gems from lib:   /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/gems/3.0.0
+                                    abbrev 0.1.0
+                                    base64 0.1.0
+                                    benchmark 0.1.1
+                                    bundler 2.2.33
+                                    cgi 0.2.2
+                                    csv 3.1.9
+                                    debug 0.2.1
+                                    delegate 0.2.0
+                                    did_you_mean 1.5.0
+                                    drb 2.0.5
+                                    english 0.7.1
+                                    erb 2.2.0
+                                    fileutils 1.5.0
+                                    find 0.1.0
+                                    forwardable 1.3.2
+                                    getoptlong 0.1.1
+                                    ipaddr 1.2.2
+                                    irb 1.3.5
+                                    logger 1.4.3
+                                    matrix 0.3.1
+                                    mutex_m 0.1.1
+                                    net-ftp 0.1.2
+                                    net-http 0.1.1
+                                    net-imap 0.1.1
+                                    net-pop 0.1.1
+                                    net-protocol 0.1.1
+                                    net-smtp 0.2.1
+                                    observer 0.1.1
+                                    open-uri 0.1.0
+                                    open3 0.1.1
+                                    optparse 0.1.1
+                                    ostruct 0.3.1
+                                    pp 0.2.1
+                                    prettyprint 0.1.1
+                                    prime 0.1.2
+                                    pstore 0.1.1
+                                    racc 1.5.2
+                                    rdoc 6.3.3
+                                    readline 0.0.2
+                                    reline 0.2.5
+                                    resolv 0.2.1
+                                    resolv-replace 0.1.0
+                                    rinda 0.1.1
+                                    securerandom 0.1.0
+                                    set 1.0.1
+                                    shellwords 0.1.0
+                                    singleton 0.1.1
+                                    tempfile 0.1.1
+                                    time 0.1.1
+                                    timeout 0.1.1
+                                    tmpdir 0.1.2
+                                    tracer 0.1.1
+                                    tsort 0.1.0
+                                    un 0.1.0
+                                    uri 0.10.2
+                                    weakref 0.1.1
+                                    yaml 0.1.1
+installing default gems from ext:   /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/gems/3.0.0
+                                    bigdecimal 3.0.0
+                                    date 3.1.3
+                                    digest 3.0.0
+                                    etc 1.3.0
+                                    fcntl 1.0.1
+                                    fiddle 1.0.8
+                                    io-console 0.5.7
+                                    io-nonblock 0.1.0
+                                    io-wait 0.2.0
+                                    json 2.5.1
+                                    nkf 0.1.0
+                                    openssl 2.2.2
+                                    pathname 0.1.0
+                                    psych 3.3.2
+                                    readline-ext 0.1.1
+                                    stringio 3.0.1
+                                    strscan 3.0.1
+                                    syslog 0.1.0
+                                    zlib 2.0.0
+installing bundled gems:            /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/gems/3.0.0
+                                    minitest 5.14.2
+                                    power_assert 1.2.0
+                                    rake 13.0.3
+                                    test-unit 3.3.7
+                                    rexml 3.2.5
+                                    rss 0.2.9
+                                    typeprof 0.15.2
+                                    rbs 1.4.0
+installing bundled gem cache:       /home/ec2-user/.rvm/rubies/ruby-3.0.6/lib/ruby/gems/3.0.0/cache

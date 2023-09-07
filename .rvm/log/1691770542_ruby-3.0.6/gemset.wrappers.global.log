@@ -1,0 +1,84 @@
+[2023-08-11 16:19:41] run_gem_wrappers
+run_gem_wrappers () 
+{ 
+    gem_install gem-wrappers > /dev/null && gem_wrappers_pristine && gem wrappers "$@" || return $?
+}
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+command(2): run_gem_wrappers regenerate
+++ gem_install gem-wrappers
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args gem-wrappers
+++ typeset gem=gem-wrappers
+++ __rvm_string_match gem-wrappers '*.gem$'
+++ typeset _string
+++ _string=gem-wrappers
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=gem-wrappers
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_gem-wrappers_version gem_version
+++ typeset value key variable
+++ key=gem_gem-wrappers_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_gem-wrappers_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_gem-wrappers_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_gem-wrappers_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_gem-wrappers_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_gem-wrappers_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_gem-wrappers_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
+++ value='>=1.4.0'
+++ [[ -n >=1.4.0 ]]
+++ [[ -n gem_version ]]
+++ eval 'gem_version='\''>=1.4.0'\'''
++++ gem_version='>=1.4.0'
+++ true
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''gem-wrappers'\'''
+++ [[ -n >=1.4.0 ]]
+++ gem_spec+=', '\''>=1.4.0'\'''
+++ version_check=1.4.0
+++ __rvm_ls -ld /home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/gem-wrappers-1.4.0
+++ rvm_log 'gem gem-wrappers >=1.4.0 is already installed'
+++ [[ '' == 1 ]]
+++ printf %b 'gem gem-wrappers >=1.4.0 is already installed\n'
+++ return 0
+++ gem_wrappers_pristine
++++ head -n1
+++++ gem -v
++++ sort -V
++++ printf '%s\n' 3.2.0 3.2.33
+++ '[' 3.2.0 == 3.2.0 ']'
+++ gem pristine gem-wrappers --only-plugins
+++ gem wrappers regenerate

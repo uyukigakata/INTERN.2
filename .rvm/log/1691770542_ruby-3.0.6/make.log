@@ -1,0 +1,1039 @@
+[2023-08-11 16:16:19] __rvm_make
+__rvm_make () 
+{ 
+    \make "$@" || return $?
+}
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+PATH=/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+command(2): __rvm_make -j2
+++ make -j2
+	BASERUBY = echo executable host ruby is required.  use --with-baseruby option.; false
+	CC = gcc
+	LD = ld
+	LDSHARED = gcc -shared
+	CFLAGS = -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -std=gnu99  -fPIC 
+	XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fno-strict-overflow -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I./include -I. -I./enc/unicode/12.1.0
+	CPPFLAGS =   
+	DLDFLAGS = -Wl,--compress-debug-sections=zlib -Wl,-soname,libruby.so.3.0  -fstack-protector-strong  
+	SOLIBS = -lz -lpthread -lrt -lrt -ldl -lcrypt -lm 
+	LANG = en_US.UTF-8
+	LC_ALL = 
+	LC_CTYPE = 
+	MFLAGS = - --jobserver-fds=4,5 -j
+gcc (GCC) 7.3.1 20180712 (Red Hat 7.3.1-15)
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+compiling ./main.c
+compiling dmydln.c
+compiling miniinit.c
+compiling dmyext.c
+making dummy probes.h
+compiling ast.c
+compiling bignum.c
+In file included from ./include/ruby/internal/assume.h:29:0,
+                 from ./include/ruby/backward/2/assume.h:24,
+                 from ./include/ruby/defines.h:72,
+                 from ./include/ruby/ruby.h:23,
+                 from internal.h:29,
+                 from bignum.c:32:
+bignum.c: In function ‘str2big_karatsuba’:
+bignum.c:3895:36: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+     uds = ALLOCV_N(BDIGIT, tmpuv, 2*num_bdigits);
+./include/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+ # define RBIMPL_CAST(expr) (expr)
+                             ^~~~
+./include/ruby/internal/memory.h:139:20: note: in expansion of macro ‘RB_ALLOCV_N’
+ #define ALLOCV_N   RB_ALLOCV_N
+                    ^~~~~~~~~~~
+bignum.c:3895:11: note: in expansion of macro ‘ALLOCV_N’
+     uds = ALLOCV_N(BDIGIT, tmpuv, 2*num_bdigits);
+           ^~~~~~~~
+compiling class.c
+compiling compar.c
+compiling compile.c
+bignum.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling complex.c
+compiling cont.c
+compiling debug.c
+compiling debug_counter.c
+compiling dir.c
+compiling dln_find.c
+compiling encoding.c
+compiling enum.c
+compiling enumerator.c
+compiling error.c
+compiling eval.c
+compiling file.c
+compiling gc.c
+compiling hash.c
+compiling inits.c
+compiling io.c
+compiling iseq.c
+compiling load.c
+compiling marshal.c
+compiling math.c
+compiling memory_view.c
+making mjit_config.h
+compiling mjit_compile.c
+compiling node.c
+compiling numeric.c
+compiling object.c
+compiling pack.c
+compiling parse.c
+compiling proc.c
+parse.y:10722:1: warning: ‘parser_token_value_print’ defined but not used [-Wunused-function]
+ parser_token_value_print(struct parser_params *p, enum yytokentype type, const YYSTYPE *valp)
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+compiling process.c
+compiling ractor.c
+compiling random.c
+In file included from ./include/ruby/internal/assume.h:29:0,
+                 from ./include/ruby/backward/2/assume.h:24,
+                 from ./include/ruby/defines.h:72,
+                 from ./include/ruby/ruby.h:23,
+                 from internal.h:29,
+                 from random.c:62:
+random.c: In function ‘limited_big_rand’:
+random.c:937:39: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+     tmp = ALLOCV_N(uint32_t, vtmp, len*2);
+./include/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+ # define RBIMPL_CAST(expr) (expr)
+                             ^~~~
+./include/ruby/internal/memory.h:139:20: note: in expansion of macro ‘RB_ALLOCV_N’
+ #define ALLOCV_N   RB_ALLOCV_N
+                    ^~~~~~~~~~~
+random.c:937:11: note: in expansion of macro ‘ALLOCV_N’
+     tmp = ALLOCV_N(uint32_t, vtmp, len*2);
+           ^~~~~~~~
+random.c: In function ‘random_ulong_limited_big’:
+random.c:1131:47: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+  uint32_t *tmp = ALLOCV_N(uint32_t, vtmp, len * 2);
+./include/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+ # define RBIMPL_CAST(expr) (expr)
+                             ^~~~
+./include/ruby/internal/memory.h:139:20: note: in expansion of macro ‘RB_ALLOCV_N’
+ #define ALLOCV_N   RB_ALLOCV_N
+                    ^~~~~~~~~~~
+random.c:1131:18: note: in expansion of macro ‘ALLOCV_N’
+  uint32_t *tmp = ALLOCV_N(uint32_t, vtmp, len * 2);
+                  ^~~~~~~~
+random.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling range.c
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling rational.c
+compiling re.c
+In file included from ./include/ruby/internal/assume.h:29:0,
+                 from ./include/ruby/backward/2/assume.h:24,
+                 from ./include/ruby/defines.h:72,
+                 from ./include/ruby/ruby.h:23,
+                 from ./include/ruby/encoding.h:15,
+                 from encindex.h:14,
+                 from re.c:16:
+re.c: In function ‘update_char_offset’:
+re.c:1013:38: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+     pairs = ALLOCA_N(pair_t, num_regs*2);
+./include/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+ # define RBIMPL_CAST(expr) (expr)
+                             ^~~~
+re.c:1013:13: note: in expansion of macro ‘ALLOCA_N’
+     pairs = ALLOCA_N(pair_t, num_regs*2);
+             ^~~~~~~~
+re.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling regcomp.c
+compiling regenc.c
+compiling regerror.c
+compiling regexec.c
+compiling regparse.c
+compiling regsyntax.c
+compiling ruby.c
+compiling scheduler.c
+compiling signal.c
+compiling sprintf.c
+compiling st.c
+compiling strftime.c
+compiling string.c
+compiling struct.c
+compiling symbol.c
+compiling thread.c
+compiling time.c
+compiling transcode.c
+compiling transient_heap.c
+compiling util.c
+compiling variable.c
+compiling vm.c
+In file included from ./include/ruby/internal/assume.h:29:0,
+                 from ./include/ruby/backward/2/assume.h:24,
+                 from ./include/ruby/defines.h:72,
+                 from ./include/ruby/ruby.h:23,
+                 from eval_intern.h:4,
+                 from vm.c:13:
+vm_args.c: In function ‘setup_parameters_complex’:
+vm_args.c:672:56: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+      arg.keys = args->kw_argv = ALLOCA_N(VALUE, kw_len * 2);
+./include/ruby/internal/cast.h:33:29: note: in definition of macro ‘RBIMPL_CAST’
+ # define RBIMPL_CAST(expr) (expr)
+                             ^~~~
+vm_args.c:672:33: note: in expansion of macro ‘ALLOCA_N’
+      arg.keys = args->kw_argv = ALLOCA_N(VALUE, kw_len * 2);
+                                 ^~~~~~~~
+compiling vm_backtrace.c
+compiling vm_dump.c
+compiling vm_sync.c
+compiling vm_trace.c
+compiling ./missing/setproctitle.c
+compiling ./missing/strlcat.c
+compiling ./missing/strlcpy.c
+compiling addr2line.c
+compiling dmyenc.c
+compiling dln.c
+In file included from ./include/ruby/ruby.h:39:0,
+                 from dln.c:13:
+dln.c: In function ‘dln_load’:
+./include/ruby/internal/memory.h:278:16: warning: null argument where non-null required (argument 1) [-Wnonnull]
+ #define memcpy ruby_nonempty_memcpy
+                ^
+dln.c:1369:14: note: in expansion of macro ‘memcpy’
+      error = memcpy(ALLOCA_N(char, errlen), error, errlen);
+              ^~~~~~
+dln.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling localeinit.c
+config.status: creating ruby-runner.h
+compiling array.c
+vm.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling mjit.c
+./revision.h unchanged
+assembling coroutine/amd64/Context.S
+compiling enc/ascii.c
+compiling enc/us_ascii.c
+compiling enc/unicode.c
+compiling enc/utf_8.c
+compiling enc/trans/newline.c
+compiling version.c
+linking miniruby
+generating encdb.h
+encdb.h updated
+builtin_binary.inc updated
+generating x86_64-linux-fake.rb
+x86_64-linux-fake.rb updated
+compiling builtin.c
+./tool/ifchange "--timestamp=.rbconfig.time" rbconfig.rb rbconfig.tmp
+rbconfig.rb updated
+generating enc.mk
+creating verconf.h
+verconf.h updated
+building rb_mjit_header.h
+./miniruby -I./lib -I. -I.ext/common  ./tool/mjit_tabs.rb "" \
+	gcc -E -DMJIT_HEADER -P -dD -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -std=gnu99  -fPIC  -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fno-strict-overflow -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I./include -I. -I./enc/unicode/12.1.0    ./vm.c -o rb_mjit_header.h.new
+rb_mjit_header.h updated
+compiling loadpath.c
+building .ext/include/x86_64-linux/rb_mjit_min_header-3.0.6.h
+./miniruby -I./lib -I. -I.ext/common  ./tool/transform_mjit_header.rb "gcc  -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -std=gnu99  -fPIC " rb_mjit_header.h .ext/include/x86_64-linux/rb_mjit_min_header-3.0.6.h
+making srcs under enc
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `srcs'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+linking static-library libruby-static.a
+generating transdb.h
+transdb.h updated
+linking shared-library libruby.so.3.0.6
+transform_mjit_header: making external definition static inline: rb_vm_lvar_exposed, Init_vm_stack_canary, rb_vm_opt_cfunc_p, rb_find_defined_class_by_owner, rb_vm_rewrite_cref, rb_vm_block_ep_update, rb_vm_cref_new_toplevel, rb_vm_frame_block_handler, rb_vm_cframe_keyword_p, rb_vm_ep_local_ep
+transform_mjit_header: making declaration static inline: rb_vm_lvar_exposed, Init_vm_stack_canary, rb_vm_rewrite_cref, rb_vm_frame_block_handler, rb_vm_block_ep_update, rb_vm_ep_local_ep
+transform_mjit_header: SKIPPED to transform: getlogin_r, pread64, pread, read, bsearch, fread_unlocked, fgets_unlocked, fread, fgets, vdprintf, dprintf, vfprintf, vprintf, printf, fprintf, getline, putchar_unlocked, putc_unlocked, fputc_unlocked, putchar, getchar_unlocked, getc_unlocked, fgetc_unlocked, getchar
+ln -sf ../../../.ext/include/x86_64-linux/rb_mjit_min_header-3.0.6.h include/ruby-3.0.0/x86_64-linux/rb_mjit_min_header-3.0.6.h
+making mjit_build_dir.so
+generating makefiles ext/configure-ext.mk
+making enc
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+compiling ./enc/encdb.c
+ext/configure-ext.mk updated
+making trans
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+compiling ./enc/trans/transdb.c
+compiling ./enc/trans/big5.c
+compiling ./enc/big5.c
+compiling ./enc/cesu_8.c
+compiling ./enc/cp949.c
+compiling ./enc/emacs_mule.c
+compiling ./enc/euc_jp.c
+compiling ./enc/euc_kr.c
+compiling ./enc/euc_tw.c
+compiling ./enc/gb2312.c
+compiling ./enc/gb18030.c
+compiling ./enc/gbk.c
+compiling ./enc/iso_8859_1.c
+compiling ./enc/iso_8859_2.c
+compiling ./enc/iso_8859_3.c
+compiling ./enc/iso_8859_4.c
+compiling ./enc/iso_8859_5.c
+compiling ./enc/iso_8859_6.c
+compiling ./enc/trans/cesu_8.c
+compiling ./enc/iso_8859_7.c
+compiling ./enc/trans/chinese.c
+compiling ./enc/iso_8859_8.c
+compiling ./enc/iso_8859_9.c
+compiling ./enc/iso_8859_10.c
+compiling ./enc/iso_8859_11.c
+compiling ./enc/iso_8859_13.c
+compiling ./enc/iso_8859_14.c
+compiling ./enc/iso_8859_15.c
+compiling ./enc/trans/ebcdic.c
+compiling ./enc/iso_8859_16.c
+compiling ./enc/trans/emoji.c
+compiling ./enc/koi8_r.c
+compiling ./enc/koi8_u.c
+compiling ./enc/shift_jis.c
+compiling ./enc/trans/emoji_iso2022_kddi.c
+compiling ./enc/utf_16be.c
+compiling ./enc/utf_16le.c
+compiling ./enc/utf_32be.c
+compiling ./enc/utf_32le.c
+compiling ./enc/trans/emoji_sjis_docomo.c
+compiling ./enc/windows_31j.c
+compiling ./enc/windows_1250.c
+compiling ./enc/windows_1251.c
+compiling ./enc/windows_1252.c
+compiling ./enc/trans/emoji_sjis_kddi.c
+compiling ./enc/windows_1253.c
+compiling ./enc/windows_1254.c
+compiling ./enc/windows_1257.c
+linking encoding encdb.so
+linking encoding big5.so
+linking encoding cesu_8.so
+linking encoding cp949.so
+linking encoding emacs_mule.so
+compiling ./enc/trans/emoji_sjis_softbank.c
+linking encoding euc_jp.so
+linking encoding euc_kr.so
+linking encoding euc_tw.so
+linking encoding gb2312.so
+linking encoding gb18030.so
+linking encoding gbk.so
+linking encoding iso_8859_1.so
+linking encoding iso_8859_2.so
+linking encoding iso_8859_3.so
+linking encoding iso_8859_4.so
+linking encoding iso_8859_5.so
+linking encoding iso_8859_6.so
+compiling ./enc/trans/escape.c
+linking encoding iso_8859_7.so
+linking encoding iso_8859_8.so
+linking encoding iso_8859_9.so
+compiling ./enc/trans/gb18030.c
+linking encoding iso_8859_10.so
+linking encoding iso_8859_11.so
+linking encoding iso_8859_13.so
+linking encoding iso_8859_14.so
+linking encoding iso_8859_15.so
+linking encoding iso_8859_16.so
+linking encoding koi8_r.so
+linking encoding koi8_u.so
+linking encoding shift_jis.so
+linking encoding utf_16be.so
+linking encoding utf_16le.so
+linking encoding utf_32be.so
+linking encoding utf_32le.so
+linking encoding windows_31j.so
+linking encoding windows_1250.so
+linking encoding windows_1251.so
+compiling ./enc/trans/gbk.c
+linking encoding windows_1252.so
+linking encoding windows_1253.so
+linking encoding windows_1254.so
+linking encoding windows_1257.so
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+linking ruby
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+configuring -test-/RUBY_ALIGNOF
+configuring -test-/arith_seq/extract
+configuring -test-/array/concat
+configuring -test-/array/resize
+configuring -test-/bignum
+configuring -test-/bug-14834
+configuring -test-/bug-3571
+configuring -test-/bug-5832
+configuring -test-/bug_reporter
+configuring -test-/class
+configuring -test-/cxxanyargs
+configuring -test-/debug
+configuring -test-/dln/empty
+configuring -test-/enumerator_kw
+configuring -test-/exception
+configuring -test-/fatal
+configuring -test-/file
+compiling ./enc/trans/iso2022.c
+compiling ./enc/trans/japanese.c
+compiling ./enc/trans/japanese_euc.c
+configuring -test-/float
+configuring -test-/funcall
+configuring -test-/gvl/call_without_gvl
+configuring -test-/hash
+configuring -test-/integer
+configuring -test-/iseq_load
+configuring -test-/iter
+configuring -test-/load/dot.dot
+configuring -test-/load/protect
+configuring -test-/marshal/compat
+configuring -test-/marshal/internal_ivar
+configuring -test-/marshal/usr
+configuring -test-/memory_status
+configuring -test-/memory_view
+configuring -test-/method
+configuring -test-/notimplement
+configuring -test-/num2int
+configuring -test-/path_to_class
+configuring -test-/popen_deadlock
+configuring -test-/postponed_job
+configuring -test-/printf
+configuring -test-/proc
+configuring -test-/random
+configuring -test-/rational
+configuring -test-/rb_call_super_kw
+configuring -test-/recursion
+configuring -test-/regexp
+configuring -test-/scan_args
+configuring -test-/st/foreach
+configuring -test-/st/numhash
+configuring -test-/st/update
+configuring -test-/string
+configuring -test-/struct
+configuring -test-/symbol
+configuring -test-/thread_fd_close
+configuring -test-/time
+configuring -test-/tracepoint
+configuring -test-/typeddata
+configuring -test-/vm
+configuring -test-/wait_for_single_fd
+compiling ./enc/trans/japanese_sjis.c
+configuring bigdecimal
+compiling ./enc/trans/korean.c
+compiling ./enc/trans/single_byte.c
+compiling ./enc/trans/utf8_mac.c
+compiling ./enc/trans/utf_16_32.c
+linking transcoder transdb.so
+linking transcoder big5.so
+linking transcoder cesu_8.so
+linking transcoder chinese.so
+linking transcoder ebcdic.so
+linking transcoder emoji.so
+linking transcoder emoji_iso2022_kddi.so
+linking transcoder emoji_sjis_docomo.so
+linking transcoder emoji_sjis_kddi.so
+linking transcoder emoji_sjis_softbank.so
+linking transcoder escape.so
+linking transcoder gb18030.so
+linking transcoder gbk.so
+linking transcoder iso2022.so
+linking transcoder japanese.so
+linking transcoder japanese_euc.so
+linking transcoder japanese_sjis.so
+linking transcoder korean.so
+linking transcoder single_byte.so
+linking transcoder utf8_mac.so
+linking transcoder utf_16_32.so
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+making encs
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Nothing to be done for `encs'.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+configuring cgi/escape
+configuring continuation
+configuring coverage
+configuring date
+configuring dbm
+configuring digest
+configuring digest/bubblebabble
+configuring digest/md5
+configuring digest/rmd160
+configuring digest/sha1
+configuring digest/sha2
+configuring etc
+configuring fcntl
+configuring fiber
+configuring fiddle
+libffi_version: 3.0.13
+configuring gdbm
+configuring io/console
+configuring json
+configuring json/generator
+configuring json/parser
+configuring monitor
+configuring nkf
+configuring objspace
+configuring openssl
+configuring io/nonblock
+configuring io/wait
+configuring pathname
+configuring psych
+configuring pty
+configuring racc/cparse
+configuring rbconfig/sizeof
+configuring readline
+configuring ripper
+configuring rubyvm
+configuring socket
+configuring stringio
+configuring strscan
+configuring syslog
+configuring zlib
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+generating makefile exts.mk
+exts.mk updated
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/RUBY_ALIGNOF'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/arith_seq/extract'
+compiling c.c
+compiling extract.c
+compiling cpp.cpp
+linking shared-object -test-/arith_seq/extract.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/arith_seq/extract'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/concat'
+compiling to_ary_conact.c
+linking shared-object -test-/RUBY_ALIGNOF.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/RUBY_ALIGNOF'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/resize'
+compiling resize.c
+linking shared-object -test-/array/to_ary_concat.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/concat'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bignum'
+compiling big2str.c
+linking shared-object -test-/array/resize.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/array/resize'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-14834'
+compiling bug-14384.c
+compiling bigzero.c
+linking shared-object -test-/bug_14834.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-14834'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-3571'
+compiling bug.c
+compiling div.c
+linking shared-object -test-/bug_3571.so
+compiling init.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-3571'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-5832'
+compiling bug.c
+compiling intpack.c
+linking shared-object -test-/bug_5832.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug-5832'
+compiling mul.c
+compiling str2big.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug_reporter'
+compiling bug_reporter.c
+linking shared-object -test-/bignum.so
+linking shared-object -test-/bug_reporter.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bignum'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/class'
+compiling class2name.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/bug_reporter'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/cxxanyargs'
+compiling cxxanyargs.cpp
+compiling init.c
+linking shared-object -test-/class.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/class'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/debug'
+compiling init.c
+compiling inspector.c
+linking shared-object -test-/cxxanyargs.so
+compiling profile_frames.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/cxxanyargs'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/dln/empty'
+compiling empty.c
+linking shared-object -test-/dln/empty.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/dln/empty'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/enumerator_kw'
+compiling enumerator_kw.c
+linking shared-object -test-/debug.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/debug'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/exception'
+compiling dataerror.c
+linking shared-object -test-/enumerator_kw.so
+compiling enc_raise.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/enumerator_kw'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/fatal'
+compiling rb_fatal.c
+compiling ensured.c
+linking shared-object -test-/fatal/rb_fatal.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/fatal'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/file'
+compiling fs.c
+compiling init.c
+compiling init.c
+linking shared-object -test-/exception.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/exception'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/float'
+compiling init.c
+compiling stat.c
+compiling nextafter.c
+linking shared-object -test-/file.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/file'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/funcall'
+compiling funcall.c
+linking shared-object -test-/float.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/float'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/gvl/call_without_gvl'
+compiling call_without_gvl.c
+linking shared-object -test-/funcall.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/funcall'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/hash'
+compiling delete.c
+linking shared-object -test-/gvl/call_without_gvl.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/gvl/call_without_gvl'
+compiling init.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/integer'
+compiling core_ext.c
+linking shared-object -test-/hash.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/hash'
+compiling init.c
+compiling my_integer.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iseq_load'
+compiling iseq_load.c
+linking shared-object -test-/integer.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/integer'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iter'
+compiling break.c
+linking shared-object -test-/iseq_load.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iseq_load'
+compiling init.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/dot.dot'
+compiling dot.dot.c
+linking shared-object -test-/load/dot.dot.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/dot.dot'
+compiling yield.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/protect'
+compiling protect.c
+linking shared-object -test-/iter.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/iter'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/compat'
+compiling usrcompat.c
+linking shared-object -test-/load/protect.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/load/protect'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/internal_ivar'
+compiling internal_ivar.c
+linking shared-object -test-/marshal/compat.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/compat'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/usr'
+compiling usrmarshal.c
+linking shared-object -test-/marshal/internal_ivar.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/internal_ivar'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_status'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_status'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_view'
+compiling memory_view.c
+linking shared-object -test-/marshal/usr.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/marshal/usr'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/method'
+compiling arity.c
+compiling init.c
+linking shared-object -test-/memory_view.so
+linking shared-object -test-/method.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/memory_view'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/method'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/notimplement'
+compiling bug.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/num2int'
+compiling num2int.c
+linking shared-object -test-/notimplement.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/notimplement'
+linking shared-object -test-/num2int.so
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/path_to_class'
+compiling path_to_class.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/num2int'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/popen_deadlock'
+compiling infinite_loop_dlsym.c
+linking shared-object -test-/path_to_class.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/path_to_class'
+linking shared-object -test-/popen_deadlock/infinite_loop_dlsym.so
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/postponed_job'
+compiling postponed_job.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/popen_deadlock'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/printf'
+compiling printf.c
+linking shared-object -test-/postponed_job.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/postponed_job'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/proc'
+compiling init.c
+linking shared-object -test-/printf.so
+compiling receiver.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/printf'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/random'
+compiling init.c
+compiling super.c
+compiling loop.c
+linking shared-object -test-/proc.so
+linking shared-object -test-/random.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/proc'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rational'
+compiling rat.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/random'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rb_call_super_kw'
+compiling rb_call_super_kw.c
+linking shared-object -test-/rb_call_super_kw.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rb_call_super_kw'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/recursion'
+compiling recursion.c
+linking shared-object -test-/recursion.so
+linking shared-object -test-/rational.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/recursion'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/regexp'
+compiling init.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/rational'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/scan_args'
+compiling scan_args.c
+compiling parse_depth_limit.c
+linking shared-object -test-/regexp.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/regexp'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/foreach'
+compiling foreach.c
+linking shared-object -test-/st/foreach.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/foreach'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/numhash'
+compiling numhash.c
+linking shared-object -test-/st/numhash.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/numhash'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/update'
+compiling update.c
+linking shared-object -test-/st/update.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/st/update'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/string'
+compiling capacity.c
+compiling coderange.c
+linking shared-object -test-/scan_args.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/scan_args'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/struct'
+compiling duplicate.c
+compiling cstr.c
+compiling init.c
+compiling len.c
+compiling ellipsize.c
+compiling member.c
+compiling enc_associate.c
+linking shared-object -test-/struct.so
+compiling enc_str_buf_cat.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/struct'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/symbol'
+compiling init.c
+compiling fstring.c
+compiling type.c
+compiling init.c
+linking shared-object -test-/symbol.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/symbol'
+compiling modify.c
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/thread_fd_close'
+compiling thread_fd_close.c
+compiling new.c
+linking shared-object -test-/thread_fd_close.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/thread_fd_close'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/time'
+compiling init.c
+compiling nofree.c
+compiling leap_second.c
+compiling normalize.c
+compiling qsort.c
+compiling new.c
+compiling rb_interned_str.c
+linking shared-object -test-/time.so
+compiling rb_str_dup.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/time'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/tracepoint'
+compiling gc_hook.c
+compiling set_len.c
+compiling tracepoint.c
+linking shared-object -test-/string.so
+linking shared-object -test-/tracepoint.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/tracepoint'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/typeddata'
+compiling typeddata.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/string'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/vm'
+compiling at_exit.c
+linking shared-object -test-/typeddata.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/typeddata'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/wait_for_single_fd'
+compiling wait_for_single_fd.c
+linking shared-object -test-/vm/at_exit.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/vm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/bigdecimal'
+compiling bigdecimal.c
+linking shared-object -test-/wait_for_single_fd.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/-test-/wait_for_single_fd'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/cgi/escape'
+compiling escape.c
+linking shared-object cgi/escape.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/cgi/escape'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/continuation'
+compiling continuation.c
+linking shared-object continuation.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/continuation'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/coverage'
+compiling coverage.c
+installing default coverage libraries
+linking shared-object coverage.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/coverage'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/date'
+compiling date_core.c
+linking shared-object bigdecimal.so
+installing default bigdecimal libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/bigdecimal'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/dbm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/dbm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest'
+compiling digest.c
+installing default digest libraries
+linking shared-object digest.so
+installing digest libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/etc'
+compiling etc.c
+linking shared-object etc.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/etc'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fcntl'
+compiling fcntl.c
+linking shared-object fcntl.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fcntl'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiber'
+compiling fiber.c
+linking shared-object fiber.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiber'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiddle'
+compiling closure.c
+compiling conversions.c
+compiling fiddle.c
+compiling function.c
+compiling handle.c
+compiling memory_view.c
+compiling date_parse.c
+compiling pinned.c
+compiling pointer.c
+linking shared-object fiddle.so
+installing default fiddle libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/fiddle'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/gdbm'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/gdbm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/console'
+compiling console.c
+linking shared-object io/console.so
+installing default console libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/console'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/nonblock'
+compiling nonblock.c
+linking shared-object io/nonblock.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/nonblock'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/wait'
+compiling wait.c
+compiling date_strftime.c
+linking shared-object io/wait.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/io/wait'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json'
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/monitor'
+compiling monitor.c
+installing default monitor libraries
+linking shared-object monitor.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/monitor'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/nkf'
+compiling nkf.c
+compiling date_strptime.c
+installing default date_core libraries
+linking shared-object date_core.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/date'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/objspace'
+compiling object_tracing.c
+compiling objspace.c
+compiling objspace_dump.c
+installing default objspace libraries
+linking shared-object objspace.so
+installing default nkf libraries
+linking shared-object nkf.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/objspace'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/openssl'
+compiling openssl_missing.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/nkf'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pathname'
+compiling pathname.c
+compiling ossl.c
+compiling ossl_asn1.c
+installing default pathname libraries
+linking shared-object pathname.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pathname'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/psych'
+compiling psych.c
+compiling psych_emitter.c
+compiling ossl_bio.c
+compiling psych_parser.c
+compiling ossl_bn.c
+compiling psych_to_ruby.c
+compiling psych_yaml_tree.c
+linking shared-object psych.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/psych'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pty'
+compiling pty.c
+installing default pty libraries
+linking shared-object pty.so
+compiling ossl_cipher.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/pty'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/racc/cparse'
+compiling cparse.c
+linking shared-object racc/cparse.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/racc/cparse'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rbconfig/sizeof'
+compiling sizes.c
+compiling limits.c
+compiling ossl_config.c
+linking shared-object rbconfig/sizeof.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rbconfig/sizeof'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/readline'
+compiling readline.c
+compiling ossl_digest.c
+compiling ossl_engine.c
+linking shared-object readline.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/readline'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/ripper'
+compiling ripper.c
+compiling ossl_hmac.c
+ripper.y:10722:1: warning: ‘parser_token_value_print’ defined but not used [-Wunused-function]
+ parser_token_value_print(struct parser_params *p, enum yytokentype type, const YYSTYPE *valp)
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+compiling ossl_kdf.c
+compiling ossl_ns_spki.c
+compiling ossl_ocsp.c
+compiling ossl_pkcs12.c
+compiling ossl_pkcs7.c
+compiling ossl_pkey.c
+compiling ossl_pkey_dh.c
+compiling ossl_pkey_dsa.c
+compiling ossl_pkey_ec.c
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+checking ../.././parse.y and ../.././ext/ripper/eventids2.c
+compiling ossl_pkey_rsa.c
+linking shared-object ripper.so
+installing default ripper libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/ripper'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rubyvm'
+installing default libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/rubyvm'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/socket'
+compiling init.c
+compiling constants.c
+compiling ossl_rand.c
+compiling ossl_ssl.c
+compiling basicsocket.c
+compiling socket.c
+compiling ossl_ssl_session.c
+compiling ipsocket.c
+compiling ossl_ts.c
+compiling tcpsocket.c
+compiling tcpserver.c
+compiling sockssocket.c
+compiling ossl_x509.c
+compiling udpsocket.c
+compiling ossl_x509attr.c
+compiling unixsocket.c
+compiling unixserver.c
+compiling ossl_x509cert.c
+compiling option.c
+compiling ossl_x509crl.c
+compiling ancdata.c
+compiling ossl_x509ext.c
+compiling raddrinfo.c
+compiling ossl_x509name.c
+compiling ossl_x509req.c
+compiling ossl_x509revoked.c
+compiling ifaddr.c
+installing default socket libraries
+linking shared-object socket.so
+compiling ossl_x509store.c
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/socket'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/stringio'
+compiling stringio.c
+linking shared-object openssl.so
+installing default openssl libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/openssl'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/strscan'
+compiling strscan.c
+linking shared-object stringio.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/stringio'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/syslog'
+compiling syslog.c
+linking shared-object syslog.so
+installing default syslog libraries
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/syslog'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/zlib'
+compiling zlib.c
+linking shared-object strscan.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/strscan'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/bubblebabble'
+compiling bubblebabble.c
+linking shared-object digest/bubblebabble.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/bubblebabble'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/md5'
+compiling md5init.c
+compiling md5.c
+linking shared-object digest/md5.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/md5'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/rmd160'
+compiling rmd160init.c
+compiling rmd160.c
+linking shared-object digest/rmd160.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/rmd160'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha1'
+compiling sha1init.c
+compiling sha1.c
+linking shared-object digest/sha1.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha1'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha2'
+compiling sha2init.c
+compiling sha2.c
+linking shared-object zlib.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/zlib'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/generator'
+compiling generator.c
+installing default sha2 libraries
+linking shared-object digest/sha2.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/digest/sha2'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/parser'
+compiling parser.c
+linking shared-object json/ext/parser.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/parser'
+linking shared-object json/ext/generator.so
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6/ext/json/generator'
+make[2]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+./revision.h unchanged
+make[2]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+make[1]: Entering directory `/home/ec2-user/.rvm/src/ruby-3.0.6'
+*** Following extensions are not compiled:
+dbm:
+	Could not be configured. It will not be installed.
+	Check ext/dbm/mkmf.log for more details.
+gdbm:
+	Could not be configured. It will not be installed.
+	Check ext/gdbm/mkmf.log for more details.
+*** Fix the problems, then remove these directories and try again if you want.
+make[1]: Leaving directory `/home/ec2-user/.rvm/src/ruby-3.0.6'

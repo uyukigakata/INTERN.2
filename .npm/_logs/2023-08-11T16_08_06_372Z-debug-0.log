@@ -1,0 +1,81 @@
+0 verbose cli /home/ec2-user/.nvm/versions/node/v16.20.2/bin/node /home/ec2-user/.nvm/versions/node/v16.20.2/bin/npm
+1 info using npm@8.19.4
+2 info using node@v16.20.2
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/lib/node_modules/npm/npmrc Completed in 28ms
+6 timing config:load:builtin Completed in 29ms
+7 timing config:load:cli Completed in 4ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:project Completed in 10ms
+10 timing config:load:file:/home/ec2-user/.npmrc Completed in 0ms
+11 timing config:load:user Completed in 0ms
+12 timing config:load:file:/home/ec2-user/.nvm/versions/node/v16.20.2/etc/npmrc Completed in 0ms
+13 timing config:load:global Completed in 0ms
+14 timing config:load:validate Completed in 0ms
+15 timing config:load:credentials Completed in 2ms
+16 timing config:load:setEnvs Completed in 1ms
+17 timing config:load Completed in 49ms
+18 timing npm:load:configload Completed in 49ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install coffeescript
+22 verbose argv "install" "--global" "coffeescript"
+23 timing npm:load:setTitle Completed in 2ms
+24 timing config:load:flatten Completed in 4ms
+25 timing npm:load:display Completed in 5ms
+26 verbose logfile logs-max:10 dir:/home/ec2-user/.npm/_logs
+27 verbose logfile /home/ec2-user/.npm/_logs/2023-08-11T16_08_06_372Z-debug-0.log
+28 timing npm:load:logFile Completed in 8ms
+29 timing npm:load:timers Completed in 0ms
+30 timing npm:load:configScope Completed in 0ms
+31 timing npm:load Completed in 67ms
+32 timing arborist:ctor Completed in 1ms
+33 silly logfile done cleaning log files
+34 timing idealTree:init Completed in 8ms
+35 timing idealTree:userRequests Completed in 2ms
+36 silly idealTree buildDeps
+37 silly fetch manifest coffeescript@*
+38 http fetch GET 200 https://registry.npmjs.org/coffeescript 124ms (cache miss)
+39 silly placeDep ROOT coffeescript@2.7.0 OK for:  want: *
+40 timing idealTree:#root Completed in 139ms
+41 timing idealTree:node_modules/coffeescript Completed in 0ms
+42 timing idealTree:buildDeps Completed in 140ms
+43 timing idealTree:fixDepFlags Completed in 0ms
+44 timing idealTree Completed in 153ms
+45 timing reify:loadTrees Completed in 156ms
+46 timing reify:diffTrees Completed in 1ms
+47 silly reify moves {}
+48 timing reify:retireShallow Completed in 2ms
+49 timing reify:createSparse Completed in 1ms
+50 timing reify:loadBundles Completed in 0ms
+51 silly audit bulk request { coffeescript: [ '2.7.0' ] }
+52 silly tarball no local data for coffeescript@https://registry.npmjs.org/coffeescript/-/coffeescript-2.7.0.tgz. Extracting by manifest.
+53 http fetch GET 200 https://registry.npmjs.org/npm 243ms (cache miss)
+54 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 102ms
+55 timing auditReport:getReport Completed in 104ms
+56 silly audit report {}
+57 timing auditReport:init Completed in 0ms
+58 timing reify:audit Completed in 105ms
+59 http fetch GET 200 https://registry.npmjs.org/coffeescript/-/coffeescript-2.7.0.tgz 165ms (cache miss)
+60 timing reifyNode:node_modules/coffeescript Completed in 177ms
+61 timing reify:unpack Completed in 178ms
+62 timing reify:unretire Completed in 0ms
+63 timing build:queue Completed in 0ms
+64 timing build:link:node_modules/coffeescript Completed in 2ms
+65 timing build:link Completed in 3ms
+66 timing build:deps Completed in 5ms
+67 timing build Completed in 5ms
+68 timing reify:build Completed in 5ms
+69 timing reify:trash Completed in 0ms
+70 timing reify Completed in 403ms
+71 silly ADD node_modules/coffeescript
+72 timing command:install Completed in 410ms
+73 notice
+73 notice New major version of npm available! 8.19.4 -> 9.8.1
+73 notice Changelog: <https://github.com/npm/cli/releases/tag/v9.8.1>
+73 notice Run `npm install -g npm@9.8.1` to update!
+73 notice
+74 verbose exit 0
+75 timing npm Completed in 619ms
+76 info ok

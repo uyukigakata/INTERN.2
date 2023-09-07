@@ -1,0 +1,654 @@
+[2023-08-11 16:19:39] gemset_import_list
+gemset_import_list () 
+{ 
+    case "${rvm_ruby_string}" in 
+        *jruby*)
+            \command \gem install "$@"
+        ;;
+        *)
+            \typeset line;
+            for line in "$@";
+            do
+                gem_install $line || rvm_error "there was an error installing gem $line";
+            done
+        ;;
+    esac
+}
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+command(6): gemset_import_list gem-wrappers rubygems-bundler rake rvm bundler
+++ case "${rvm_ruby_string}" in
+++ typeset line
+++ for line in '"$@"'
+++ gem_install gem-wrappers
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args gem-wrappers
+++ typeset gem=gem-wrappers
+++ __rvm_string_match gem-wrappers '*.gem$'
+++ typeset _string
+++ _string=gem-wrappers
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=gem-wrappers
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_gem-wrappers_version gem_version
+++ typeset value key variable
+++ key=gem_gem-wrappers_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_gem-wrappers_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_gem-wrappers_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_gem-wrappers_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_gem-wrappers_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_gem-wrappers_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_gem-wrappers_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_gem-wrappers_version=# { s#^gem_gem-wrappers_version=##;; p; }' -e '/^$/d'
+++ value='>=1.4.0'
+++ [[ -n >=1.4.0 ]]
+++ [[ -n gem_version ]]
+++ eval 'gem_version='\''>=1.4.0'\'''
++++ gem_version='>=1.4.0'
+++ true
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''gem-wrappers'\'''
+++ [[ -n >=1.4.0 ]]
+++ gem_spec+=', '\''>=1.4.0'\'''
+++ version_check=1.4.0
+++ __rvm_ls -ld /home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/gem-wrappers-1.4.0
+++ /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ruby -rrubygems -e 'gem '\''gem-wrappers'\'', '\''>=1.4.0'\'''
+++ return 1
+++ gem_install_force
+++ typeset __available_gem
+++ typeset -a install_params
+++ install_params=()
++++ __rvm_ls -v1 /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem
++++ tail -n 1
+++ __available_gem=/home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem
+++ [[ -n /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem ]]
+++ install_params+=(--local)
++++ command gem --version
++++ gem --version
+++ __rvm_version_compare 3.2.33 -ge 2.2
+++ typeset first
++++ command printf %b '3.2.33\n2.2\n'
++++ printf %b '3.2.33\n2.2\n'
++++ __rvm_version_sort
++++ command awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ command head -n1
++++ head -n1
++++ LC_ALL=C
++++ sort -t. -k 1,1d -k 2,2n -k 3,3n -k 4,4n -k 5,5n -k 6,6n -k 7,7n -k 8,8n -k 9,9n
++++ awk '-F\t' '{print $2}'
+++ first=2.2
+++ case "$2" in
+++ [[ 2.2 == \h\e\a\d ]]
+++ [[ 2.2 == \2\.\2 ]]
+++ return 0
+++ install_params+=(--no-document)
+++ __rvm_log_command 'gem.install.gem-wrappers->=1.4.0' 'installing gem /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document' command gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+++ typeset name message _command_start _command_name
+++ typeset -a _command
+++ name='gem.install.gem-wrappers->=1.4.0'
+++ message='installing gem /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document'
+++ shift 2
+++ _command=("$@")
+++ _command_start=command
+++ ((  6  ))
+++ [[ command == *\=* ]]
+++ _command_name=command
+++ [[ command != *\=* ]]
+++ __function_on_stack __rvm_log_command_internal
+++ __rvm_string_includes '__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm' __rvm_log_command_internal
+++ typeset __search '__text=__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm'
+++ shift
+++ for __search in '"$@"'
+++ [[  __function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm  == *\ \_\_\r\v\m\_\l\o\g\_\c\o\m\m\a\n\d\_\i\n\t\e\r\n\a\l\ * ]]
+++ return 0
+++ __rvm_log_command_simple command gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+++ __rvm_log_command_debug
++++ __rvm_date '+%Y-%m-%d %H:%M:%S'
++++ date '+%Y-%m-%d %H:%M:%S'
+++ printf %b '[2023-08-11 16:19:39] command\n'
+[2023-08-11 16:19:39] command
+++ is_a_function command
+++ typeset -f command
+++ return 1
+++ printf %b 'current path: /home/ec2-user/.rvm/src/ruby-3.0.6\n'
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+++ env
+++ __rvm_grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ GREP_OPTIONS=
+++ command grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+++ printf %b 'command(6): command gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document\n'
+command(6): command gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+++ rvm_log 'installing gem /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document'
+++ [[ '' == 1 ]]
+++ printf %b 'installing gem /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document\n'
+installing gem /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+++ command gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+++ gem install /home/ec2-user/.rvm/gem-cache/gem-wrappers-1.4.0.gem --local --no-document
+Building native extensions. This could take a while...
+Successfully installed gem-wrappers-1.4.0
+1 gem installed
+++ true
+++ for line in '"$@"'
+++ gem_install rubygems-bundler
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args rubygems-bundler
+++ typeset gem=rubygems-bundler
+++ __rvm_string_match rubygems-bundler '*.gem$'
+++ typeset _string
+++ _string=rubygems-bundler
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=rubygems-bundler
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_rubygems-bundler_version gem_version
+++ typeset value key variable
+++ key=gem_rubygems-bundler_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_rubygems-bundler_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_rubygems-bundler_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_rubygems-bundler_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_rubygems-bundler_version=# { s#^gem_rubygems-bundler_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rubygems-bundler_version=# { s#^gem_rubygems-bundler_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_rubygems-bundler_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_rubygems-bundler_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_rubygems-bundler_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_rubygems-bundler_version=# { s#^gem_rubygems-bundler_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rubygems-bundler_version=# { s#^gem_rubygems-bundler_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -n '' ]]
+++ return 1
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''rubygems-bundler'\'''
+++ [[ -n '' ]]
+++ version_check='*([[:digit:]\.])'
+++ __rvm_ls -ld '/home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/rubygems-bundler-*([[:digit:]\.])'
+++ /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ruby -rrubygems -e 'gem '\''rubygems-bundler'\'''
+++ return 1
+++ gem_install_force
+++ typeset __available_gem
+++ typeset -a install_params
+++ install_params=()
++++ __rvm_ls -v1 '/home/ec2-user/.rvm/gem-cache/rubygems-bundler-*([[:digit:]\.]).gem'
++++ tail -n 1
+++ __available_gem=
+++ [[ -n '' ]]
+++ [[ -n '' ]]
++++ command gem --version
++++ gem --version
+++ __rvm_version_compare 3.2.33 -ge 2.2
+++ typeset first
++++ command printf %b '3.2.33\n2.2\n'
++++ printf %b '3.2.33\n2.2\n'
++++ __rvm_version_sort
++++ command head -n1
++++ head -n1
++++ command awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ awk '-F\t' '{print $2}'
++++ LC_ALL=C
++++ sort -t. -k 1,1d -k 2,2n -k 3,3n -k 4,4n -k 5,5n -k 6,6n -k 7,7n -k 8,8n -k 9,9n
+++ first=2.2
+++ case "$2" in
+++ [[ 2.2 == \h\e\a\d ]]
+++ [[ 2.2 == \2\.\2 ]]
+++ return 0
+++ install_params+=(--no-document)
+++ __rvm_log_command gem.install.rubygems-bundler 'installing gem rubygems-bundler --no-document' command gem install rubygems-bundler --no-document
+++ typeset name message _command_start _command_name
+++ typeset -a _command
+++ name=gem.install.rubygems-bundler
+++ message='installing gem rubygems-bundler --no-document'
+++ shift 2
+++ _command=("$@")
+++ _command_start=command
+++ ((  5  ))
+++ [[ command == *\=* ]]
+++ _command_name=command
+++ [[ command != *\=* ]]
+++ __function_on_stack __rvm_log_command_internal
+++ __rvm_string_includes '__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm' __rvm_log_command_internal
+++ typeset __search '__text=__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm'
+++ shift
+++ for __search in '"$@"'
+++ [[  __function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm  == *\ \_\_\r\v\m\_\l\o\g\_\c\o\m\m\a\n\d\_\i\n\t\e\r\n\a\l\ * ]]
+++ return 0
+++ __rvm_log_command_simple command gem install rubygems-bundler --no-document
+++ __rvm_log_command_debug
++++ __rvm_date '+%Y-%m-%d %H:%M:%S'
++++ date '+%Y-%m-%d %H:%M:%S'
+++ printf %b '[2023-08-11 16:19:40] command\n'
+[2023-08-11 16:19:40] command
+++ is_a_function command
+++ typeset -f command
+++ return 1
+++ printf %b 'current path: /home/ec2-user/.rvm/src/ruby-3.0.6\n'
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+++ env
+++ __rvm_grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ GREP_OPTIONS=
+++ command grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+++ printf %b 'command(5): command gem install rubygems-bundler --no-document\n'
+command(5): command gem install rubygems-bundler --no-document
+++ rvm_log 'installing gem rubygems-bundler --no-document'
+++ [[ '' == 1 ]]
+++ printf %b 'installing gem rubygems-bundler --no-document\n'
+installing gem rubygems-bundler --no-document
+++ command gem install rubygems-bundler --no-document
+++ gem install rubygems-bundler --no-document
+Building native extensions. This could take a while...
+# In case of problems run the following command to update binstubs:
+    gem regenerate_binstubs
+Successfully installed executable-hooks-1.6.1
+Successfully installed bundler-unload-1.0.2
+Successfully installed rubygems-bundler-1.4.5
+3 gems installed
+++ true
+++ for line in '"$@"'
+++ gem_install rake
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args rake
+++ typeset gem=rake
+++ __rvm_string_match rake '*.gem$'
+++ typeset _string
+++ _string=rake
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=rake
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_rake_version gem_version
+++ typeset value key variable
+++ key=gem_rake_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_rake_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_rake_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_rake_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_rake_version=# { s#^gem_rake_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rake_version=# { s#^gem_rake_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_rake_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_rake_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_rake_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_rake_version=# { s#^gem_rake_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rake_version=# { s#^gem_rake_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -n '' ]]
+++ return 1
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''rake'\'''
+++ [[ -n '' ]]
+++ version_check='*([[:digit:]\.])'
+++ __rvm_ls -ld /home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/rake-13.0.3
+++ rvm_log 'gem rake  is already installed'
+++ [[ '' == 1 ]]
+++ printf %b 'gem rake  is already installed\n'
+gem rake  is already installed
+++ return 0
+++ for line in '"$@"'
+++ gem_install rvm
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args rvm
+++ typeset gem=rvm
+++ __rvm_string_match rvm '*.gem$'
+++ typeset _string
+++ _string=rvm
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=rvm
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_rvm_version gem_version
+++ typeset value key variable
+++ key=gem_rvm_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_rvm_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_rvm_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_rvm_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_rvm_version=# { s#^gem_rvm_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rvm_version=# { s#^gem_rvm_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_rvm_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_rvm_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_rvm_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_rvm_version=# { s#^gem_rvm_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_rvm_version=# { s#^gem_rvm_version=##;; p; }' -e '/^$/d'
+++ value='>=1.11.3.9'
+++ [[ -n >=1.11.3.9 ]]
+++ [[ -n gem_version ]]
+++ eval 'gem_version='\''>=1.11.3.9'\'''
++++ gem_version='>=1.11.3.9'
+++ true
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''rvm'\'''
+++ [[ -n >=1.11.3.9 ]]
+++ gem_spec+=', '\''>=1.11.3.9'\'''
+++ version_check=1.11.3.9
+++ __rvm_ls -ld /home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/rvm-1.11.3.9
+++ /home/ec2-user/.rvm/rubies/ruby-3.0.6/bin/ruby -rrubygems -e 'gem '\''rvm'\'', '\''>=1.11.3.9'\'''
+++ return 1
+++ gem_install_force
+++ typeset __available_gem
+++ typeset -a install_params
+++ install_params=()
++++ __rvm_ls -v1 /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem
++++ tail -n 1
+++ __available_gem=/home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem
+++ [[ -n /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem ]]
+++ install_params+=(--local)
++++ command gem --version
++++ gem --version
+++ __rvm_version_compare 3.2.33 -ge 2.2
+++ typeset first
++++ command printf %b '3.2.33\n2.2\n'
++++ printf %b '3.2.33\n2.2\n'
++++ __rvm_version_sort
++++ command head -n1
++++ head -n1
++++ command awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ awk '-F[.-]' -v OFS=. '{                   # split on "." and "-", merge back with "."
+    original=$0                                        # save original to preserve it before the line is changed
+    for (n=1; n<10; n++) {                             # iterate through max 9 components of version
+      $n=tolower($n)                                   # ignore case for sorting
+      if ($n == "")                 $n="0"             # treat non existing parts as 0
+      if ($n ~ /^p[0-9]/)           $n=substr($n, 2)   # old ruby -p notation
+      if ($n ~ /^[0-9](rc|b)/)      $n=substr($n, 1, 1)". "substr($n, 2)   # old jruby 0RC1 notation
+      if (n == 1 && $n ~ /^[0-9]/)  $n="zzz."$n        # first group must be a string
+      if (n > 1 && $n ~ /^[a-z]/)   $n=" "$n           # names go before numbers thanks to space
+    }
+    print $0"\t"original                               # print the transformed version and original separated by \t
+                                                       # so we can extract original after sorting
+  }'
++++ awk '-F\t' '{print $2}'
++++ LC_ALL=C
++++ sort -t. -k 1,1d -k 2,2n -k 3,3n -k 4,4n -k 5,5n -k 6,6n -k 7,7n -k 8,8n -k 9,9n
+++ first=2.2
+++ case "$2" in
+++ [[ 2.2 == \h\e\a\d ]]
+++ [[ 2.2 == \2\.\2 ]]
+++ return 0
+++ install_params+=(--no-document)
+++ __rvm_log_command 'gem.install.rvm->=1.11.3.9' 'installing gem /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document' command gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+++ typeset name message _command_start _command_name
+++ typeset -a _command
+++ name='gem.install.rvm->=1.11.3.9'
+++ message='installing gem /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document'
+++ shift 2
+++ _command=("$@")
+++ _command_start=command
+++ ((  6  ))
+++ [[ command == *\=* ]]
+++ _command_name=command
+++ [[ command != *\=* ]]
+++ __function_on_stack __rvm_log_command_internal
+++ __rvm_string_includes '__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm' __rvm_log_command_internal
+++ typeset __search '__text=__function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm'
+++ shift
+++ for __search in '"$@"'
+++ [[  __function_on_stack __rvm_log_command gem_install_force gem_install gemset_import_list __rvm_log_dotted __rvm_log_command_internal __rvm_log_command gemset_import gemset_initial __rvm_with gemset_create __rvm_initial_gemsets_create_gemsets __rvm_initial_gemsets_create __rvm_install_source ruby_install __rvm_install_ruby __rvm_manage_rubies source __rvm_run_wrapper __rvm_cli_install_ruby rvm  == *\ \_\_\r\v\m\_\l\o\g\_\c\o\m\m\a\n\d\_\i\n\t\e\r\n\a\l\ * ]]
+++ return 0
+++ __rvm_log_command_simple command gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+++ __rvm_log_command_debug
++++ __rvm_date '+%Y-%m-%d %H:%M:%S'
++++ date '+%Y-%m-%d %H:%M:%S'
+++ printf %b '[2023-08-11 16:19:41] command\n'
+[2023-08-11 16:19:41] command
+++ is_a_function command
+++ typeset -f command
+++ return 1
+++ printf %b 'current path: /home/ec2-user/.rvm/src/ruby-3.0.6\n'
+current path: /home/ec2-user/.rvm/src/ruby-3.0.6
+++ __rvm_grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ env
+++ GREP_OPTIONS=
+++ command grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+++ grep -E '^GEM_HOME=|^GEM_PATH=|^PATH='
+GEM_HOME=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global/bin:/home/ec2-user/.rvm/rubies/ruby-3.0.6/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v16.20.2/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+GEM_PATH=/home/ec2-user/.rvm/gems/ruby-3.0.6@global
+++ printf %b 'command(6): command gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document\n'
+command(6): command gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+++ rvm_log 'installing gem /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document'
+++ [[ '' == 1 ]]
+++ printf %b 'installing gem /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document\n'
+installing gem /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+++ command gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+++ gem install /home/ec2-user/.rvm/gem-cache/rvm-1.11.3.9.gem --local --no-document
+Successfully installed rvm-1.11.3.9
+1 gem installed
+++ true
+++ for line in '"$@"'
+++ gem_install bundler
+++ typeset gem_name gem_version version_check
+++ gem_version=
+++ __rvm_parse_gems_args bundler
+++ typeset gem=bundler
+++ __rvm_string_match bundler '*.gem$'
+++ typeset _string
+++ _string=bundler
+++ shift
+++ ((  1  ))
+++ case "${_string}" in
+++ shift
+++ ((  0  ))
+++ return 1
+++ gem_name=bundler
+++ case "$gem" in
+++ [[ -z '' ]]
+++ __rvm_db gem_bundler_version gem_version
+++ typeset value key variable
+++ key=gem_bundler_version
+++ variable=gem_version
+++ value=
+++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/user/db gem_bundler_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/user/db
++++ __key=gem_bundler_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/user/db gem_bundler_version
++++ [[ -f /home/ec2-user/.rvm/user/db ]]
++++ __rvm_sed -n -e '\#^gem_bundler_version=# { s#^gem_bundler_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_bundler_version=# { s#^gem_bundler_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -z '' ]]
+++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_db_ /home/ec2-user/.rvm/config/db gem_bundler_version
++++ typeset __db __key __value
++++ __db=/home/ec2-user/.rvm/config/db
++++ __key=gem_bundler_version
++++ shift 2
++++ __value=
++++ case "${__value}" in
++++ __rvm_db_get /home/ec2-user/.rvm/config/db gem_bundler_version
++++ [[ -f /home/ec2-user/.rvm/config/db ]]
++++ __rvm_sed -n -e '\#^gem_bundler_version=# { s#^gem_bundler_version=##;; p; }' -e '/^$/d'
++++ sed -n -e '\#^gem_bundler_version=# { s#^gem_bundler_version=##;; p; }' -e '/^$/d'
+++ value=
+++ [[ -n '' ]]
+++ return 1
+++ ((  0 == 0  ))
+++ is_gem_installed
+++ typeset gem_spec
+++ gem_spec='gem '\''bundler'\'''
+++ [[ -n '' ]]
+++ version_check='*([[:digit:]\.])'
+++ __rvm_ls -ld /home/ec2-user/.rvm/gems/ruby-3.0.6@global/gems/bundler-2.2.33
+++ rvm_log 'gem bundler  is already installed'
+++ [[ '' == 1 ]]
+++ printf %b 'gem bundler  is already installed\n'
+gem bundler  is already installed
+++ return 0
