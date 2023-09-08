@@ -679,3 +679,13 @@ git status
 cd ec2-user/
 git commit -m "完成形"
 git log
+git add .
+git log
+git commit -m "完成形"
+git log
+git push origin main
+git push -u origin main
+git branch 
+git branch final
+git branch "final"
+git checkout  final
