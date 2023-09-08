@@ -694,3 +694,18 @@ git status
 git commit -m "完成形"
 git push -u origin main
 git push -u origin final
+git add .
+git status
+git log
+git push -u origin final
+ssh -T git@github.com 
+git config --global init.defaultBranch final
+git status
+git commit -m "完成形"
+git log
+git remote add origin git@github.com:uyukigakata/final
+git remote -v
+git push -u origin final:final
+git push origin final:final
+git push -u origin final
+git add.
