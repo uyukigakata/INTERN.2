@@ -689,3 +689,8 @@ git branch
 git branch final
 git branch "final"
 git checkout  final
+git add .
+git status
+git commit -m "完成形"
+git push -u origin main
+git push -u origin final
