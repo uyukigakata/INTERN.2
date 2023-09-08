@@ -490,7 +490,7 @@ step015:
 
     ポイント
         codegen 関数内で行っていたものを walk関数内に移動させよう
-        framecount �� frameVarNameMap は global変数化しよう。
+        framecount ����� frameVarNameMap は global変数化しよう。
         （愚直優先）
         今後、本当だったら class化してインスタンス変数化してもいいが、いまはglobal。
 
@@ -721,7 +721,7 @@ step020:
         bun に func(); をパースできるようにして
         Node(label='FUNCCALL', items=['func', []]) なノードを追加する。
 
-        実は次々ステップで考え方を変える必要があるが、とりあ���ず、はこれにする。
+        実は次々ステップで考え方を変える必要があるが、������������ず、はこれにする。
         BNFが簡単になるので、まずは呼び出せることを目標とする。
 
         先取りではあるが itemsの１番目は関数名、2番目は引数リストと先に考えて置き、
@@ -1212,7 +1212,7 @@ step029:
 [Node(label='func', 
     items=['int', 'func', [['int', 'p']],
         [Node(label='SENGEN', items=['int', 'x']), 
-        Node(label='SENGEN', items=['int', 'y']), 
+        Node(label='SENGEN', items=['int', 'y']),  
         Node(label='DAINYU', items=['x', Node(label='NUM', items=['10'])]), 
         Node(label='DAINYU', items=['y', Node(label='NUM', items=['30'])]), 
         Node(label='return', items=[Node(label='+', items=[Node(label='+', 
@@ -1390,12 +1390,12 @@ stepXXX:
     int main(){
         int ret;
         int ans;
-        r = 1;
+        ret = 1;
         ans = fib(40);
         if ( ans == 102334155 ){
-            r = 2;
+            ret = 2;
         }
-        return r;
+        return ret;
     }
 
 

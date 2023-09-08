@@ -612,3 +612,70 @@ git branch -m master main
 git status
 git add .
 git rm --cached .nvm
+git add .
+git commit -m "途中 commit"
+git log
+git remote add origin git@github.com:uyukigakata/INTERN.2.git
+git remote -v
+git push -u origin main
+cd mydiycc/my029
+touch lex.py
+touch compile.py
+touch codegen.py
+cd mydiycc/my029
+python3 compile.py
+c
+cd mydiycc/my029
+python3 compile.py
+cd ..
+cd step030
+mkdir step030
+cd step030
+cd ..
+cd my030
+touch lex.py
+touch compile.py
+touch codegen.py
+python3 compile.py 
+touch codegen.py
+python3 compile.py
+p
+cd mydiycc/my030
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+diff -u compile.py ../../diycc/step030/compile.py
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+python3 compile.py
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+cd ..
+mkdir my_fib
+cd my_fib
+touch lex.py
+touch compile.py
+touch codegen.py
+python3 compile.py
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+python3 compile.py
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+python3 compile.py
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+cd ..
+cd diycc/stepFib/
+python3 compile.py && gcc out.s && ./a.out ; echo $?
+cd ..
+cd..
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd home/
+git --version 
+ls ^la
+ls -la
+git init
+git config --global init.defaultBranch main
+git status 
+cd ec2-user/
+git commit -m "完成形"
+git log

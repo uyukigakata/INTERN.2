@@ -64,25 +64,3 @@ main:
    subq $16,%rsp
    pushq $1
    pop	%rax
-   mov	%rax, -16(%rbp)
-   pushq $40
- pop %rdi
-   call	fib
-   push	%rax
-   pop	%rax
-   mov	%rax, -8(%rbp)
-   pushq -8(%rbp)
-   pushq $102334155
-   pop %rdi
-   pop %rax
-   cmp %rdi,%rax
-   jne .IFEND_2
-   pushq $5
-   pop	%rax
-   mov	%rax, -16(%rbp)
-.IFEND_2:
-   pushq -16(%rbp)
-   pop	%rax
-   leave
-   ret
-   .size main, .-main
